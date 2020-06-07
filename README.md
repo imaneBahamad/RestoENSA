@@ -1,5 +1,5 @@
 # RestoENSA
-Une application Desktop dédiée à la gestion du restaurant et ses employés.
+Une applcation Desktop dédiée à la gestion du restaurant et ses employés.
 <<<<<<< HEAD
 =======
 Modified by Imane
