@@ -442,7 +442,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
   <xs:element name="RestoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RestoDataSet" msprop:Generator_UserDSName="RestoDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Admin" msprop:Generator_TableClassName="AdminDataTable" msprop:Generator_TableVarName="tableAdmin" msprop:Generator_TablePropName="Admin" msprop:Generator_RowDeletingName="AdminRowDeleting" msprop:Generator_RowChangingName="AdminRowChanging" msprop:Generator_RowEvHandlerName="AdminRowChangeEventHandler" msprop:Generator_RowDeletedName="AdminRowDeleted" msprop:Generator_UserTableName="Admin" msprop:Generator_RowChangedName="AdminRowChanged" msprop:Generator_RowEvArgName="AdminRowChangeEvent" msprop:Generator_RowClassName="AdminRow">
+        <xs:element name="Admin" msprop:Generator_TableClassName="AdminDataTable" msprop:Generator_TableVarName="tableAdmin" msprop:Generator_RowChangedName="AdminRowChanged" msprop:Generator_TablePropName="Admin" msprop:Generator_RowDeletingName="AdminRowDeleting" msprop:Generator_RowChangingName="AdminRowChanging" msprop:Generator_RowEvHandlerName="AdminRowChangeEventHandler" msprop:Generator_RowDeletedName="AdminRowDeleted" msprop:Generator_RowClassName="AdminRow" msprop:Generator_UserTableName="Admin" msprop:Generator_RowEvArgName="AdminRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_admin" msprop:Generator_ColumnVarNameInTable="columnid_admin" msprop:Generator_ColumnPropNameInRow="id_admin" msprop:Generator_ColumnPropNameInTable="id_adminColumn" msprop:Generator_UserColumnName="id_admin" type="xs:int" />
@@ -470,7 +470,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Calendrier" msprop:Generator_TableClassName="CalendrierDataTable" msprop:Generator_TableVarName="tableCalendrier" msprop:Generator_TablePropName="Calendrier" msprop:Generator_RowDeletingName="CalendrierRowDeleting" msprop:Generator_RowChangingName="CalendrierRowChanging" msprop:Generator_RowEvHandlerName="CalendrierRowChangeEventHandler" msprop:Generator_RowDeletedName="CalendrierRowDeleted" msprop:Generator_UserTableName="Calendrier" msprop:Generator_RowChangedName="CalendrierRowChanged" msprop:Generator_RowEvArgName="CalendrierRowChangeEvent" msprop:Generator_RowClassName="CalendrierRow">
+        <xs:element name="Calendrier" msprop:Generator_TableClassName="CalendrierDataTable" msprop:Generator_TableVarName="tableCalendrier" msprop:Generator_RowChangedName="CalendrierRowChanged" msprop:Generator_TablePropName="Calendrier" msprop:Generator_RowDeletingName="CalendrierRowDeleting" msprop:Generator_RowChangingName="CalendrierRowChanging" msprop:Generator_RowEvHandlerName="CalendrierRowChangeEventHandler" msprop:Generator_RowDeletedName="CalendrierRowDeleted" msprop:Generator_RowClassName="CalendrierRow" msprop:Generator_UserTableName="Calendrier" msprop:Generator_RowEvArgName="CalendrierRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="numero_semaine" msprop:Generator_ColumnVarNameInTable="columnnumero_semaine" msprop:Generator_ColumnPropNameInRow="numero_semaine" msprop:Generator_ColumnPropNameInTable="numero_semaineColumn" msprop:Generator_UserColumnName="numero_semaine" type="xs:int" />
@@ -479,7 +479,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Categorie" msprop:Generator_TableClassName="CategorieDataTable" msprop:Generator_TableVarName="tableCategorie" msprop:Generator_TablePropName="Categorie" msprop:Generator_RowDeletingName="CategorieRowDeleting" msprop:Generator_RowChangingName="CategorieRowChanging" msprop:Generator_RowEvHandlerName="CategorieRowChangeEventHandler" msprop:Generator_RowDeletedName="CategorieRowDeleted" msprop:Generator_UserTableName="Categorie" msprop:Generator_RowChangedName="CategorieRowChanged" msprop:Generator_RowEvArgName="CategorieRowChangeEvent" msprop:Generator_RowClassName="CategorieRow">
+        <xs:element name="Categorie" msprop:Generator_TableClassName="CategorieDataTable" msprop:Generator_TableVarName="tableCategorie" msprop:Generator_RowChangedName="CategorieRowChanged" msprop:Generator_TablePropName="Categorie" msprop:Generator_RowDeletingName="CategorieRowDeleting" msprop:Generator_RowChangingName="CategorieRowChanging" msprop:Generator_RowEvHandlerName="CategorieRowChangeEventHandler" msprop:Generator_RowDeletedName="CategorieRowDeleted" msprop:Generator_RowClassName="CategorieRow" msprop:Generator_UserTableName="Categorie" msprop:Generator_RowEvArgName="CategorieRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_categorie" msprop:Generator_ColumnVarNameInTable="columnid_categorie" msprop:Generator_ColumnPropNameInRow="id_categorie" msprop:Generator_ColumnPropNameInTable="id_categorieColumn" msprop:Generator_UserColumnName="id_categorie" type="xs:int" />
@@ -500,7 +500,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Chef" msprop:Generator_TableClassName="ChefDataTable" msprop:Generator_TableVarName="tableChef" msprop:Generator_TablePropName="Chef" msprop:Generator_RowDeletingName="ChefRowDeleting" msprop:Generator_RowChangingName="ChefRowChanging" msprop:Generator_RowEvHandlerName="ChefRowChangeEventHandler" msprop:Generator_RowDeletedName="ChefRowDeleted" msprop:Generator_UserTableName="Chef" msprop:Generator_RowChangedName="ChefRowChanged" msprop:Generator_RowEvArgName="ChefRowChangeEvent" msprop:Generator_RowClassName="ChefRow">
+        <xs:element name="Chef" msprop:Generator_TableClassName="ChefDataTable" msprop:Generator_TableVarName="tableChef" msprop:Generator_RowChangedName="ChefRowChanged" msprop:Generator_TablePropName="Chef" msprop:Generator_RowDeletingName="ChefRowDeleting" msprop:Generator_RowChangingName="ChefRowChanging" msprop:Generator_RowEvHandlerName="ChefRowChangeEventHandler" msprop:Generator_RowDeletedName="ChefRowDeleted" msprop:Generator_RowClassName="ChefRow" msprop:Generator_UserTableName="Chef" msprop:Generator_RowEvArgName="ChefRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_chef" msprop:Generator_ColumnVarNameInTable="columnid_chef" msprop:Generator_ColumnPropNameInRow="id_chef" msprop:Generator_ColumnPropNameInTable="id_chefColumn" msprop:Generator_UserColumnName="id_chef" type="xs:int" />
@@ -514,7 +514,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Commande" msprop:Generator_TableClassName="CommandeDataTable" msprop:Generator_TableVarName="tableCommande" msprop:Generator_TablePropName="Commande" msprop:Generator_RowDeletingName="CommandeRowDeleting" msprop:Generator_RowChangingName="CommandeRowChanging" msprop:Generator_RowEvHandlerName="CommandeRowChangeEventHandler" msprop:Generator_RowDeletedName="CommandeRowDeleted" msprop:Generator_UserTableName="Commande" msprop:Generator_RowChangedName="CommandeRowChanged" msprop:Generator_RowEvArgName="CommandeRowChangeEvent" msprop:Generator_RowClassName="CommandeRow">
+        <xs:element name="Commande" msprop:Generator_TableClassName="CommandeDataTable" msprop:Generator_TableVarName="tableCommande" msprop:Generator_RowChangedName="CommandeRowChanged" msprop:Generator_TablePropName="Commande" msprop:Generator_RowDeletingName="CommandeRowDeleting" msprop:Generator_RowChangingName="CommandeRowChanging" msprop:Generator_RowEvHandlerName="CommandeRowChangeEventHandler" msprop:Generator_RowDeletedName="CommandeRowDeleted" msprop:Generator_RowClassName="CommandeRow" msprop:Generator_UserTableName="Commande" msprop:Generator_RowEvArgName="CommandeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_commande" msprop:Generator_ColumnVarNameInTable="columnid_commande" msprop:Generator_ColumnPropNameInRow="id_commande" msprop:Generator_ColumnPropNameInTable="id_commandeColumn" msprop:Generator_UserColumnName="id_commande" type="xs:int" />
@@ -528,7 +528,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Serveur" msprop:Generator_TableClassName="ServeurDataTable" msprop:Generator_TableVarName="tableServeur" msprop:Generator_TablePropName="Serveur" msprop:Generator_RowDeletingName="ServeurRowDeleting" msprop:Generator_RowChangingName="ServeurRowChanging" msprop:Generator_RowEvHandlerName="ServeurRowChangeEventHandler" msprop:Generator_RowDeletedName="ServeurRowDeleted" msprop:Generator_UserTableName="Serveur" msprop:Generator_RowChangedName="ServeurRowChanged" msprop:Generator_RowEvArgName="ServeurRowChangeEvent" msprop:Generator_RowClassName="ServeurRow">
+        <xs:element name="Serveur" msprop:Generator_TableClassName="ServeurDataTable" msprop:Generator_TableVarName="tableServeur" msprop:Generator_RowChangedName="ServeurRowChanged" msprop:Generator_TablePropName="Serveur" msprop:Generator_RowDeletingName="ServeurRowDeleting" msprop:Generator_RowChangingName="ServeurRowChanging" msprop:Generator_RowEvHandlerName="ServeurRowChangeEventHandler" msprop:Generator_RowDeletedName="ServeurRowDeleted" msprop:Generator_RowClassName="ServeurRow" msprop:Generator_UserTableName="Serveur" msprop:Generator_RowEvArgName="ServeurRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_serveur" msprop:Generator_ColumnVarNameInTable="columnid_serveur" msprop:Generator_ColumnPropNameInRow="id_serveur" msprop:Generator_ColumnPropNameInTable="id_serveurColumn" msprop:Generator_UserColumnName="id_serveur" type="xs:int" />
@@ -556,7 +556,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Tablee" msprop:Generator_TableClassName="TableeDataTable" msprop:Generator_TableVarName="tableTablee" msprop:Generator_TablePropName="Tablee" msprop:Generator_RowDeletingName="TableeRowDeleting" msprop:Generator_RowChangingName="TableeRowChanging" msprop:Generator_RowEvHandlerName="TableeRowChangeEventHandler" msprop:Generator_RowDeletedName="TableeRowDeleted" msprop:Generator_UserTableName="Tablee" msprop:Generator_RowChangedName="TableeRowChanged" msprop:Generator_RowEvArgName="TableeRowChangeEvent" msprop:Generator_RowClassName="TableeRow">
+        <xs:element name="Tablee" msprop:Generator_TableClassName="TableeDataTable" msprop:Generator_TableVarName="tableTablee" msprop:Generator_RowChangedName="TableeRowChanged" msprop:Generator_TablePropName="Tablee" msprop:Generator_RowDeletingName="TableeRowDeleting" msprop:Generator_RowChangingName="TableeRowChanging" msprop:Generator_RowEvHandlerName="TableeRowChangeEventHandler" msprop:Generator_RowDeletedName="TableeRowDeleted" msprop:Generator_RowClassName="TableeRow" msprop:Generator_UserTableName="Tablee" msprop:Generator_RowEvArgName="TableeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_table" msprop:Generator_ColumnVarNameInTable="columnid_table" msprop:Generator_ColumnPropNameInRow="id_table" msprop:Generator_ColumnPropNameInTable="id_tableColumn" msprop:Generator_UserColumnName="id_table" type="xs:int" />
@@ -564,7 +564,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Plat" msprop:Generator_TableClassName="PlatDataTable" msprop:Generator_TableVarName="tablePlat" msprop:Generator_TablePropName="Plat" msprop:Generator_RowDeletingName="PlatRowDeleting" msprop:Generator_RowChangingName="PlatRowChanging" msprop:Generator_RowEvHandlerName="PlatRowChangeEventHandler" msprop:Generator_RowDeletedName="PlatRowDeleted" msprop:Generator_UserTableName="Plat" msprop:Generator_RowChangedName="PlatRowChanged" msprop:Generator_RowEvArgName="PlatRowChangeEvent" msprop:Generator_RowClassName="PlatRow">
+        <xs:element name="Plat" msprop:Generator_TableClassName="PlatDataTable" msprop:Generator_TableVarName="tablePlat" msprop:Generator_RowChangedName="PlatRowChanged" msprop:Generator_TablePropName="Plat" msprop:Generator_RowDeletingName="PlatRowDeleting" msprop:Generator_RowChangingName="PlatRowChanging" msprop:Generator_RowEvHandlerName="PlatRowChangeEventHandler" msprop:Generator_RowDeletedName="PlatRowDeleted" msprop:Generator_RowClassName="PlatRow" msprop:Generator_UserTableName="Plat" msprop:Generator_RowEvArgName="PlatRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_plat" msprop:Generator_ColumnVarNameInTable="columnid_plat" msprop:Generator_ColumnPropNameInRow="id_plat" msprop:Generator_ColumnPropNameInTable="id_platColumn" msprop:Generator_UserColumnName="id_plat" type="xs:int" />
@@ -618,7 +618,7 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Categorie_Plat" msdata:parent="Categorie" msdata:child="Plat" msdata:parentkey="id_categorie" msdata:childkey="id_categorie" msprop:Generator_UserChildTable="Plat" msprop:Generator_ChildPropName="GetPlatRows" msprop:Generator_UserRelationName="Categorie_Plat" msprop:Generator_ParentPropName="CategorieRow" msprop:Generator_RelationVarName="relationCategorie_Plat" msprop:Generator_UserParentTable="Categorie" />
+      <msdata:Relationship name="Categorie_Plat" msdata:parent="Categorie" msdata:child="Plat" msdata:parentkey="id_categorie" msdata:childkey="id_categorie" msprop:Generator_UserChildTable="Plat" msprop:Generator_ChildPropName="GetPlatRows" msprop:Generator_UserRelationName="Categorie_Plat" msprop:Generator_RelationVarName="relationCategorie_Plat" msprop:Generator_UserParentTable="Categorie" msprop:Generator_ParentPropName="CategorieRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
