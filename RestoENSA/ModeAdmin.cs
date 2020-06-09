@@ -35,5 +35,23 @@ namespace RestoENSA
             this.Close();
             new Authentification().Show();
         }
+
+        private void gestion_plat_click(object sender, EventArgs e)
+        {
+            Plats p = new Plats();
+            p.ShowDialog();
+        }
+
+        private void gestion_categorie_click(object sender, EventArgs e)
+        {
+            Categories cat = new Categories();
+            cat.ShowDialog();
+        }
+
+        private void gestion_table_click(object sender, EventArgs e)
+        {
+            Tables t = new Tables();
+            t.ShowDialog();
+        }
     }
 }

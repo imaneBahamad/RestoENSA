@@ -15,7 +15,7 @@ namespace RestoENSA
 {
     public partial class Authentification : MetroForm
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
+        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Desktop\ProjectCsharp\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
         CryptographyProcessor cp = new CryptographyProcessor();
         public static object[] user_info = new object[3];
         public Authentification()
