@@ -23,6 +23,7 @@ namespace RestoENSA
             db.Fill_Categorie(categorie_box);
             db.Fill_Categorie(filtre_combobox);
             db.Afficher_Plat(plat_grid);
+            db.Fill_Disponible(disponible_combo);
         }
 
         //dbConnect
@@ -65,6 +66,7 @@ namespace RestoENSA
                 string nom = "";
                 float prix = 0;
                 string categorie = "";
+                int var_disponible = 1;
 
 
                 verify1 = int.TryParse(code_plat_box.Text, out codePlat); if (!verify1) { throw new Ex("le code doit etre un nombre entier ! "); }
@@ -72,7 +74,11 @@ namespace RestoENSA
                 verify2 = float.TryParse(prix_plat_box.Text, out prix); if (!verify2) { throw new Ex("le prix doit etre un nombre reel ! "); }
                 if (categorie_box.SelectedIndex == -1) { throw new Ex("vous devez remplir le champ categorie !!"); } else { categorie = categorie_box.SelectedItem.ToString(); }
 
-
+                // si l'admin coche la case non-disponible c'est bon, sinon la disponibilte du plat est tjrs true
+                if (disponible_combo.Text == "non disponible")
+                {
+                    var_disponible = 0;
+                }
 
 
                 if (db.check_Existence("Plat", codePlat.ToString()))
@@ -82,13 +88,15 @@ namespace RestoENSA
                 }
                 else
                 {
-                    db.Ajouter_Plat(codePlat, nom, prix, categorie);
+
+                    db.Ajouter_Plat(codePlat, nom, prix,var_disponible, categorie);
                     MessageBox.Show("succes!!");
 
 
                     ClearTextBoxes();
                     db.Fill_Categorie(categorie_box);
                     db.Afficher_Plat(plat_grid);
+                    db.Fill_Disponible(disponible_combo);
 
 
                 }
@@ -111,14 +119,18 @@ namespace RestoENSA
                 float prix = 0;
                 string nom = "";
                 string categorie = "";
-
+                int var_disponible = 1;
 
                 verify1 = int.TryParse(code_plat_box.Text, out codePlat); if (!verify1) { throw new Ex("le code doit etre un nombre entier ! "); }
                 if (string.IsNullOrWhiteSpace(nom_plat_box.Text)) { throw new Ex("vous devez remplir le champ nom!!"); } else { nom = nom_plat_box.Text; }
                 verify2 = float.TryParse(prix_plat_box.Text, out prix); if (!verify2) { throw new Ex("le prix doit etre un nombre reel ! "); }
                 if (categorie_box.SelectedIndex == -1) { throw new Ex("vous devez remplir le champ categorie !!"); } else { categorie = categorie_box.SelectedItem.ToString(); }
 
-
+                // si l'admin coche la case non-disponible c'est bon, sinon la disponibilte du plat est tjrs true
+                if (disponible_combo.Text == "non disponible")
+                {
+                    var_disponible = 0;
+                }
 
 
                 if (!db.check_Existence("Plat", codePlat.ToString()))
@@ -128,11 +140,12 @@ namespace RestoENSA
                 }
                 else
                 {
-                    db.Modifier_Plat(codePlat, nom, prix, categorie);
+                    db.Modifier_Plat(codePlat, nom, prix, var_disponible, categorie);
                     MessageBox.Show("succes!!");
 
                     ClearTextBoxes();
                     db.Afficher_Plat(plat_grid);
+                    db.Fill_Disponible(disponible_combo);
 
 
                 }//fin else
@@ -158,6 +171,7 @@ namespace RestoENSA
                 int id = int.Parse(code);
                 db.Supprimer_Plat(id);
                 db.Afficher_Plat(plat_grid);
+                db.Fill_Disponible(disponible_combo);
                 ClearTextBoxes();
                 MessageBox.Show("succes!!");
 
@@ -192,12 +206,15 @@ namespace RestoENSA
                 nom_plat_box.Text = row.Cells["nom_plat"].Value.ToString();
                 prix_plat_box.Text = row.Cells["prix"].Value.ToString();
                 code_plat_box.Text = row.Cells["id_plat"].Value.ToString();
-                int codeCat = int.Parse(row.Cells["id_categorie"].Value.ToString());
+                disponible_combo.SelectedItem = row.Cells["Disponibilité"].Value.ToString(); ;
 
+                int codeCat = int.Parse(row.Cells["id_categorie"].Value.ToString());
                 categorie_box.SelectedItem = db.Categorie_Code_Nom(codeCat);//remember that 'Categorie_Code_Nom' return the name of the categorie's code given in input
-                                
+
 
             }
         }
+
+        
     }
 }

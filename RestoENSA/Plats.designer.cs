@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Plats));
             this.crud_plat_panel = new System.Windows.Forms.Panel();
+            this.disponible_combo = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.categorie_box = new MetroFramework.Controls.MetroComboBox();
             this.code_plat_box = new MetroFramework.Controls.MetroTextBox();
@@ -56,6 +58,8 @@
             // 
             // crud_plat_panel
             // 
+            this.crud_plat_panel.Controls.Add(this.disponible_combo);
+            this.crud_plat_panel.Controls.Add(this.metroLabel2);
             this.crud_plat_panel.Controls.Add(this.metroLabel1);
             this.crud_plat_panel.Controls.Add(this.categorie_box);
             this.crud_plat_panel.Controls.Add(this.code_plat_box);
@@ -75,6 +79,30 @@
             this.crud_plat_panel.Name = "crud_plat_panel";
             this.crud_plat_panel.Size = new System.Drawing.Size(792, 353);
             this.crud_plat_panel.TabIndex = 0;
+            // 
+            // disponible_combo
+            // 
+            this.disponible_combo.FormattingEnabled = true;
+            this.disponible_combo.ItemHeight = 23;
+            this.disponible_combo.Location = new System.Drawing.Point(128, 165);
+            this.disponible_combo.Name = "disponible_combo";
+            this.disponible_combo.Size = new System.Drawing.Size(154, 29);
+            this.disponible_combo.TabIndex = 64;
+            this.disponible_combo.UseSelectable = true;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.metroLabel2.Location = new System.Drawing.Point(3, 175);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(101, 19);
+            this.metroLabel2.TabIndex = 63;
+            this.metroLabel2.Text = "Disponibilité :";
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseCustomForeColor = true;
             // 
             // metroLabel1
             // 
@@ -134,7 +162,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(215, 181);
+            this.button3.Location = new System.Drawing.Point(215, 220);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 60;
@@ -144,7 +172,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(117, 181);
+            this.button2.Location = new System.Drawing.Point(117, 220);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 59;
@@ -154,7 +182,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(19, 181);
+            this.button1.Location = new System.Drawing.Point(19, 220);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 58;
@@ -168,7 +196,7 @@
             this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel5.Location = new System.Drawing.Point(296, 19);
+            this.metroLabel5.Location = new System.Drawing.Point(296, 15);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(110, 19);
             this.metroLabel5.TabIndex = 57;
@@ -182,11 +210,11 @@
             this.metroLabel22.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel22.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel22.Location = new System.Drawing.Point(566, 19);
+            this.metroLabel22.Location = new System.Drawing.Point(472, 15);
             this.metroLabel22.Name = "metroLabel22";
-            this.metroLabel22.Size = new System.Drawing.Size(83, 19);
+            this.metroLabel22.Size = new System.Drawing.Size(202, 19);
             this.metroLabel22.TabIndex = 56;
-            this.metroLabel22.Text = "Categorie :";
+            this.metroLabel22.Text = "Chercher selon la Categorie :";
             this.metroLabel22.UseCustomBackColor = true;
             this.metroLabel22.UseCustomForeColor = true;
             // 
@@ -399,5 +427,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroComboBox categorie_box;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private MetroFramework.Controls.MetroComboBox disponible_combo;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
     }
 }
