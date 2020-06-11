@@ -18,7 +18,7 @@ namespace RestoENSA
 
         public DBConnect()
         {
-            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Desktop\ProjectCsharp\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True");
             if(conn.State != ConnectionState.Open )
             {
                 conn.Open();
@@ -103,9 +103,6 @@ namespace RestoENSA
             {
                 combo.Items.Add(x[0].ToString());
             }
-            
-
-
         }
 
         public void Ajouter_Plat(int id_plat, string nom_plat, float prix, string categorie)
@@ -118,10 +115,9 @@ namespace RestoENSA
             cmd.Parameters.AddWithValue("@categorie", code_categorie);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
-            cmd.Parameters.Clear();
-
-            
+            cmd.Parameters.Clear();     
         }
+
         public void Modifier_Plat(int id_plat, string nom_plat, float prix, string categorie)
         {
             int code_categorie = Categorie_Nom_Code(categorie);
@@ -173,7 +169,6 @@ namespace RestoENSA
             }
             return false;
 
-
         }
 
 
@@ -200,6 +195,7 @@ namespace RestoENSA
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();
         }
+
         public void Modifier_Categorie(int id, string nom)
         {
             cmd = new SqlCommand("update Categorie set nom_categorie=@nom where id_categorie=@id ",conn);
@@ -238,14 +234,12 @@ namespace RestoENSA
         //Tables
         public void Afficher_Table(MetroFramework.Controls.MetroGrid grid)
         {
-
             cmd = new SqlCommand("SELECT id_table FROM Tablee", conn);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             ds = new DataSet();
             adapt.Fill(ds);
             grid.DataSource = ds.Tables[0];
-
         }
 
         public void Ajouter_Table(int id)

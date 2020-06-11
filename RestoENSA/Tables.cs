@@ -20,8 +20,6 @@ namespace RestoENSA
             db.Afficher_Table(Table_grid);
         }
 
-       
-
         private void ajouter_table_button(object sender, EventArgs e)
         {
             bool verify1;
@@ -39,7 +37,6 @@ namespace RestoENSA
                     MessageBox.Show("Succes!");
                     table_code_box.Clear();
                     db.Afficher_Table(Table_grid);
-
                 }
 
             }
@@ -89,8 +86,6 @@ namespace RestoENSA
                 DataGridViewRow row = this.Table_grid.Rows[e.RowIndex];
 
                 table_code_box.Text = row.Cells["id_table"].Value.ToString();
-
-
             }
         }
     }

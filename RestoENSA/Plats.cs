@@ -15,7 +15,6 @@ namespace RestoENSA
     {
         DBConnect db;
 
-
         public Plats()
         {
             InitializeComponent();
@@ -48,13 +47,6 @@ namespace RestoENSA
             func(Controls);
         }
 
-       
-
-        
-
-
-
-
         private void ajouter_plat_button(object sender, EventArgs e)
         {
             bool verify1;
@@ -73,8 +65,6 @@ namespace RestoENSA
                 if (categorie_box.SelectedIndex == -1) { throw new Ex("vous devez remplir le champ categorie !!"); } else { categorie = categorie_box.SelectedItem.ToString(); }
 
 
-
-
                 if (db.check_Existence("Plat", codePlat.ToString()))
                 {
                     MessageBox.Show("le plat du code " + codePlat + " existe deja !\n" +
@@ -89,7 +79,6 @@ namespace RestoENSA
                     ClearTextBoxes();
                     db.Fill_Categorie(categorie_box);
                     db.Afficher_Plat(plat_grid);
-
 
                 }
             }
@@ -153,8 +142,6 @@ namespace RestoENSA
             }
             else
             {
-
-
                 int id = int.Parse(code);
                 db.Supprimer_Plat(id);
                 db.Afficher_Plat(plat_grid);
@@ -194,9 +181,7 @@ namespace RestoENSA
                 code_plat_box.Text = row.Cells["id_plat"].Value.ToString();
                 int codeCat = int.Parse(row.Cells["id_categorie"].Value.ToString());
 
-                categorie_box.SelectedItem = db.Categorie_Code_Nom(codeCat);//remember that 'Categorie_Code_Nom' return the name of the categorie's code given in input
-                                
-
+                categorie_box.SelectedItem = db.Categorie_Code_Nom(codeCat);//remember that 'Categorie_Code_Nom' return the name of the categorie's code given in input                            
             }
         }
     }
