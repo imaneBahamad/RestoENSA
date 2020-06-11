@@ -28,14 +28,34 @@ namespace RestoENSA
         public void Afficher_Plat(MetroFramework.Controls.MetroGrid grid)
         {
 
-            cmd = new SqlCommand("SELECT id_plat,id_categorie,nom_plat,prix FROM Plat", conn);
+            cmd = new SqlCommand("SELECT id_plat,id_categorie,nom_plat,prix,disponible FROM Plat", conn);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             ds = new DataSet();
             adapt.Fill(ds);
+
+            ds.Tables[0].Columns.Add("Disponibilité", typeof(string));
+
             grid.DataSource = ds.Tables[0];
+
+            for (int i = 0; i < grid.Rows.Count - 1; i++)
+            {
+                if (grid.Rows[i].Cells[4].Value.ToString() == "True")
+                {
+                    grid.Rows[i].Cells[5].Value = "disponible";
+                }
+                if (grid.Rows[i].Cells[4].Value.ToString() == "False")
+                {
+                    grid.Rows[i].Cells[5].Value = "non disponible";
+                }
+
+            }
+
+
+
             grid.Columns["id_plat"].Visible = false;
             grid.Columns["id_categorie"].Visible = false;
+            grid.Columns["disponible"].Visible = false;
 
 
         }
@@ -43,15 +63,35 @@ namespace RestoENSA
         public void Afficher_Plat_ParFiltre(MetroFramework.Controls.MetroGrid grid, string nom_categorie)
         {
             int code = Categorie_Nom_Code(nom_categorie);
-            cmd = new SqlCommand("SELECT id_plat,id_categorie,nom_plat,prix FROM Plat where id_categorie = @code", conn);
+            cmd = new SqlCommand("SELECT id_plat,id_categorie,nom_plat,prix,disponible FROM Plat where id_categorie = @code", conn);
             cmd.Parameters.AddWithValue("@code", code);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             ds = new DataSet();
             adapt.Fill(ds);
             grid.DataSource = ds.Tables[0];
+            ds.Tables[0].Columns.Add("Disponibilité", typeof(string));
+
+            grid.DataSource = ds.Tables[0];
+
+            for (int i = 0; i < grid.Rows.Count - 1; i++)
+            {
+                if (grid.Rows[i].Cells[4].Value.ToString() == "True")
+                {
+                    grid.Rows[i].Cells[5].Value = "disponible";
+                }
+                if (grid.Rows[i].Cells[4].Value.ToString() == "False")
+                {
+                    grid.Rows[i].Cells[5].Value = "non disponible";
+                }
+
+            }
+
+
+
             grid.Columns["id_plat"].Visible = false;
             grid.Columns["id_categorie"].Visible = false;
+            grid.Columns["disponible"].Visible = false;
             cmd.Parameters.Clear();
 
         }
@@ -105,25 +145,44 @@ namespace RestoENSA
             }
         }
 
-        public void Ajouter_Plat(int id_plat, string nom_plat, float prix, string categorie)
+        public void Fill_Disponible(MetroFramework.Controls.MetroComboBox combo)
+        {
+
+            combo.Items.Clear();
+            combo.ResetText();
+            combo.Items.Add("disponible");
+            combo.Items.Add("non disponible");
+            combo.SelectedItem = "disponible";
+
+
+
+        }
+
+        public void Ajouter_Plat(int id_plat, string nom_plat, float prix, int var_disponible, string categorie)
         {
             int code_categorie = Categorie_Nom_Code(categorie);
-            cmd = new SqlCommand("insert into Plat (id_plat,nom_plat,prix,id_categorie) values (@id,@nom,@prix,@categorie) ",conn);
+            cmd = new SqlCommand("insert into Plat (id_plat,nom_plat,prix,disponible,id_categorie) values (@id,@nom,@prix,@dispo,@categorie) ",conn);
             cmd.Parameters.AddWithValue("@id", id_plat);
             cmd.Parameters.AddWithValue("@nom", nom_plat);
             cmd.Parameters.AddWithValue("@prix", prix);
+            cmd.Parameters.AddWithValue("@dispo", var_disponible);
             cmd.Parameters.AddWithValue("@categorie", code_categorie);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();     
         }
+<<<<<<< HEAD
 
         public void Modifier_Plat(int id_plat, string nom_plat, float prix, string categorie)
+=======
+        public void Modifier_Plat(int id_plat, string nom_plat, float prix,int var_disponible, string categorie)
+>>>>>>> 23ac83e49a796fa2337d115bf0989cd90481c41c
         {
             int code_categorie = Categorie_Nom_Code(categorie);
-            cmd = new SqlCommand("update Plat set nom_plat=@nom,prix=@prix,id_categorie=@categorie where id_plat=@id ",conn);
+            cmd = new SqlCommand("update Plat set nom_plat=@nom,prix=@prix, disponible=@dispo,id_categorie=@categorie where id_plat=@id ",conn);
             cmd.Parameters.AddWithValue("@nom", nom_plat);
             cmd.Parameters.AddWithValue("@prix", prix);
+            cmd.Parameters.AddWithValue("@dispo", var_disponible);
             cmd.Parameters.AddWithValue("@categorie", code_categorie);
             cmd.Parameters.AddWithValue("@id", id_plat);
             adapt = new SqlDataAdapter(cmd);
@@ -234,12 +293,42 @@ namespace RestoENSA
         //Tables
         public void Afficher_Table(MetroFramework.Controls.MetroGrid grid)
         {
+<<<<<<< HEAD
             cmd = new SqlCommand("SELECT id_table FROM Tablee", conn);
+=======
+
+            cmd = new SqlCommand("SELECT id_table,reservee FROM Tablee", conn);
+>>>>>>> 23ac83e49a796fa2337d115bf0989cd90481c41c
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             ds = new DataSet();
             adapt.Fill(ds);
+
+            ds.Tables[0].Columns.Add("Reservation", typeof(string));
             grid.DataSource = ds.Tables[0];
+<<<<<<< HEAD
+=======
+
+
+            
+
+            grid.DataSource = ds.Tables[0];
+            grid.Columns["reservee"].Visible = false;
+            for (int i = 0; i < grid.Rows.Count - 1; i++)
+            {
+                if (grid.Rows[i].Cells[1].Value.ToString() == "True")
+                {
+                    grid.Rows[i].Cells[2].Value = "reservée";
+                }
+                if (grid.Rows[i].Cells[1].Value.ToString() == "False")
+                {
+                    grid.Rows[i].Cells[2].Value = "non reservée";
+                }
+
+            }
+            
+
+>>>>>>> 23ac83e49a796fa2337d115bf0989cd90481c41c
         }
 
         public void Ajouter_Table(int id)
