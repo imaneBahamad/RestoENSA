@@ -35,6 +35,8 @@
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.Gestion_chefs_btn = new MetroFramework.Controls.MetroButton();
+            this.Gestion_horaire_btn = new DevLib.ModernUI.Forms.ModernButton();
             this.SuspendLayout();
             // 
             // gestion_serveurs_btn
@@ -100,11 +102,35 @@
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.gestion_plat_click);
             // 
+            // Gestion_chefs_btn
+            // 
+            this.Gestion_chefs_btn.Location = new System.Drawing.Point(42, 165);
+            this.Gestion_chefs_btn.Name = "Gestion_chefs_btn";
+            this.Gestion_chefs_btn.Size = new System.Drawing.Size(126, 55);
+            this.Gestion_chefs_btn.TabIndex = 7;
+            this.Gestion_chefs_btn.Text = "Gestion des chefs";
+            this.Gestion_chefs_btn.UseSelectable = true;
+            this.Gestion_chefs_btn.Click += new System.EventHandler(this.Gestion_chefs_btn_Click);
+            // 
+            // Gestion_horaire_btn
+            // 
+            this.Gestion_horaire_btn.Location = new System.Drawing.Point(214, 165);
+            this.Gestion_horaire_btn.Name = "Gestion_horaire_btn";
+            this.Gestion_horaire_btn.Size = new System.Drawing.Size(244, 55);
+            this.Gestion_horaire_btn.TabIndex = 8;
+            this.Gestion_horaire_btn.Text = "Gestion des shifts et Horaires des personnels";
+            this.Gestion_horaire_btn.UseSelectable = true;
+            this.Gestion_horaire_btn.UseStyleColors = false;
+            this.Gestion_horaire_btn.UseVisualStyleBackColor = true;
+            this.Gestion_horaire_btn.Click += new System.EventHandler(this.Gestion_horaire_btn_Click);
+            // 
             // ModeAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 489);
+            this.Controls.Add(this.Gestion_horaire_btn);
+            this.Controls.Add(this.Gestion_chefs_btn);
             this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.metroButton2);
@@ -128,5 +154,7 @@
         private MetroFramework.Controls.MetroButton metroButton4;
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton Gestion_chefs_btn;
+        private DevLib.ModernUI.Forms.ModernButton Gestion_horaire_btn;
     }
 }

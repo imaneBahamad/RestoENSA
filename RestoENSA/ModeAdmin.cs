@@ -53,5 +53,17 @@ namespace RestoENSA
             Tables t = new Tables();
             t.ShowDialog();
         }
+
+        private void Gestion_chefs_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new GestionChefs().Show();
+        }
+
+        private void Gestion_horaire_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new GestionHoraires().Show();
+        }
     }
 }

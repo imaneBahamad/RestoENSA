@@ -129,6 +129,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionChefs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionChefs.Designer.cs">
+      <DependentUpon>GestionChefs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionHoraires.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionHoraires.Designer.cs">
+      <DependentUpon>GestionHoraires.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionServeur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +194,12 @@
     <Compile Include="Tables.Designer.cs">
       <DependentUpon>Tables.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GestionChefs.resx">
+      <DependentUpon>GestionChefs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionHoraires.resx">
+      <DependentUpon>GestionHoraires.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionServeur.resx">
       <DependentUpon>GestionServeur.cs</DependentUpon>
     </EmbeddedResource>

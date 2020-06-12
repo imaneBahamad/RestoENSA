@@ -101,7 +101,7 @@ namespace RestoENSA
         {
             if (nom_txt.Text == "" || login_txt.Text == "")
             {
-                MessageBox.Show("veuillez selectionner un serveursalmas !!!!!");
+                MessageBox.Show("veuillez selectionner un serveur !!!!!");
             }
             else
             {
