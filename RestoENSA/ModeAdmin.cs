@@ -30,10 +30,12 @@ namespace RestoENSA
             new GestionServeurs().Show();
         }
 
+        public Form RefToAuthentication { get; set; }
+
         private void logout_btn_Click(object sender, EventArgs e)
         {
             this.Close();
-            new Authentification().Show();
+            this.RefToAuthentication.Show();
         }
 
         private void gestion_plat_click(object sender, EventArgs e)

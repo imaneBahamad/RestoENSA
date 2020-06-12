@@ -78,14 +78,14 @@
             this.crud_plat_panel.Location = new System.Drawing.Point(5, 66);
             this.crud_plat_panel.Margin = new System.Windows.Forms.Padding(4);
             this.crud_plat_panel.Name = "crud_plat_panel";
-            this.crud_plat_panel.Size = new System.Drawing.Size(1056, 434);
+            this.crud_plat_panel.Size = new System.Drawing.Size(1056, 526);
             this.crud_plat_panel.TabIndex = 0;
             // 
             // disponible_combo
             // 
             this.disponible_combo.FormattingEnabled = true;
             this.disponible_combo.ItemHeight = 24;
-            this.disponible_combo.Location = new System.Drawing.Point(128, 165);
+            this.disponible_combo.Location = new System.Drawing.Point(170, 201);
             this.disponible_combo.Name = "disponible_combo";
             this.disponible_combo.Size = new System.Drawing.Size(154, 30);
             this.disponible_combo.TabIndex = 64;
@@ -97,7 +97,7 @@
             this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 175);
+            this.metroLabel2.Location = new System.Drawing.Point(25, 211);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(105, 20);
             this.metroLabel2.TabIndex = 63;
@@ -111,7 +111,7 @@
             this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel1.Location = new System.Drawing.Point(4, 161);
+            this.metroLabel1.Location = new System.Drawing.Point(25, 163);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(84, 20);
@@ -126,7 +126,7 @@
             this.categorie_box.ItemHeight = 24;
             this.categorie_box.Items.AddRange(new object[] {
             " "});
-            this.categorie_box.Location = new System.Drawing.Point(171, 149);
+            this.categorie_box.Location = new System.Drawing.Point(170, 153);
             this.categorie_box.Margin = new System.Windows.Forms.Padding(4);
             this.categorie_box.Name = "categorie_box";
             this.categorie_box.Size = new System.Drawing.Size(204, 30);
@@ -167,7 +167,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(287, 223);
+            this.button3.Location = new System.Drawing.Point(287, 273);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
@@ -178,7 +178,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(156, 223);
+            this.button2.Location = new System.Drawing.Point(156, 273);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
@@ -189,7 +189,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(25, 223);
+            this.button1.Location = new System.Drawing.Point(25, 273);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
@@ -234,7 +234,7 @@
             this.filtre_combobox.ItemHeight = 24;
             this.filtre_combobox.Items.AddRange(new object[] {
             " "});
-            this.filtre_combobox.Location = new System.Drawing.Point(911, 11);
+            this.filtre_combobox.Location = new System.Drawing.Point(913, 47);
             this.filtre_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.filtre_combobox.Name = "filtre_combobox";
             this.filtre_combobox.Size = new System.Drawing.Size(105, 30);
@@ -272,7 +272,7 @@
             this.plat_grid.EnableHeadersVisualStyles = false;
             this.plat_grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.plat_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.plat_grid.Location = new System.Drawing.Point(395, 64);
+            this.plat_grid.Location = new System.Drawing.Point(395, 85);
             this.plat_grid.Margin = new System.Windows.Forms.Padding(4);
             this.plat_grid.Name = "plat_grid";
             this.plat_grid.ReadOnly = true;
@@ -288,9 +288,9 @@
             this.plat_grid.RowHeadersWidth = 51;
             this.plat_grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.plat_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.plat_grid.Size = new System.Drawing.Size(623, 337);
+            this.plat_grid.Size = new System.Drawing.Size(623, 316);
             this.plat_grid.TabIndex = 55;
-            this.plat_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.plat_grid_CellContentClick);
+            this.plat_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.plat_grid_CellClick);
             // 
             // prix_plat_box
             // 
@@ -308,7 +308,7 @@
             this.prix_plat_box.CustomButton.UseSelectable = true;
             this.prix_plat_box.CustomButton.Visible = false;
             this.prix_plat_box.Lines = new string[0];
-            this.prix_plat_box.Location = new System.Drawing.Point(171, 100);
+            this.prix_plat_box.Location = new System.Drawing.Point(170, 109);
             this.prix_plat_box.Margin = new System.Windows.Forms.Padding(4);
             this.prix_plat_box.MaxLength = 32767;
             this.prix_plat_box.Name = "prix_plat_box";
@@ -330,7 +330,7 @@
             this.metroLabel15.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel15.Location = new System.Drawing.Point(4, 64);
+            this.metroLabel15.Location = new System.Drawing.Point(25, 72);
             this.metroLabel15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel15.Name = "metroLabel15";
             this.metroLabel15.Size = new System.Drawing.Size(52, 20);
@@ -345,7 +345,7 @@
             this.metroLabel8.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel8.Location = new System.Drawing.Point(4, 105);
+            this.metroLabel8.Location = new System.Drawing.Point(25, 117);
             this.metroLabel8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(85, 20);
@@ -360,7 +360,7 @@
             this.metroLabel20.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel20.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel20.Location = new System.Drawing.Point(4, 23);
+            this.metroLabel20.Location = new System.Drawing.Point(25, 26);
             this.metroLabel20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel20.Name = "metroLabel20";
             this.metroLabel20.Size = new System.Drawing.Size(83, 20);
@@ -385,7 +385,7 @@
             this.nom_plat_box.CustomButton.UseSelectable = true;
             this.nom_plat_box.CustomButton.Visible = false;
             this.nom_plat_box.Lines = new string[0];
-            this.nom_plat_box.Location = new System.Drawing.Point(171, 59);
+            this.nom_plat_box.Location = new System.Drawing.Point(170, 64);
             this.nom_plat_box.Margin = new System.Windows.Forms.Padding(4);
             this.nom_plat_box.MaxLength = 32767;
             this.nom_plat_box.Name = "nom_plat_box";

@@ -66,15 +66,12 @@ namespace RestoENSA
                 verify2 = float.TryParse(prix_plat_box.Text, out prix); if (!verify2) { throw new Ex("le prix doit etre un nombre reel ! "); }
                 if (categorie_box.SelectedIndex == -1) { throw new Ex("vous devez remplir le champ categorie !!"); } else { categorie = categorie_box.SelectedItem.ToString(); }
 
-<<<<<<< HEAD
-=======
                 // si l'admin coche la case non-disponible c'est bon, sinon la disponibilte du plat est tjrs true
                 if (disponible_combo.Text == "non disponible")
                 {
                     var_disponible = 0;
                 }
 
->>>>>>> 23ac83e49a796fa2337d115bf0989cd90481c41c
 
                 if (db.check_Existence("Plat", codePlat.ToString()))
                 {
@@ -86,7 +83,6 @@ namespace RestoENSA
 
                     db.Ajouter_Plat(codePlat, nom, prix,var_disponible, categorie);
                     MessageBox.Show("succes!!");
-
 
                     ClearTextBoxes();
                     db.Fill_Categorie(categorie_box);
@@ -188,7 +184,7 @@ namespace RestoENSA
             }
         }
 
-        private void plat_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void plat_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -200,17 +196,10 @@ namespace RestoENSA
                 code_plat_box.Text = row.Cells["id_plat"].Value.ToString();
                 disponible_combo.SelectedItem = row.Cells["Disponibilité"].Value.ToString(); ;
 
-<<<<<<< HEAD
-                categorie_box.SelectedItem = db.Categorie_Code_Nom(codeCat);//remember that 'Categorie_Code_Nom' return the name of the categorie's code given in input                            
-=======
                 int codeCat = int.Parse(row.Cells["id_categorie"].Value.ToString());
                 categorie_box.SelectedItem = db.Categorie_Code_Nom(codeCat);//remember that 'Categorie_Code_Nom' return the name of the categorie's code given in input
 
-
->>>>>>> 23ac83e49a796fa2337d115bf0989cd90481c41c
             }
         }
-
-        
     }
 }

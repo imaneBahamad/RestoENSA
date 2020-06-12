@@ -54,7 +54,7 @@
             this.PanelInfo.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelInfo.HorizontalScrollbarSize = 12;
             this.PanelInfo.Location = new System.Drawing.Point(31, 78);
-            this.PanelInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelInfo.Margin = new System.Windows.Forms.Padding(4);
             this.PanelInfo.Name = "PanelInfo";
             this.PanelInfo.Size = new System.Drawing.Size(1024, 294);
             this.PanelInfo.TabIndex = 43;
@@ -95,7 +95,7 @@
             this.Table_grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Table_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Table_grid.Location = new System.Drawing.Point(397, 16);
-            this.Table_grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Table_grid.Margin = new System.Windows.Forms.Padding(4);
             this.Table_grid.Name = "Table_grid";
             this.Table_grid.ReadOnly = true;
             this.Table_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -112,12 +112,12 @@
             this.Table_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Table_grid.Size = new System.Drawing.Size(608, 258);
             this.Table_grid.TabIndex = 36;
-            this.Table_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_grid_CellContentClick);
+            this.Table_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table_grid_CellClick);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(289, 79);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 35;
@@ -128,7 +128,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(181, 79);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 34;
@@ -157,10 +157,10 @@
             // 
             // 
             this.table_code_box.CustomButton.Image = null;
-            this.table_code_box.CustomButton.Location = new System.Drawing.Point(239, 2);
-            this.table_code_box.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.table_code_box.CustomButton.Location = new System.Drawing.Point(179, 2);
+            this.table_code_box.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.table_code_box.CustomButton.Name = "";
-            this.table_code_box.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.table_code_box.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.table_code_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.table_code_box.CustomButton.TabIndex = 1;
             this.table_code_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -168,7 +168,7 @@
             this.table_code_box.CustomButton.Visible = false;
             this.table_code_box.Lines = new string[0];
             this.table_code_box.Location = new System.Drawing.Point(181, 16);
-            this.table_code_box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.table_code_box.Margin = new System.Windows.Forms.Padding(4);
             this.table_code_box.MaxLength = 32767;
             this.table_code_box.Name = "table_code_box";
             this.table_code_box.PasswordChar = '\0';
@@ -189,7 +189,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 402);
             this.Controls.Add(this.PanelInfo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Tables";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Tables";

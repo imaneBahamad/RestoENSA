@@ -60,7 +60,7 @@
             this.PanelInfo.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelInfo.HorizontalScrollbarSize = 12;
             this.PanelInfo.Location = new System.Drawing.Point(31, 78);
-            this.PanelInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelInfo.Margin = new System.Windows.Forms.Padding(4);
             this.PanelInfo.Name = "PanelInfo";
             this.PanelInfo.Size = new System.Drawing.Size(1024, 294);
             this.PanelInfo.TabIndex = 43;
@@ -77,10 +77,10 @@
             // 
             // 
             this.categorie_nom_box.CustomButton.Image = null;
-            this.categorie_nom_box.CustomButton.Location = new System.Drawing.Point(237, 2);
-            this.categorie_nom_box.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.categorie_nom_box.CustomButton.Location = new System.Drawing.Point(178, 2);
+            this.categorie_nom_box.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.categorie_nom_box.CustomButton.Name = "";
-            this.categorie_nom_box.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.categorie_nom_box.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.categorie_nom_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.categorie_nom_box.CustomButton.TabIndex = 1;
             this.categorie_nom_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -88,7 +88,7 @@
             this.categorie_nom_box.CustomButton.Visible = false;
             this.categorie_nom_box.Lines = new string[0];
             this.categorie_nom_box.Location = new System.Drawing.Point(183, 60);
-            this.categorie_nom_box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.categorie_nom_box.Margin = new System.Windows.Forms.Padding(4);
             this.categorie_nom_box.MaxLength = 32767;
             this.categorie_nom_box.Name = "categorie_nom_box";
             this.categorie_nom_box.PasswordChar = '\0';
@@ -106,7 +106,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(183, 118);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 39;
@@ -159,7 +159,7 @@
             this.Categorie_grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Categorie_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Categorie_grid.Location = new System.Drawing.Point(397, 16);
-            this.Categorie_grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Categorie_grid.Margin = new System.Windows.Forms.Padding(4);
             this.Categorie_grid.Name = "Categorie_grid";
             this.Categorie_grid.ReadOnly = true;
             this.Categorie_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -176,12 +176,12 @@
             this.Categorie_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Categorie_grid.Size = new System.Drawing.Size(608, 258);
             this.Categorie_grid.TabIndex = 36;
-            this.Categorie_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Categorie_grid_CellContentClick);
+            this.Categorie_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Categorie_grid_CellClick);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(289, 118);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 35;
@@ -192,7 +192,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(75, 118);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 34;
@@ -221,10 +221,10 @@
             // 
             // 
             this.categorie_code_box.CustomButton.Image = null;
-            this.categorie_code_box.CustomButton.Location = new System.Drawing.Point(239, 2);
-            this.categorie_code_box.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.categorie_code_box.CustomButton.Location = new System.Drawing.Point(179, 2);
+            this.categorie_code_box.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.categorie_code_box.CustomButton.Name = "";
-            this.categorie_code_box.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.categorie_code_box.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.categorie_code_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.categorie_code_box.CustomButton.TabIndex = 1;
             this.categorie_code_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -232,7 +232,7 @@
             this.categorie_code_box.CustomButton.Visible = false;
             this.categorie_code_box.Lines = new string[0];
             this.categorie_code_box.Location = new System.Drawing.Point(181, 16);
-            this.categorie_code_box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.categorie_code_box.Margin = new System.Windows.Forms.Padding(4);
             this.categorie_code_box.MaxLength = 32767;
             this.categorie_code_box.Name = "categorie_code_box";
             this.categorie_code_box.PasswordChar = '\0';
@@ -253,7 +253,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 402);
             this.Controls.Add(this.PanelInfo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Categories";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Categorie";

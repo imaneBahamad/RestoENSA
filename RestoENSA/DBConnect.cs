@@ -171,12 +171,8 @@ namespace RestoENSA
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();     
         }
-<<<<<<< HEAD
 
-        public void Modifier_Plat(int id_plat, string nom_plat, float prix, string categorie)
-=======
         public void Modifier_Plat(int id_plat, string nom_plat, float prix,int var_disponible, string categorie)
->>>>>>> 23ac83e49a796fa2337d115bf0989cd90481c41c
         {
             int code_categorie = Categorie_Nom_Code(categorie);
             cmd = new SqlCommand("update Plat set nom_plat=@nom,prix=@prix, disponible=@dispo,id_categorie=@categorie where id_plat=@id ",conn);
@@ -293,24 +289,15 @@ namespace RestoENSA
         //Tables
         public void Afficher_Table(MetroFramework.Controls.MetroGrid grid)
         {
-<<<<<<< HEAD
-            cmd = new SqlCommand("SELECT id_table FROM Tablee", conn);
-=======
 
             cmd = new SqlCommand("SELECT id_table,reservee FROM Tablee", conn);
->>>>>>> 23ac83e49a796fa2337d115bf0989cd90481c41c
+
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             ds = new DataSet();
             adapt.Fill(ds);
 
-            ds.Tables[0].Columns.Add("Reservation", typeof(string));
-            grid.DataSource = ds.Tables[0];
-<<<<<<< HEAD
-=======
-
-
-            
+            ds.Tables[0].Columns.Add("Reservation", typeof(string));            
 
             grid.DataSource = ds.Tables[0];
             grid.Columns["reservee"].Visible = false;
@@ -326,9 +313,6 @@ namespace RestoENSA
                 }
 
             }
-            
-
->>>>>>> 23ac83e49a796fa2337d115bf0989cd90481c41c
         }
 
         public void Ajouter_Table(int id)

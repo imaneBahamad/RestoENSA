@@ -43,6 +43,13 @@ namespace RestoENSA
             }
         }
 
+        public void vider()
+        {
+            qui_combo.Text = "";
+            utilisateur_txt.Text = "";
+            mdp_txt.Text = "";
+        }
+
 
         private void login_btn_Click(object sender, EventArgs e)
         {
@@ -60,8 +67,10 @@ namespace RestoENSA
                         user_info[1] = dt.Rows[0].Field<string>("nom_admin");
                         user_info[2] = dt.Rows[0].Field<string>("login");
 
+                        ModeAdmin admin_mode = new ModeAdmin("Bienvenue "+ user_info[1] +" !");
+                        admin_mode.RefToAuthentication = this;
                         this.Hide();
-                        new ModeAdmin("Bienvenue "+ user_info[1] +" !").Show();
+                        admin_mode.Show();
                     }
                     else
                     {
@@ -80,48 +89,18 @@ namespace RestoENSA
                         user_info[1] = dt.Rows[0].Field<string>("nom_serveur");
                         user_info[2] = dt.Rows[0].Field<string>("login");
 
+                        ModeServeur serveur_mode = new ModeServeur("Bienvenue " + user_info[1] + " !");
+                        serveur_mode.RefToAuthentication = this;
                         this.Hide();
-                        new ModeServeur("Bienvenue " + user_info[1]+" !").Show();
+                        serveur_mode.Show();
                     }
                     else
                     {
                         MessageBox.Show("Verifie ton nom d'utilisateur/mot de passe");
                     }
-
                 }
+                vider();
             }
         }
-
-        public static string EncodePasswordToBase64(string password)
-        {
-            /*byte[] bytes = Encoding.Unicode.GetBytes(password);
-            byte[] inArray = HashAlgorithm.Create("SHA1").ComputeHash(bytes);
-            return Convert.ToBase64String(inArray);*/
-            byte[] encData_byte = new byte[password.Length];
-            encData_byte = Encoding.UTF8.GetBytes(password);
-            string encodedData = Convert.ToBase64String(encData_byte);
-            return encodedData;
-
-        }
-
-        public static string DecodePasswordFromBase64(string password)
-        {
-            /*byte[] data = Convert.FromBase64String(password);
-            string decodedString = Encoding.Unicode.GetString(data);
-            return decodedString;*/
-
-            UTF8Encoding encoder = new UTF8Encoding();
-            Decoder utf8Decode = encoder.GetDecoder();
-            byte[] todecode_byte = Convert.FromBase64String(password);
-            int charCount = utf8Decode.GetCharCount(todecode_byte, 0, todecode_byte.Length);
-            char[] decoded_char = new char[charCount];
-            utf8Decode.GetChars(todecode_byte, 0, todecode_byte.Length, decoded_char, 0);
-            string result = new String(decoded_char);
-            return result;
-        }
-
-        
-
-
     }
 }
