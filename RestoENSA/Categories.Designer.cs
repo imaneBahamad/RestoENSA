@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelInfo = new MetroFramework.Controls.MetroPanel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.categorie_nom_box = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.Categorie_grid = new MetroFramework.Controls.MetroGrid();
@@ -39,7 +41,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
             this.categorie_code_box = new MetroFramework.Controls.MetroTextBox();
-            this.categorie_nom_box = new MetroFramework.Controls.MetroTextBox();
             this.PanelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Categorie_grid)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,7 @@
             // PanelInfo
             // 
             this.PanelInfo.BackColor = System.Drawing.Color.Transparent;
+            this.PanelInfo.Controls.Add(this.button4);
             this.PanelInfo.Controls.Add(this.categorie_nom_box);
             this.PanelInfo.Controls.Add(this.button3);
             this.PanelInfo.Controls.Add(this.metroLabel1);
@@ -69,6 +71,46 @@
             this.PanelInfo.VerticalScrollbarBarColor = true;
             this.PanelInfo.VerticalScrollbarHighlightOnWheel = false;
             this.PanelInfo.VerticalScrollbarSize = 10;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(56, 137);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(100, 23);
+            this.button4.TabIndex = 81;
+            this.button4.Text = "Vider les Champs";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // categorie_nom_box
+            // 
+            // 
+            // 
+            // 
+            this.categorie_nom_box.CustomButton.Image = null;
+            this.categorie_nom_box.CustomButton.Location = new System.Drawing.Point(131, 1);
+            this.categorie_nom_box.CustomButton.Name = "";
+            this.categorie_nom_box.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.categorie_nom_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.categorie_nom_box.CustomButton.TabIndex = 1;
+            this.categorie_nom_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.categorie_nom_box.CustomButton.UseSelectable = true;
+            this.categorie_nom_box.CustomButton.Visible = false;
+            this.categorie_nom_box.Lines = new string[0];
+            this.categorie_nom_box.Location = new System.Drawing.Point(137, 49);
+            this.categorie_nom_box.MaxLength = 32767;
+            this.categorie_nom_box.Name = "categorie_nom_box";
+            this.categorie_nom_box.PasswordChar = '\0';
+            this.categorie_nom_box.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.categorie_nom_box.SelectedText = "";
+            this.categorie_nom_box.SelectionLength = 0;
+            this.categorie_nom_box.SelectionStart = 0;
+            this.categorie_nom_box.ShortcutsEnabled = true;
+            this.categorie_nom_box.Size = new System.Drawing.Size(153, 23);
+            this.categorie_nom_box.TabIndex = 40;
+            this.categorie_nom_box.UseSelectable = true;
+            this.categorie_nom_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.categorie_nom_box.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // button3
             // 
@@ -102,23 +144,23 @@
             this.Categorie_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Categorie_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Categorie_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Categorie_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Categorie_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.Categorie_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Categorie_grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Categorie_grid.DefaultCellStyle = dataGridViewCellStyle11;
             this.Categorie_grid.EnableHeadersVisualStyles = false;
             this.Categorie_grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Categorie_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -126,18 +168,19 @@
             this.Categorie_grid.Name = "Categorie_grid";
             this.Categorie_grid.ReadOnly = true;
             this.Categorie_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Categorie_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Categorie_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.Categorie_grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Categorie_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Categorie_grid.Size = new System.Drawing.Size(456, 210);
             this.Categorie_grid.TabIndex = 36;
+            this.Categorie_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Categorie_grid_CellClick);
             this.Categorie_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Categorie_grid_CellContentClick);
             // 
             // button2
@@ -176,6 +219,7 @@
             // 
             // categorie_code_box
             // 
+            this.categorie_code_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             // 
             // 
             // 
@@ -188,6 +232,7 @@
             this.categorie_code_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.categorie_code_box.CustomButton.UseSelectable = true;
             this.categorie_code_box.CustomButton.Visible = false;
+            this.categorie_code_box.Enabled = false;
             this.categorie_code_box.Lines = new string[0];
             this.categorie_code_box.Location = new System.Drawing.Point(136, 13);
             this.categorie_code_box.MaxLength = 32767;
@@ -200,39 +245,10 @@
             this.categorie_code_box.ShortcutsEnabled = true;
             this.categorie_code_box.Size = new System.Drawing.Size(154, 23);
             this.categorie_code_box.TabIndex = 15;
+            this.categorie_code_box.UseCustomBackColor = true;
             this.categorie_code_box.UseSelectable = true;
             this.categorie_code_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.categorie_code_box.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // categorie_nom_box
-            // 
-            // 
-            // 
-            // 
-            this.categorie_nom_box.CustomButton.Image = null;
-            this.categorie_nom_box.CustomButton.Location = new System.Drawing.Point(131, 1);
-            this.categorie_nom_box.CustomButton.Name = "";
-            this.categorie_nom_box.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.categorie_nom_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.categorie_nom_box.CustomButton.TabIndex = 1;
-            this.categorie_nom_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.categorie_nom_box.CustomButton.UseSelectable = true;
-            this.categorie_nom_box.CustomButton.Visible = false;
-            this.categorie_nom_box.Lines = new string[0];
-            this.categorie_nom_box.Location = new System.Drawing.Point(137, 49);
-            this.categorie_nom_box.MaxLength = 32767;
-            this.categorie_nom_box.Name = "categorie_nom_box";
-            this.categorie_nom_box.PasswordChar = '\0';
-            this.categorie_nom_box.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.categorie_nom_box.SelectedText = "";
-            this.categorie_nom_box.SelectionLength = 0;
-            this.categorie_nom_box.SelectionStart = 0;
-            this.categorie_nom_box.ShortcutsEnabled = true;
-            this.categorie_nom_box.Size = new System.Drawing.Size(153, 23);
-            this.categorie_nom_box.TabIndex = 40;
-            this.categorie_nom_box.UseSelectable = true;
-            this.categorie_nom_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.categorie_nom_box.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // Categories
             // 
@@ -260,5 +276,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.Button button3;
         private MetroFramework.Controls.MetroTextBox categorie_nom_box;
+        private System.Windows.Forms.Button button4;
     }
 }

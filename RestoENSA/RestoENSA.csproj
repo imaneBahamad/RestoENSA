@@ -135,6 +135,12 @@
     <Compile Include="Categories.Designer.cs">
       <DependentUpon>Categories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Commande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Commande.Designer.cs">
+      <DependentUpon>Commande.cs</DependentUpon>
+    </Compile>
     <Compile Include="CryptographyProcessor.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="Ex.cs" />
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commande.resx">
+      <DependentUpon>Commande.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionServeurs.resx">
       <DependentUpon>GestionServeurs.cs</DependentUpon>

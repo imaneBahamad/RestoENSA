@@ -45,29 +45,25 @@ namespace RestoENSA
 
         private void ajouter_categorie_button(object sender, EventArgs e)
         {
-            bool verify1;
+            
             try
             {
-                int id = 0;
+                
                 string nom = "";
-                verify1 = int.TryParse(categorie_code_box.Text, out id); if (!verify1) { throw new Ex("le code doit etre un nombre entier ! "); }
+                
                 if (string.IsNullOrWhiteSpace(categorie_nom_box.Text)) { throw new Ex("vous devez remplir le champ nom!!"); } else { nom = categorie_nom_box.Text; }
 
-                if (db.check_Existence("Categorie", id.ToString()))
+                if (db.check_Existence("Categorie", categorie_code_box.Text))
                 {
-                    MessageBox.Show("la categorie du code " + id + " existe deja !");
+                    MessageBox.Show("la Categorie du code " + categorie_code_box.Text + " existe deja \n pour la modifier cliquer sur Modifier !");
                 }
                 else
                 {
-                    
-                    db.Ajouter_Categorie(id, nom);
+                    db.Ajouter_Categorie(nom);
                     MessageBox.Show("Succes!");
                     ClearTextBoxes();
                     db.Afficher_Categorie(Categorie_grid);
-
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -79,26 +75,21 @@ namespace RestoENSA
 
         private void modifier_categorie_button(object sender, EventArgs e)
         {
-            bool verify1;
             try
             {
                 int id = 0;
                 string nom = "";
-                verify1 = int.TryParse(categorie_code_box.Text, out id); if (!verify1) { throw new Ex("le code doit etre un nombre entier ! "); }
+
+                if (string.IsNullOrWhiteSpace(categorie_code_box.Text)) { throw new Ex("vous devez selectionner la commande \n que vous voulez modifier !!"); } else { id = int.Parse(categorie_code_box.Text); }
                 if (string.IsNullOrWhiteSpace(categorie_nom_box.Text)) { throw new Ex("vous devez remplir le champ nom!!"); } else { nom = categorie_nom_box.Text; }
 
-                if (!db.check_Existence("Categorie", id.ToString()))
-                {
-                    MessageBox.Show("la categorie du code " + id + " n'existe pas pour le modifier !");
-                }
-                else
-                {
-                    db.Modifier_Categorie(id, nom);
-                    MessageBox.Show("Succes!");
-                    ClearTextBoxes();
-                    db.Afficher_Categorie(Categorie_grid);
+               
+                db.Modifier_Categorie(id, nom);
+                MessageBox.Show("Succes!");
+                ClearTextBoxes();
+                db.Afficher_Categorie(Categorie_grid);
 
-                }
+                
 
             }
             catch (Exception ex)
@@ -115,7 +106,7 @@ namespace RestoENSA
                 string id = categorie_code_box.Text;
 
                 //verifier si le text box est non vide || verifier si le code existe
-                if (!db.check_Existence("Categorie", id) || string.IsNullOrWhiteSpace(id)) { throw new Ex("vous devez remplir le champ id!"); }
+                if (string.IsNullOrWhiteSpace(id)) { throw new Ex("vous devez selectionner la categorie\nque vous voulez supprimer!"); }
 
 
                 //verifier si la categorie ne contient aucun plat
@@ -124,11 +115,19 @@ namespace RestoENSA
                 if (verify != 0) { throw new Ex("la categorie que vous voulez supprimer contient des plats!"); }
                 else
                 {
-                    int code = int.Parse(id);
-                    MessageBox.Show("Succes!");
-                    db.Supprimer_Categorie(code);
-                    ClearTextBoxes();
-                    db.Afficher_Categorie(Categorie_grid);
+                    if (MessageBox.Show("Voulez vous vraiment supprimer cette Categorie ?", "Supprimer Categorie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                    {
+                        int code = int.Parse(id);
+                        db.Supprimer_Categorie(code);
+                        ClearTextBoxes();
+                        db.Afficher_Categorie(Categorie_grid);
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Categorie non Supprimée !", "Spprimer Categorie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
 
 
@@ -142,6 +141,26 @@ namespace RestoENSA
         }
 
         private void Categorie_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.Categorie_grid.Rows[e.RowIndex];
+
+                categorie_code_box.Text = row.Cells["id_categorie"].Value.ToString();
+                categorie_nom_box.Text = row.Cells["nom_categorie"].Value.ToString();
+
+
+            }
+        }
+
+        //vider les champs button
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
+        }
+
+        private void Categorie_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
