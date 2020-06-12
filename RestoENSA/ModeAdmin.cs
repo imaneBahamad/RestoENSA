@@ -27,13 +27,15 @@ namespace RestoENSA
         private void gestion_serveurs_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new GestionServeurs().Show();
+            new GestionServeur().Show();
         }
+
+        public Form RefToAuthentication { get; set; }
 
         private void logout_btn_Click(object sender, EventArgs e)
         {
             this.Close();
-            new Authentification().Show();
+            this.RefToAuthentication.Show();
         }
 
         private void gestion_plat_click(object sender, EventArgs e)
@@ -52,6 +54,18 @@ namespace RestoENSA
         {
             Tables t = new Tables();
             t.ShowDialog();
+        }
+
+        private void Gestion_chefs_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new GestionChefs().Show();
+        }
+
+        private void Gestion_horaire_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new GestionHoraires().Show();
         }
     }
 }

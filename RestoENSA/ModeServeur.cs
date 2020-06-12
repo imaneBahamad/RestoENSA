@@ -24,10 +24,12 @@ namespace RestoENSA
 
         }
 
+        public Form RefToAuthentication { get; set; }
+
         private void logout_btn_Click(object sender, EventArgs e)
         {
             this.Close();
-            new Authentification().Show();
+            this.RefToAuthentication.Show();
         }
 
         private void Ajouter_Cmd(object sender, EventArgs e)

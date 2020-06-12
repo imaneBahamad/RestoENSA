@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -140,7 +139,7 @@ namespace RestoENSA
 
         }
 
-        private void Categorie_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Categorie_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {

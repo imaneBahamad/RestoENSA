@@ -9,10 +9,6 @@ namespace RestoENSA
 {
     class Ex : Exception 
     {
-        public Ex()
-        {
-
-        }
         public Ex(string message) : base(message)
         {
             MessageBox.Show(message);
@@ -20,13 +16,6 @@ namespace RestoENSA
 
         public Ex(string message, Exception innerException) : base(message, innerException)
         {
-        }
-
-       
-
-        public void DisplayError()
-        {
-
         }
     }
 }

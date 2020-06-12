@@ -18,7 +18,8 @@ namespace RestoENSA
 
         public DBConnect()
         {
-            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\HP\Desktop\ProjectCsharp\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True");
+
             if(conn.State != ConnectionState.Open )
             {
                 conn.Open();
@@ -50,14 +51,9 @@ namespace RestoENSA
                 }
 
             }
-
-
-
             grid.Columns["id_plat"].Visible = false;
             grid.Columns["id_categorie"].Visible = false;
             grid.Columns["disponible"].Visible = false;
-
-
         }
 
         public void Afficher_Plat_ParFiltre(MetroFramework.Controls.MetroGrid grid, string nom_categorie)
@@ -87,8 +83,6 @@ namespace RestoENSA
 
             }
 
-
-
             grid.Columns["id_plat"].Visible = false;
             grid.Columns["id_categorie"].Visible = false;
             grid.Columns["disponible"].Visible = false;
@@ -108,8 +102,6 @@ namespace RestoENSA
             cmd.Parameters.Clear();
             int id = int.Parse(ds.Tables[0].Rows[0][0].ToString());
             return id;
-
-
         }
 
         //categorie_code_nom return the nom of the categorie's id given in input
@@ -143,24 +135,23 @@ namespace RestoENSA
             {
                 combo.Items.Add(x[0].ToString());
             }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 544ada041b62e72a26e877a01af89ffa72433174
         }
 
         
 
         public void Fill_Disponible(MetroFramework.Controls.MetroComboBox combo)
         {
-
             combo.Items.Clear();
             combo.ResetText();
             combo.Items.Add("disponible");
             combo.Items.Add("non disponible");
             combo.SelectedItem = "disponible";
-
-
-
         }
 
         public void Ajouter_Plat( string nom_plat, float prix, int var_disponible, string categorie)
@@ -173,10 +164,9 @@ namespace RestoENSA
             cmd.Parameters.AddWithValue("@categorie", code_categorie);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
-            cmd.Parameters.Clear();
-
-            
+            cmd.Parameters.Clear();     
         }
+
         public void Modifier_Plat(int id_plat, string nom_plat, float prix,int var_disponible, string categorie)
         {
             int code_categorie = Categorie_Nom_Code(categorie);
@@ -233,7 +223,6 @@ namespace RestoENSA
             }
             return false;
 
-
         }
 
 
@@ -259,6 +248,7 @@ namespace RestoENSA
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();
         }
+
         public void Modifier_Categorie(int id, string nom)
         {
             cmd = new SqlCommand("update Categorie set nom_categorie=@nom where id_categorie=@id ",conn);
@@ -299,16 +289,13 @@ namespace RestoENSA
         {
 
             cmd = new SqlCommand("SELECT id_table,reservee FROM Tablee", conn);
+
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             ds = new DataSet();
             adapt.Fill(ds);
 
-            ds.Tables[0].Columns.Add("Reservation", typeof(string));
-            grid.DataSource = ds.Tables[0];
-
-
-            
+            ds.Tables[0].Columns.Add("Reservation", typeof(string));            
 
             grid.DataSource = ds.Tables[0];
             grid.Columns["reservee"].Visible = false;
@@ -324,8 +311,6 @@ namespace RestoENSA
                 }
 
             }
-            
-
         }
 
         public void Ajouter_Table(int id)

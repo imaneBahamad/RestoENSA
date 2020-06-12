@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +13,6 @@ namespace RestoENSA
     public partial class Plats : MetroFramework.Forms.MetroForm
     {
         DBConnect db;
-
 
         public Plats()
         {
@@ -49,13 +47,6 @@ namespace RestoENSA
             func(Controls);
         }
 
-       
-
-        
-
-
-
-
         private void ajouter_plat_button(object sender, EventArgs e)
         {
             bool verify2;
@@ -87,9 +78,13 @@ namespace RestoENSA
                     db.Ajouter_Plat(nom, prix, var_disponible, categorie);
                     MessageBox.Show("succes!!");
 
-
                     ClearTextBoxes();
                     db.Afficher_Plat(plat_grid);
+<<<<<<< HEAD
+=======
+                    db.Fill_Disponible(disponible_combo);
+
+>>>>>>> 544ada041b62e72a26e877a01af89ffa72433174
                 }
 
                 
@@ -147,6 +142,7 @@ namespace RestoENSA
             string code = code_plat_box.Text;
             try
             {
+<<<<<<< HEAD
 
                 if (string.IsNullOrWhiteSpace(code)) { throw new Ex("vous devez selectionner le palt\nque vous voulez supprimer!"); }
 
@@ -167,6 +163,14 @@ namespace RestoENSA
 
             }catch(Exception ex)
             {
+=======
+                int id = int.Parse(code);
+                db.Supprimer_Plat(id);
+                db.Afficher_Plat(plat_grid);
+                db.Fill_Disponible(disponible_combo);
+                ClearTextBoxes();
+                MessageBox.Show("succes!!");
+>>>>>>> 544ada041b62e72a26e877a01af89ffa72433174
 
             }
         }
@@ -189,7 +193,7 @@ namespace RestoENSA
             }
         }
 
-        private void plat_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void plat_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -204,9 +208,9 @@ namespace RestoENSA
                 int codeCat = int.Parse(row.Cells["id_categorie"].Value.ToString());
                 categorie_box.SelectedItem = db.Categorie_Code_Nom(codeCat);//remember that 'Categorie_Code_Nom' return the name of the categorie's code given in input
 
-
             }
         }
+<<<<<<< HEAD
 
         // vider les champs button
         private void button4_Click(object sender, EventArgs e)
@@ -232,5 +236,7 @@ namespace RestoENSA
 
             }
         }
+=======
+>>>>>>> 544ada041b62e72a26e877a01af89ffa72433174
     }
 }
