@@ -1,6 +1,6 @@
 ﻿namespace RestoENSA
 {
-    partial class GestionServeurs
+    partial class GestionHoraires
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionServeurs));
-            this.ajouter_btn = new MetroFramework.Controls.MetroButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionHoraires));
             this.retour_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // ajouter_btn
-            // 
-            this.ajouter_btn.Location = new System.Drawing.Point(874, 119);
-            this.ajouter_btn.Name = "ajouter_btn";
-            this.ajouter_btn.Size = new System.Drawing.Size(104, 52);
-            this.ajouter_btn.TabIndex = 0;
-            this.ajouter_btn.Text = "Ajouter";
-            this.ajouter_btn.UseSelectable = true;
-            this.ajouter_btn.Click += new System.EventHandler(this.ajouter_btn_Click);
             // 
             // retour_btn
             // 
@@ -49,30 +38,28 @@
             this.retour_btn.FlatAppearance.BorderSize = 0;
             this.retour_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.retour_btn.Image = ((System.Drawing.Image)(resources.GetObject("retour_btn.Image")));
-            this.retour_btn.Location = new System.Drawing.Point(33, 73);
+            this.retour_btn.Location = new System.Drawing.Point(31, 76);
+            this.retour_btn.Margin = new System.Windows.Forms.Padding(2);
             this.retour_btn.Name = "retour_btn";
-            this.retour_btn.Size = new System.Drawing.Size(53, 54);
+            this.retour_btn.Size = new System.Drawing.Size(44, 44);
             this.retour_btn.TabIndex = 18;
             this.retour_btn.UseVisualStyleBackColor = false;
             this.retour_btn.Click += new System.EventHandler(this.retour_btn_Click);
             // 
-            // GestionServeurs
+            // GestionHoraires
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 565);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.retour_btn);
-            this.Controls.Add(this.ajouter_btn);
-            this.Name = "GestionServeurs";
-            this.Text = "GestionServeurs";
-            this.Load += new System.EventHandler(this.GestionServeurs_Load);
+            this.Name = "GestionHoraires";
+            this.Text = "GestionHoraires";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroButton ajouter_btn;
         private System.Windows.Forms.Button retour_btn;
     }
 }
