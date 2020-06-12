@@ -27,7 +27,7 @@ namespace RestoENSA
         private void gestion_serveurs_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new GestionServeurs().Show();
+            new GestionServeur().Show();
         }
 
         private void logout_btn_Click(object sender, EventArgs e)
