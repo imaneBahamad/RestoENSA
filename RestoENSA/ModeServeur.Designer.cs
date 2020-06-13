@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModeServeur));
             this.logout_btn = new System.Windows.Forms.Button();
             this.bienvenue_lbl = new MetroFramework.Controls.MetroLabel();
+            this.réserver_btn = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // logout_btn
@@ -53,11 +54,22 @@
             this.bienvenue_lbl.Size = new System.Drawing.Size(441, 36);
             this.bienvenue_lbl.TabIndex = 3;
             // 
+            // réserver_btn
+            // 
+            this.réserver_btn.Location = new System.Drawing.Point(191, 137);
+            this.réserver_btn.Name = "réserver_btn";
+            this.réserver_btn.Size = new System.Drawing.Size(152, 64);
+            this.réserver_btn.TabIndex = 4;
+            this.réserver_btn.Text = "Réservation";
+            this.réserver_btn.UseSelectable = true;
+            this.réserver_btn.Click += new System.EventHandler(this.réserver_btn_Click);
+            // 
             // ModeServeur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 604);
+            this.Controls.Add(this.réserver_btn);
             this.Controls.Add(this.bienvenue_lbl);
             this.Controls.Add(this.logout_btn);
             this.Name = "ModeServeur";
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.Button logout_btn;
         private MetroFramework.Controls.MetroLabel bienvenue_lbl;
+        private MetroFramework.Controls.MetroButton réserver_btn;
     }
 }
