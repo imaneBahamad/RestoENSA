@@ -81,9 +81,7 @@ namespace RestoENSA
                     ClearTextBoxes();
                     db.Afficher_Plat(plat_grid);
                     db.Fill_Disponible(disponible_combo);
-                }
-
-                
+                }              
             }
             catch (Exception ex)
 
@@ -138,7 +136,7 @@ namespace RestoENSA
             string code = code_plat_box.Text;
             try
             {
-                if (string.IsNullOrWhiteSpace(code)) { throw new Ex("vous devez selectionner le palt\nque vous voulez supprimer!"); }
+                if (string.IsNullOrWhiteSpace(code)) { throw new Ex("vous devez selectionner le plat\nque vous voulez supprimer!"); }
 
                 if (MessageBox.Show("Voulez vous vraiment supprimer ce plat ?", "Supprimer Plat", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 
@@ -146,8 +144,7 @@ namespace RestoENSA
                     int id = int.Parse(code);
                     db.Supprimer_Plat(id);
                     db.Afficher_Plat(plat_grid);
-                    ClearTextBoxes();
-                    
+                    ClearTextBoxes();            
                 }
 
                 else
@@ -163,7 +160,6 @@ namespace RestoENSA
                 db.Fill_Disponible(disponible_combo);
                 ClearTextBoxes();
                 MessageBox.Show("succes!!");
-
             }
         }
 
@@ -204,9 +200,13 @@ namespace RestoENSA
         }
 
         // vider les champs button
+
         private void button4_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
+
         }
+
+
     }
 }

@@ -880,6 +880,10 @@ namespace RestoENSA {
             
             private global::System.Data.DataColumn columnhoraire_shift2;
             
+            private global::System.Data.DataColumn columndebut_semaine;
+            
+            private global::System.Data.DataColumn columnfin_semaine;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CalendrierDataTable() {
@@ -939,6 +943,22 @@ namespace RestoENSA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn debut_semaineColumn {
+                get {
+                    return this.columndebut_semaine;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn fin_semaineColumn {
+                get {
+                    return this.columnfin_semaine;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -974,12 +994,14 @@ namespace RestoENSA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CalendrierRow AddCalendrierRow(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2) {
+            public CalendrierRow AddCalendrierRow(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine) {
                 CalendrierRow rowCalendrierRow = ((CalendrierRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         numero_semaine,
                         horaire_shift1,
-                        horaire_shift2};
+                        horaire_shift2,
+                        debut_semaine,
+                        fin_semaine};
                 rowCalendrierRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCalendrierRow);
                 return rowCalendrierRow;
@@ -1012,6 +1034,8 @@ namespace RestoENSA {
                 this.columnnumero_semaine = base.Columns["numero_semaine"];
                 this.columnhoraire_shift1 = base.Columns["horaire_shift1"];
                 this.columnhoraire_shift2 = base.Columns["horaire_shift2"];
+                this.columndebut_semaine = base.Columns["debut_semaine"];
+                this.columnfin_semaine = base.Columns["fin_semaine"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1023,12 +1047,18 @@ namespace RestoENSA {
                 base.Columns.Add(this.columnhoraire_shift1);
                 this.columnhoraire_shift2 = new global::System.Data.DataColumn("horaire_shift2", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhoraire_shift2);
+                this.columndebut_semaine = new global::System.Data.DataColumn("debut_semaine", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndebut_semaine);
+                this.columnfin_semaine = new global::System.Data.DataColumn("fin_semaine", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfin_semaine);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnumero_semaine}, true));
                 this.columnnumero_semaine.AllowDBNull = false;
                 this.columnnumero_semaine.Unique = true;
                 this.columnhoraire_shift1.AllowDBNull = false;
                 this.columnhoraire_shift2.AllowDBNull = false;
+                this.columndebut_semaine.AllowDBNull = false;
+                this.columnfin_semaine.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3111,6 +3141,28 @@ namespace RestoENSA {
                     this[this.tableCalendrier.horaire_shift2Column] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime debut_semaine {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCalendrier.debut_semaineColumn]));
+                }
+                set {
+                    this[this.tableCalendrier.debut_semaineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime fin_semaine {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCalendrier.fin_semaineColumn]));
+                }
+                set {
+                    this[this.tableCalendrier.fin_semaineColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -4378,35 +4430,43 @@ SELECT id_admin, nom_admin, login, mdp, salt FROM Admin WHERE (id_admin = @id_ad
             tableMapping.ColumnMappings.Add("numero_semaine", "numero_semaine");
             tableMapping.ColumnMappings.Add("horaire_shift1", "horaire_shift1");
             tableMapping.ColumnMappings.Add("horaire_shift2", "horaire_shift2");
+            tableMapping.ColumnMappings.Add("debut_semaine", "debut_semaine");
+            tableMapping.ColumnMappings.Add("fin_semaine", "fin_semaine");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Calendrier] WHERE (([numero_semaine] = @Original_numero_semain" +
-                "e) AND ([horaire_shift1] = @Original_horaire_shift1) AND ([horaire_shift2] = @Or" +
-                "iginal_horaire_shift2))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Calendrier] WHERE (([numero_semaine] = @Original_numero_semaine) AND ([horaire_shift1] = @Original_horaire_shift1) AND ([horaire_shift2] = @Original_horaire_shift2) AND ([debut_semaine] = @Original_debut_semaine) AND ([fin_semaine] = @Original_fin_semaine))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Calendrier] ([numero_semaine], [horaire_shift1], [horaire_shift2]) VALUES (@numero_semaine, @horaire_shift1, @horaire_shift2);
-SELECT numero_semaine, horaire_shift1, horaire_shift2 FROM Calendrier WHERE (numero_semaine = @numero_semaine)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Calendrier] ([numero_semaine], [horaire_shift1], [horaire_shift2], [debut_semaine], [fin_semaine]) VALUES (@numero_semaine, @horaire_shift1, @horaire_shift2, @debut_semaine, @fin_semaine);
+SELECT numero_semaine, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine FROM Calendrier WHERE (numero_semaine = @numero_semaine)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Calendrier] SET [numero_semaine] = @numero_semaine, [horaire_shift1] = @horaire_shift1, [horaire_shift2] = @horaire_shift2 WHERE (([numero_semaine] = @Original_numero_semaine) AND ([horaire_shift1] = @Original_horaire_shift1) AND ([horaire_shift2] = @Original_horaire_shift2));
-SELECT numero_semaine, horaire_shift1, horaire_shift2 FROM Calendrier WHERE (numero_semaine = @numero_semaine)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Calendrier] SET [numero_semaine] = @numero_semaine, [horaire_shift1] = @horaire_shift1, [horaire_shift2] = @horaire_shift2, [debut_semaine] = @debut_semaine, [fin_semaine] = @fin_semaine WHERE (([numero_semaine] = @Original_numero_semaine) AND ([horaire_shift1] = @Original_horaire_shift1) AND ([horaire_shift2] = @Original_horaire_shift2) AND ([debut_semaine] = @Original_debut_semaine) AND ([fin_semaine] = @Original_fin_semaine));
+SELECT numero_semaine, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine FROM Calendrier WHERE (numero_semaine = @numero_semaine)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4422,7 +4482,8 @@ SELECT numero_semaine, horaire_shift1, horaire_shift2 FROM Calendrier WHERE (num
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT numero_semaine, horaire_shift1, horaire_shift2 FROM dbo.Calendrier";
+            this._commandCollection[0].CommandText = "SELECT numero_semaine, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine" +
+                " FROM Calendrier";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4483,10 +4544,12 @@ SELECT numero_semaine, horaire_shift1, horaire_shift2 FROM Calendrier WHERE (num
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2) {
+        public virtual int Delete(int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_numero_semaine));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.TimeSpan)(Original_horaire_shift1));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((System.TimeSpan)(Original_horaire_shift2));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_debut_semaine));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_fin_semaine));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4507,10 +4570,12 @@ SELECT numero_semaine, horaire_shift1, horaire_shift2 FROM Calendrier WHERE (num
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2) {
+        public virtual int Insert(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(numero_semaine));
             this.Adapter.InsertCommand.Parameters[1].Value = ((System.TimeSpan)(horaire_shift1));
             this.Adapter.InsertCommand.Parameters[2].Value = ((System.TimeSpan)(horaire_shift2));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(debut_semaine));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(fin_semaine));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4531,13 +4596,17 @@ SELECT numero_semaine, horaire_shift1, horaire_shift2 FROM Calendrier WHERE (num
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2) {
+        public virtual int Update(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine, int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(numero_semaine));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((System.TimeSpan)(horaire_shift1));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((System.TimeSpan)(horaire_shift2));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_numero_semaine));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.TimeSpan)(Original_horaire_shift1));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.TimeSpan)(Original_horaire_shift2));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(debut_semaine));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(fin_semaine));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_numero_semaine));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.TimeSpan)(Original_horaire_shift1));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.TimeSpan)(Original_horaire_shift2));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_debut_semaine));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_fin_semaine));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4558,8 +4627,8 @@ SELECT numero_semaine, horaire_shift1, horaire_shift2 FROM Calendrier WHERE (num
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2) {
-            return this.Update(Original_numero_semaine, horaire_shift1, horaire_shift2, Original_numero_semaine, Original_horaire_shift1, Original_horaire_shift2);
+        public virtual int Update(System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine, int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine) {
+            return this.Update(Original_numero_semaine, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine, Original_numero_semaine, Original_horaire_shift1, Original_horaire_shift2, Original_debut_semaine, Original_fin_semaine);
         }
     }
     

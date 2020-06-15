@@ -107,7 +107,7 @@ namespace RestoENSA
                         da.Fill(dt);
                         if (dt.Rows.Count == 1 && dt.Rows[0].Field<bool>("reservee") == true)
                         {
-                            SqlCommand command2 = new SqlCommand("UPDATE Tablee SET reservee = 0 WHERE id_table = @id", connexion);
+                            SqlCommand command2 = new SqlCommand("UPDATE Tablee SET reservee = 0 and nom_serveur = '-' WHERE id_table = @id", connexion);
                             SqlCommand command3 = new SqlCommand("DELETE FROM Commande WHERE id_table = @id", connexion);
 
                             command2.Parameters.AddWithValue("@id", Convert.ToInt32(reservation_box.SelectedItem));

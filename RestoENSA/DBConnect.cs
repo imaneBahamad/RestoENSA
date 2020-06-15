@@ -127,6 +127,7 @@ namespace RestoENSA
             combo.ResetText();
             cmd = new SqlCommand("SELECT nom_categorie FROM Categorie", conn);
             adapt = new SqlDataAdapter(cmd);
+
             cmd.ExecuteNonQuery();
             ds = new DataSet();
             adapt.Fill(ds);
@@ -361,8 +362,8 @@ namespace RestoENSA
 
             combo.Items.Clear();
             combo.ResetText();
-            cmd = new SqlCommand("SELECT id_table FROM Tablee where reservee = 'True' and nom_serveur = '-' or nom_serveur = '"+
-                Authentification.user_info[1] + "'", conn);
+            cmd = new SqlCommand("SELECT id_table FROM Tablee where reservee = 'True' and (nom_serveur = '-' or nom_serveur = '"+
+                Authentification.user_info[1] + "')", conn);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             ds = new DataSet();

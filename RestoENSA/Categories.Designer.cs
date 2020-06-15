@@ -59,23 +59,24 @@
             this.PanelInfo.HorizontalScrollbarBarColor = true;
             this.PanelInfo.HorizontalScrollbarHighlightOnWheel = false;
             this.PanelInfo.HorizontalScrollbarSize = 12;
-            this.PanelInfo.Location = new System.Drawing.Point(31, 78);
-            this.PanelInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.PanelInfo.Location = new System.Drawing.Point(31, 74);
+            this.PanelInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelInfo.Name = "PanelInfo";
-            this.PanelInfo.Size = new System.Drawing.Size(1012, 368);
+            this.PanelInfo.Size = new System.Drawing.Size(1235, 386);
             this.PanelInfo.TabIndex = 43;
             this.PanelInfo.UseCustomBackColor = true;
             this.PanelInfo.UseCustomForeColor = true;
             this.PanelInfo.UseStyleColors = true;
             this.PanelInfo.VerticalScrollbarBarColor = true;
             this.PanelInfo.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelInfo.VerticalScrollbarSize = 13;
+            this.PanelInfo.VerticalScrollbarSize = 17;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(125, 233);
+            this.button4.Location = new System.Drawing.Point(139, 283);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 23);
+            this.button4.Size = new System.Drawing.Size(200, 28);
             this.button4.TabIndex = 81;
             this.button4.Text = "Vider les Champs";
             this.button4.UseVisualStyleBackColor = true;
@@ -87,18 +88,18 @@
             // 
             // 
             this.categorie_nom_box.CustomButton.Image = null;
-            this.categorie_nom_box.CustomButton.Location = new System.Drawing.Point(181, 1);
-            this.categorie_nom_box.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.categorie_nom_box.CustomButton.Location = new System.Drawing.Point(327, 2);
+            this.categorie_nom_box.CustomButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.categorie_nom_box.CustomButton.Name = "";
-            this.categorie_nom_box.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.categorie_nom_box.CustomButton.Size = new System.Drawing.Size(31, 28);
             this.categorie_nom_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.categorie_nom_box.CustomButton.TabIndex = 1;
             this.categorie_nom_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.categorie_nom_box.CustomButton.UseSelectable = true;
             this.categorie_nom_box.CustomButton.Visible = false;
             this.categorie_nom_box.Lines = new string[0];
-            this.categorie_nom_box.Location = new System.Drawing.Point(181, 112);
-            this.categorie_nom_box.Margin = new System.Windows.Forms.Padding(4);
+            this.categorie_nom_box.Location = new System.Drawing.Point(190, 142);
+            this.categorie_nom_box.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.categorie_nom_box.MaxLength = 32767;
             this.categorie_nom_box.Name = "categorie_nom_box";
             this.categorie_nom_box.PasswordChar = '\0';
@@ -107,7 +108,7 @@
             this.categorie_nom_box.SelectionLength = 0;
             this.categorie_nom_box.SelectionStart = 0;
             this.categorie_nom_box.ShortcutsEnabled = true;
-            this.categorie_nom_box.Size = new System.Drawing.Size(203, 23);
+            this.categorie_nom_box.Size = new System.Drawing.Size(271, 28);
             this.categorie_nom_box.TabIndex = 40;
             this.categorie_nom_box.UseSelectable = true;
             this.categorie_nom_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -115,8 +116,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(154, 198);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(190, 246);
+            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 39;
@@ -130,8 +131,8 @@
             this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel1.Location = new System.Drawing.Point(31, 115);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel1.Location = new System.Drawing.Point(19, 142);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(115, 20);
             this.metroLabel1.TabIndex = 37;
@@ -168,8 +169,8 @@
             this.Categorie_grid.EnableHeadersVisualStyles = false;
             this.Categorie_grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Categorie_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Categorie_grid.Location = new System.Drawing.Point(397, 16);
-            this.Categorie_grid.Margin = new System.Windows.Forms.Padding(4);
+            this.Categorie_grid.Location = new System.Drawing.Point(497, 17);
+            this.Categorie_grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Categorie_grid.Name = "Categorie_grid";
             this.Categorie_grid.ReadOnly = true;
             this.Categorie_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -184,14 +185,14 @@
             this.Categorie_grid.RowHeadersWidth = 51;
             this.Categorie_grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Categorie_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Categorie_grid.Size = new System.Drawing.Size(608, 346);
+            this.Categorie_grid.Size = new System.Drawing.Size(714, 340);
             this.Categorie_grid.TabIndex = 36;
             this.Categorie_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Categorie_grid_CellClick);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(260, 198);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(300, 246);
+            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 35;
@@ -201,8 +202,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(46, 198);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(80, 246);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 34;
@@ -217,8 +218,8 @@
             // 
             // 
             this.categorie_code_box.CustomButton.Image = null;
-            this.categorie_code_box.CustomButton.Location = new System.Drawing.Point(179, 2);
-            this.categorie_code_box.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.categorie_code_box.CustomButton.Location = new System.Drawing.Point(245, 2);
+            this.categorie_code_box.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.categorie_code_box.CustomButton.Name = "";
             this.categorie_code_box.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.categorie_code_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -228,8 +229,8 @@
             this.categorie_code_box.CustomButton.Visible = false;
             this.categorie_code_box.Enabled = false;
             this.categorie_code_box.Lines = new string[0];
-            this.categorie_code_box.Location = new System.Drawing.Point(181, 40);
-            this.categorie_code_box.Margin = new System.Windows.Forms.Padding(4);
+            this.categorie_code_box.Location = new System.Drawing.Point(190, 54);
+            this.categorie_code_box.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.categorie_code_box.MaxLength = 32767;
             this.categorie_code_box.Name = "categorie_code_box";
             this.categorie_code_box.PasswordChar = '\0';
@@ -238,7 +239,7 @@
             this.categorie_code_box.SelectionLength = 0;
             this.categorie_code_box.SelectionStart = 0;
             this.categorie_code_box.ShortcutsEnabled = true;
-            this.categorie_code_box.Size = new System.Drawing.Size(205, 28);
+            this.categorie_code_box.Size = new System.Drawing.Size(271, 28);
             this.categorie_code_box.TabIndex = 15;
             this.categorie_code_box.UseCustomBackColor = true;
             this.categorie_code_box.UseSelectable = true;
@@ -250,9 +251,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 469);
+            this.ClientSize = new System.Drawing.Size(1273, 491);
             this.Controls.Add(this.PanelInfo);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Categories";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Categorie";
