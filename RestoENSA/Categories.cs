@@ -158,18 +158,5 @@ namespace RestoENSA
         {
             ClearTextBoxes();
         }
-
-        private void Categorie_grid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.Categorie_grid.Rows[e.RowIndex];
-
-                categorie_code_box.Text = row.Cells["id_categorie"].Value.ToString();
-                categorie_nom_box.Text = row.Cells["nom_categorie"].Value.ToString();
-
-
-            }
-        }
     }
 }

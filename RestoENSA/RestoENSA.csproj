@@ -183,15 +183,9 @@
     <EmbeddedResource Include="Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Commande.resx">
       <DependentUpon>Commande.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionServeurs.resx">
-      <DependentUpon>GestionServeurs.cs</DependentUpon>
-    </EmbeddedResource>
-=======
->>>>>>> 544ada041b62e72a26e877a01af89ffa72433174
     <EmbeddedResource Include="ModeAdmin.resx">
       <DependentUpon>ModeAdmin.cs</DependentUpon>
     </EmbeddedResource>
