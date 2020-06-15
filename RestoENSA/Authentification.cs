@@ -38,7 +38,7 @@ namespace RestoENSA
                 {
                     string salt = cp.CreateSalt(15);
                     string passwordHash = cp.GenerateHash("admin", salt);
-                    SqlCommand command2 = new SqlCommand("Insert into Admin (nom_admin,login,mdp,salt) values ('Administrateur','admin','"+ passwordHash +"','" + salt + "')", connexion);
+                    SqlCommand command2 = new SqlCommand("Insert into Admin (nom_admin,login,mdp,salt) values ('Administrateur','admin','" + passwordHash + "','" + salt + "')", connexion);
                     command2.ExecuteNonQuery();
                 }
             }
@@ -56,51 +56,63 @@ namespace RestoENSA
         {
             using (SqlConnection connexion = new SqlConnection(connectionString))
             {
-                if (qui_combo.SelectedItem.Equals("Admin"))
+                try
                 {
-                    SqlCommand command = new SqlCommand("Select * from Admin where login = '" + utilisateur_txt.Text + "'", connexion);
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    if (dt.Rows.Count == 1 && cp.AreEqual(mdp_txt.Text, dt.Rows[0].Field<string>("mdp"), dt.Rows[0].Field<string>("salt")))
+                    if (qui_combo.SelectedIndex == -1 || utilisateur_txt.Text == "" || mdp_txt.Text == "")
                     {
-                        user_info[0] = dt.Rows[0].Field<int?>("id_admin");
-                        user_info[1] = dt.Rows[0].Field<string>("nom_admin");
-                        user_info[2] = dt.Rows[0].Field<string>("login");
+                        throw new Ex("Veuillez remplir les champs !!");
+                    }
+                    if (qui_combo.SelectedItem.Equals("Admin"))
+                    {
+                        SqlCommand command = new SqlCommand("Select * from Admin where login = '" + utilisateur_txt.Text + "'", connexion);
+                        SqlDataAdapter da = new SqlDataAdapter(command);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt.Rows.Count == 1 && cp.AreEqual(mdp_txt.Text, dt.Rows[0].Field<string>("mdp"), dt.Rows[0].Field<string>("salt")))
+                        {
+                            user_info[0] = dt.Rows[0].Field<int?>("id_admin");
+                            user_info[1] = dt.Rows[0].Field<string>("nom_admin");
+                            user_info[2] = dt.Rows[0].Field<string>("login");
 
-                        ModeAdmin admin_mode = new ModeAdmin("Bienvenue "+ user_info[1] +" !");
-                        admin_mode.RefToAuthentication = this;
-                        this.Hide();
-                        admin_mode.Show();
+                            ModeAdmin admin_mode = new ModeAdmin("Bienvenue " + user_info[1] + " !");
+                            admin_mode.RefToAuthentication = this;
+                            this.Hide();
+                            admin_mode.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Verifie ton nom d'utilisateur/mot de passe");
+                        }
                     }
-                    else
+                    else if (qui_combo.SelectedItem.Equals("Serveur"))
                     {
-                        MessageBox.Show("Verifie ton nom d'utilisateur/mot de passe");
+                        SqlCommand command = new SqlCommand("Select * from Serveur where login = '" + utilisateur_txt.Text + "'", connexion);
+                        SqlDataAdapter da = new SqlDataAdapter(command);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        if (dt.Rows.Count == 1 && cp.AreEqual(mdp_txt.Text, dt.Rows[0].Field<string>("mdp"), dt.Rows[0].Field<string>("salt")))
+                        {
+                            user_info[0] = dt.Rows[0].Field<int?>("id_serveur");
+                            user_info[1] = dt.Rows[0].Field<string>("nom_serveur");
+                            user_info[2] = dt.Rows[0].Field<string>("login");
+
+                            ModeServeur serveur_mode = new ModeServeur("Bienvenue " + user_info[1] + " !");
+                            serveur_mode.RefToAuthentication = this;
+                            this.Hide();
+                            serveur_mode.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Verifie ton nom d'utilisateur/mot de passe");
+                        }
                     }
+                    vider();
+
                 }
-                else if (qui_combo.SelectedItem.Equals("Serveur"))
+                catch (Exception ex)
                 {
-                    SqlCommand command = new SqlCommand("Select * from Serveur where login = '" + utilisateur_txt.Text +  "'", connexion);
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    if(dt.Rows.Count == 1 && cp.AreEqual(mdp_txt.Text, dt.Rows[0].Field<string>("mdp"), dt.Rows[0].Field<string>("salt")))
-                    {
-                        user_info[0] = dt.Rows[0].Field<int?>("id_serveur");
-                        user_info[1] = dt.Rows[0].Field<string>("nom_serveur");
-                        user_info[2] = dt.Rows[0].Field<string>("login");
 
-                        ModeServeur serveur_mode = new ModeServeur("Bienvenue " + user_info[1] + " !");
-                        serveur_mode.RefToAuthentication = this;
-                        this.Hide();
-                        serveur_mode.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Verifie ton nom d'utilisateur/mot de passe");
-                    }
                 }
-                vider();
             }
         }
     }

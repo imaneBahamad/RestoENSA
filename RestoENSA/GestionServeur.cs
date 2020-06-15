@@ -147,5 +147,6 @@ namespace RestoENSA
             nom_txt.Text = serveur_grid.Rows[e.RowIndex].Cells["nom_serveur"].FormattedValue.ToString();
             login_txt.Text = serveur_grid.Rows[e.RowIndex].Cells["login"].FormattedValue.ToString();
         }
+
     }
 }

@@ -49,21 +49,18 @@ namespace RestoENSA
 
         private void ajouter_plat_button(object sender, EventArgs e)
         {
-            bool verify1;
             bool verify2;
             try
             {
-                int codePlat = 0;
                 string nom = "";
                 float prix = 0;
                 string categorie = "";
                 int var_disponible = 1;
 
 
-                verify1 = int.TryParse(code_plat_box.Text, out codePlat); if (!verify1) { throw new Ex("le code doit etre un nombre entier ! "); }
                 if (string.IsNullOrWhiteSpace(nom_plat_box.Text)) { throw new Ex("vous devez remplir le champ nom!!"); } else { nom = nom_plat_box.Text; }
                 verify2 = float.TryParse(prix_plat_box.Text, out prix); if (!verify2) { throw new Ex("le prix doit etre un nombre reel ! "); }
-                if (categorie_box.SelectedIndex == -1) { throw new Ex("vous devez remplir le champ categorie !!"); } else { categorie = categorie_box.SelectedItem.ToString(); }
+                if (categorie_box.SelectedIndex == -1 || string.IsNullOrWhiteSpace(categorie_box.SelectedItem.ToString())) { throw new Ex("vous devez remplir le champ categorie !!"); } else { categorie = categorie_box.SelectedItem.ToString(); }
 
                 // si l'admin coche la case non-disponible c'est bon, sinon la disponibilte du plat est tjrs true
                 if (disponible_combo.Text == "non disponible")
@@ -72,23 +69,21 @@ namespace RestoENSA
                 }
 
 
-                if (db.check_Existence("Plat", codePlat.ToString()))
+                if (db.check_Existence("Plat", code_plat_box.Text))
                 {
-                    MessageBox.Show("le plat du code " + codePlat + " existe deja !\n" +
-                        "Pour appliquer une modificaton cliquez sur Modifier");
+                    MessageBox.Show("le Plat du code " + code_plat_box.Text + " existe deja \n pour la modifier cliquer sur Modifier !");
                 }
                 else
                 {
-
-                    db.Ajouter_Plat(codePlat, nom, prix,var_disponible, categorie);
+                    db.Ajouter_Plat(nom, prix, var_disponible, categorie);
                     MessageBox.Show("succes!!");
 
                     ClearTextBoxes();
-                    db.Fill_Categorie(categorie_box);
                     db.Afficher_Plat(plat_grid);
                     db.Fill_Disponible(disponible_combo);
-
                 }
+
+                
             }
             catch (Exception ex)
 
@@ -100,7 +95,6 @@ namespace RestoENSA
 
         private void modifier_plat_button(object sender, EventArgs e)
         {
-            bool verify1;
             bool verify2;
             try
             {
@@ -110,10 +104,10 @@ namespace RestoENSA
                 string categorie = "";
                 int var_disponible = 1;
 
-                verify1 = int.TryParse(code_plat_box.Text, out codePlat); if (!verify1) { throw new Ex("le code doit etre un nombre entier ! "); }
+                if (string.IsNullOrWhiteSpace(code_plat_box.Text)) { throw new Ex("vous devez selectionner la commande \n que vous voulez modifier !!"); } else { codePlat = int.Parse(code_plat_box.Text); }
                 if (string.IsNullOrWhiteSpace(nom_plat_box.Text)) { throw new Ex("vous devez remplir le champ nom!!"); } else { nom = nom_plat_box.Text; }
                 verify2 = float.TryParse(prix_plat_box.Text, out prix); if (!verify2) { throw new Ex("le prix doit etre un nombre reel ! "); }
-                if (categorie_box.SelectedIndex == -1) { throw new Ex("vous devez remplir le champ categorie !!"); } else { categorie = categorie_box.SelectedItem.ToString(); }
+                if (categorie_box.SelectedIndex == -1|| string.IsNullOrWhiteSpace(categorie_box.SelectedItem.ToString())) { throw new Ex("vous devez remplir le champ categorie !!"); } else { categorie = categorie_box.SelectedItem.ToString(); }
 
                 // si l'admin coche la case non-disponible c'est bon, sinon la disponibilte du plat est tjrs true
                 if (disponible_combo.Text == "non disponible")
@@ -122,22 +116,15 @@ namespace RestoENSA
                 }
 
 
-                if (!db.check_Existence("Plat", codePlat.ToString()))
-                {
-                    MessageBox.Show("le plat du code " + codePlat + " existe deja !\n" +
-                        "Pour appliquer une modificaton cliquez sur Modifier");
-                }
-                else
-                {
-                    db.Modifier_Plat(codePlat, nom, prix, var_disponible, categorie);
-                    MessageBox.Show("succes!!");
+               
+                db.Modifier_Plat(codePlat, nom, prix, var_disponible, categorie);
+                MessageBox.Show("succes!!");
 
-                    ClearTextBoxes();
-                    db.Afficher_Plat(plat_grid);
-                    db.Fill_Disponible(disponible_combo);
+                ClearTextBoxes();
+                db.Afficher_Plat(plat_grid);
 
 
-                }//fin else
+                
             }//fin try
             catch (Exception ex)
 
@@ -149,11 +136,26 @@ namespace RestoENSA
         private void supprimer_button(object sender, EventArgs e)
         {
             string code = code_plat_box.Text;
-            if (!db.check_Existence("Plat", code))
+            try
             {
-                MessageBox.Show("le plat du code " + code + " n'existe pas !\n");
-            }
-            else
+                if (string.IsNullOrWhiteSpace(code)) { throw new Ex("vous devez selectionner le palt\nque vous voulez supprimer!"); }
+
+                if (MessageBox.Show("Voulez vous vraiment supprimer ce plat ?", "Supprimer Plat", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                {
+                    int id = int.Parse(code);
+                    db.Supprimer_Plat(id);
+                    db.Afficher_Plat(plat_grid);
+                    ClearTextBoxes();
+                    
+                }
+
+                else
+                {
+                    MessageBox.Show("Plat non Supprimé !", "Spprimer Plat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }catch(Exception ex)
             {
                 int id = int.Parse(code);
                 db.Supprimer_Plat(id);
@@ -199,6 +201,12 @@ namespace RestoENSA
                 categorie_box.SelectedItem = db.Categorie_Code_Nom(codeCat);//remember that 'Categorie_Code_Nom' return the name of the categorie's code given in input
 
             }
+        }
+
+        // vider les champs button
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
         }
     }
 }

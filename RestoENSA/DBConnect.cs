@@ -137,6 +137,8 @@ namespace RestoENSA
             }
         }
 
+        
+
         public void Fill_Disponible(MetroFramework.Controls.MetroComboBox combo)
         {
             combo.Items.Clear();
@@ -146,11 +148,10 @@ namespace RestoENSA
             combo.SelectedItem = "disponible";
         }
 
-        public void Ajouter_Plat(int id_plat, string nom_plat, float prix, int var_disponible, string categorie)
+        public void Ajouter_Plat( string nom_plat, float prix, int var_disponible, string categorie)
         {
             int code_categorie = Categorie_Nom_Code(categorie);
-            cmd = new SqlCommand("insert into Plat (id_plat,nom_plat,prix,disponible,id_categorie) values (@id,@nom,@prix,@dispo,@categorie) ",conn);
-            cmd.Parameters.AddWithValue("@id", id_plat);
+            cmd = new SqlCommand("insert into Plat (nom_plat,prix,disponible,id_categorie) values (@nom,@prix,@dispo,@categorie) ",conn);
             cmd.Parameters.AddWithValue("@nom", nom_plat);
             cmd.Parameters.AddWithValue("@prix", prix);
             cmd.Parameters.AddWithValue("@dispo", var_disponible);
@@ -198,6 +199,10 @@ namespace RestoENSA
             {
                 cmd = new SqlCommand("select id_categorie from Categorie", conn);
             }
+            if (table.Equals("Commande"))
+            {
+                cmd = new SqlCommand("select id_commande from Commande", conn);
+            }
 
 
 
@@ -229,10 +234,9 @@ namespace RestoENSA
 
         }
 
-        public void Ajouter_Categorie(int id,string nom)
+        public void Ajouter_Categorie(string nom)
         {
-            cmd = new SqlCommand("insert into Categorie (id_categorie,nom_categorie) values (@id,@nom)",conn);
-            cmd.Parameters.AddWithValue("@id", id);
+            cmd = new SqlCommand("insert into Categorie (nom_categorie) values (@nom)",conn);
             cmd.Parameters.AddWithValue("@nom", nom);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
@@ -278,7 +282,7 @@ namespace RestoENSA
         public void Afficher_Table(MetroFramework.Controls.MetroGrid grid)
         {
 
-            cmd = new SqlCommand("SELECT id_table,reservee FROM Tablee", conn);
+            cmd = new SqlCommand("SELECT id_table,nom_serveur,reservee FROM Tablee", conn);
 
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
@@ -291,13 +295,13 @@ namespace RestoENSA
             grid.Columns["reservee"].Visible = false;
             for (int i = 0; i < grid.Rows.Count - 1; i++)
             {
-                if (grid.Rows[i].Cells[1].Value.ToString() == "True")
+                if (grid.Rows[i].Cells[2].Value.ToString() == "True")
                 {
-                    grid.Rows[i].Cells[2].Value = "reservée";
+                    grid.Rows[i].Cells[3].Value = "reservée";
                 }
-                if (grid.Rows[i].Cells[1].Value.ToString() == "False")
+                if (grid.Rows[i].Cells[2].Value.ToString() == "False")
                 {
-                    grid.Rows[i].Cells[2].Value = "non reservée";
+                    grid.Rows[i].Cells[3].Value = "non reservée";
                 }
 
             }
@@ -305,7 +309,7 @@ namespace RestoENSA
 
         public void Ajouter_Table(int id)
         {
-            cmd = new SqlCommand("insert into Tablee (id_table) values (@id)",conn);
+            cmd = new SqlCommand("insert into Tablee (id_table,nom_serveur) values (@id,'-')",conn);
             cmd.Parameters.AddWithValue("@id", id);
             adapt = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
@@ -333,6 +337,162 @@ namespace RestoENSA
             cmd.Parameters.Clear();
         }
 
+        //partie serveurs
+        public void Fill_Table(MetroFramework.Controls.MetroComboBox combo)
+        {
 
+            combo.Items.Clear();
+            combo.ResetText();
+            cmd = new SqlCommand("SELECT id_table FROM Tablee where reservee = 'True' and nom_serveur = '"+ 
+                Authentification.user_info[1] +"'", conn);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            ds = new DataSet();
+            adapt.Fill(ds);
+            combo.Items.Add("");
+            foreach (DataRow x in ds.Tables[0].Rows)
+            {
+                combo.Items.Add(x[0].ToString());
+            }
+        }
+
+        public void Fill_Table_2(MetroFramework.Controls.MetroComboBox combo)
+        {
+
+            combo.Items.Clear();
+            combo.ResetText();
+            cmd = new SqlCommand("SELECT id_table FROM Tablee where reservee = 'True' and nom_serveur = '-' or nom_serveur = '"+
+                Authentification.user_info[1] + "'", conn);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            ds = new DataSet();
+            adapt.Fill(ds);
+            combo.Items.Add("");
+            foreach (DataRow x in ds.Tables[0].Rows)
+            {
+                combo.Items.Add(x[0].ToString());
+            }
+        }
+
+        public void Fill_Table_3(MetroFramework.Controls.MetroComboBox combo)
+        {
+
+            combo.Items.Clear();
+            combo.ResetText();
+            cmd = new SqlCommand("SELECT id_table FROM Tablee where nom_serveur = '-' or nom_serveur = '" +
+                Authentification.user_info[1] + "'", conn);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            ds = new DataSet();
+            adapt.Fill(ds);
+            combo.Items.Add("");
+            foreach (DataRow x in ds.Tables[0].Rows)
+            {
+                combo.Items.Add(x[0].ToString());
+            }
+        }
+
+        //commande ************************************************
+
+        public void Ajouter_Cmd( string nom_plat, int quantite, float prix, int id_table)
+        {
+            cmd = new SqlCommand("insert into Commande (nom_plat,quantite,prix,id_table,facture) values (@nom_plat,@quantite,@prix,@id_table,@facture)", conn);
+            cmd.Parameters.AddWithValue("@nom_plat", nom_plat);
+            cmd.Parameters.AddWithValue("@quantite", quantite);
+            cmd.Parameters.AddWithValue("@prix", prix*quantite);
+            cmd.Parameters.AddWithValue("@id_table", id_table);
+            cmd.Parameters.AddWithValue("@facture", "Non facturé");
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            cmd = new SqlCommand("Update Tablee set nom_serveur = @nom_serveur where id_table = @id_table", conn);
+            cmd.Parameters.AddWithValue("@nom_serveur", Authentification.user_info[1]);
+            cmd.Parameters.AddWithValue("@id_table", id_table);
+            cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+        }
+
+        public void Modifier_Cmd(int id_cmd, string nom_plat,int quantite, float prix, int id_table)
+        {
+            cmd = new SqlCommand("update Commande set nom_plat=@nom,quantite = @quantite,prix = @prix, id_table=@id_table where id_commande=@id ", conn);
+            cmd.Parameters.AddWithValue("@id", id_cmd);
+            cmd.Parameters.AddWithValue("@nom", nom_plat);
+            cmd.Parameters.AddWithValue("@quantite", quantite);
+            cmd.Parameters.AddWithValue("@prix", prix * quantite);
+            cmd.Parameters.AddWithValue("@id_table", id_table);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+        }
+
+
+        public void Supprimer_Cmd(int id)
+        {
+            cmd = new SqlCommand("delete from Commande where id_commande = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+        }
+        public void Afficher_Cmd(MetroFramework.Controls.MetroGrid grid)
+        {
+            cmd = new SqlCommand("SELECT id_commande,nom_plat,quantite,prix,id_table,facture FROM Commande where id_table in "+
+                "(Select id_table from Tablee where nom_serveur = '"+ Authentification.user_info[1] +"')", conn);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            ds = new DataSet();
+            adapt.Fill(ds);
+            grid.DataSource = ds.Tables[0];
+            //grid.Columns["id_table"].Visible = false;
+        }
+
+        public void Afficher_Cmd_ParFiltre(MetroFramework.Controls.MetroGrid grid, int id_table)
+        {
+            cmd = new SqlCommand("SELECT id_commande,nom_plat,quantite,prix,id_table,facture FROM Commande where id_table = @code", conn);
+            cmd.Parameters.AddWithValue("@code", id_table);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            ds = new DataSet();
+            adapt.Fill(ds);
+            grid.DataSource = ds.Tables[0];
+            //grid.Columns["id_table"].Visible = false;
+            cmd.Parameters.Clear();
+        }
+
+        ////*******Plats
+
+        public void Fill_Plat_ParCategorie(MetroFramework.Controls.MetroComboBox combo,int id_categorie)
+        {
+            combo.Items.Clear();
+            combo.ResetText();
+            cmd = new SqlCommand("SELECT nom_plat FROM Plat where disponible = 'True' and id_categorie = '"+ id_categorie +"'", conn);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            ds = new DataSet();
+            adapt.Fill(ds);
+            combo.Items.Add("");
+            ds.Tables[0].DefaultView.Sort = "nom_plat ASC";
+            foreach (DataRow x in ds.Tables[0].Rows)
+            {
+                combo.Items.Add(x[0].ToString());
+            }
+        }
+
+        public void Fill_Plat(MetroFramework.Controls.MetroComboBox combo)
+        {
+            combo.Items.Clear();
+            combo.ResetText();
+            cmd = new SqlCommand("SELECT nom_plat FROM Plat where disponible = 'True'", conn);
+            adapt = new SqlDataAdapter(cmd);
+            cmd.ExecuteNonQuery();
+            ds = new DataSet();
+            adapt.Fill(ds);
+            combo.Items.Add("");
+            ds.Tables[0].DefaultView.Sort = "nom_plat ASC";
+            foreach (DataRow x in ds.Tables[0].Rows)
+            {
+                combo.Items.Add(x[0].ToString());
+            }
+        }
     }
 }

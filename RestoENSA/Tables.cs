@@ -64,10 +64,18 @@ namespace RestoENSA
                 if (reserve) { throw new Ex("la table que vous voulez supprimer est deja reservée!"); }
                 else
                 {
-                    db.Supprimer_Table(code);
-                    MessageBox.Show("Succes!");
-                    table_code_box.Clear();
-                    db.Afficher_Table(Table_grid);
+                    if (MessageBox.Show("Voulez vous vraiment supprimer cette Table ?", "Supprimer Table", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                    {
+                        db.Supprimer_Table(code);
+                        table_code_box.Clear();
+                        db.Afficher_Table(Table_grid);
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Table non Supprimée !", "Spprimer Table", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
 
 

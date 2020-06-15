@@ -28,47 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.id_txt = new MetroFramework.Controls.MetroTextBox();
             this.id_lbl = new MetroFramework.Controls.MetroLabel();
             this.reserver_btn = new MetroFramework.Controls.MetroButton();
             this.supprimer_txt = new MetroFramework.Controls.MetroButton();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.reservation_box = new MetroFramework.Controls.MetroComboBox();
             this.SuspendLayout();
-            // 
-            // id_txt
-            // 
-            // 
-            // 
-            // 
-            this.id_txt.CustomButton.Image = null;
-            this.id_txt.CustomButton.Location = new System.Drawing.Point(178, 1);
-            this.id_txt.CustomButton.Name = "";
-            this.id_txt.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.id_txt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.id_txt.CustomButton.TabIndex = 1;
-            this.id_txt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.id_txt.CustomButton.UseSelectable = true;
-            this.id_txt.CustomButton.Visible = false;
-            this.id_txt.Lines = new string[0];
-            this.id_txt.Location = new System.Drawing.Point(243, 159);
-            this.id_txt.MaxLength = 32767;
-            this.id_txt.Name = "id_txt";
-            this.id_txt.PasswordChar = '\0';
-            this.id_txt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.id_txt.SelectedText = "";
-            this.id_txt.SelectionLength = 0;
-            this.id_txt.SelectionStart = 0;
-            this.id_txt.ShortcutsEnabled = true;
-            this.id_txt.Size = new System.Drawing.Size(200, 23);
-            this.id_txt.TabIndex = 0;
-            this.id_txt.UseSelectable = true;
-            this.id_txt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.id_txt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // id_lbl
             // 
             this.id_lbl.AutoSize = true;
-            this.id_lbl.Location = new System.Drawing.Point(76, 162);
+            this.id_lbl.Location = new System.Drawing.Point(100, 146);
             this.id_lbl.Name = "id_lbl";
             this.id_lbl.Size = new System.Drawing.Size(129, 20);
             this.id_lbl.TabIndex = 1;
@@ -76,7 +45,7 @@
             // 
             // reserver_btn
             // 
-            this.reserver_btn.Location = new System.Drawing.Point(91, 242);
+            this.reserver_btn.Location = new System.Drawing.Point(93, 242);
             this.reserver_btn.Name = "reserver_btn";
             this.reserver_btn.Size = new System.Drawing.Size(103, 23);
             this.reserver_btn.TabIndex = 2;
@@ -86,7 +55,7 @@
             // 
             // supprimer_txt
             // 
-            this.supprimer_txt.Location = new System.Drawing.Point(212, 242);
+            this.supprimer_txt.Location = new System.Drawing.Point(214, 242);
             this.supprimer_txt.Name = "supprimer_txt";
             this.supprimer_txt.Size = new System.Drawing.Size(220, 23);
             this.supprimer_txt.TabIndex = 3;
@@ -94,26 +63,27 @@
             this.supprimer_txt.UseSelectable = true;
             this.supprimer_txt.Click += new System.EventHandler(this.supprimer_txt_Click);
             // 
-            // metroDateTime1
+            // reservation_box
             // 
-            this.metroDateTime1.Location = new System.Drawing.Point(201, 87);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 30);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(200, 30);
-            this.metroDateTime1.TabIndex = 4;
+            this.reservation_box.FormattingEnabled = true;
+            this.reservation_box.ItemHeight = 24;
+            this.reservation_box.Location = new System.Drawing.Point(259, 146);
+            this.reservation_box.Name = "reservation_box";
+            this.reservation_box.Size = new System.Drawing.Size(170, 30);
+            this.reservation_box.TabIndex = 4;
+            this.reservation_box.UseSelectable = true;
             // 
             // Reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 344);
-            this.Controls.Add(this.metroDateTime1);
+            this.Controls.Add(this.reservation_box);
             this.Controls.Add(this.supprimer_txt);
             this.Controls.Add(this.reserver_btn);
             this.Controls.Add(this.id_lbl);
-            this.Controls.Add(this.id_txt);
             this.Name = "Reservation";
-            this.Text = "Reservation";
+            this.Text = "Réservation";
             this.Load += new System.EventHandler(this.Reservation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,11 +91,9 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroTextBox id_txt;
         private MetroFramework.Controls.MetroLabel id_lbl;
         private MetroFramework.Controls.MetroButton reserver_btn;
         private MetroFramework.Controls.MetroButton supprimer_txt;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroComboBox reservation_box;
     }
 }

@@ -36,5 +36,11 @@ namespace RestoENSA
         {
             new Reservation().Show();
         }
+
+        private void Ajouter_Cmd(object sender, EventArgs e)
+        {
+            Commande cmd = new Commande();
+            cmd.ShowDialog();
+        }
     }
 }
