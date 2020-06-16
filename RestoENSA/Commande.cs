@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -25,8 +26,8 @@ namespace RestoENSA
             }
             db.Fill_Categorie(categorie_box);
             db.Fill_Table(filtre_combobox);
-            db.Fill_Table(id_table_box);
-            db.Afficher_Plat(plat_grid);
+            db.Fill_Table_2(id_table_box);
+            db.Fill_Table(facture_box);
             db.Afficher_Cmd(Commande_grid);
         }
 
@@ -37,14 +38,14 @@ namespace RestoENSA
             func = (controls) =>
             {
                 foreach (Control control in controls)
-                    if (control is MetroFramework.Controls.MetroTextBox || control is MetroFramework.Controls.MetroComboBox)
+                    if (control is MetroFramework.Controls.MetroTextBox || control is MetroFramework.Controls.MetroComboBox )
                     {
                         control.ResetText();
-                    }
-
-                    else
+                    }else if(control is NumericUpDown)
+                    {
+                        control.Text = "0";
+                    }else
                         func(control.Controls);
-
             };
 
             func(Controls);
@@ -54,32 +55,40 @@ namespace RestoENSA
         {
             try
             {
-                string nom_plat = nom_plat_box.Text;
+                string nom_plat = "";
+                int quantite = 0;
                 float prix = 0;
                 int id_table = 0;
 
-                if (string.IsNullOrWhiteSpace(prix_plat_box.Text)) { throw new Ex("vous devez selectionner un plat !!"); } else { prix = float.Parse(prix_plat_box.Text); }
-                if (id_table_box.SelectedIndex == -1 || string.IsNullOrWhiteSpace(id_table_box.SelectedItem.ToString())) { throw new Ex("vous devez remplir le champ table !!"); } else { id_table = int.Parse(id_table_box.SelectedItem.ToString()); }
+                if (string.IsNullOrWhiteSpace(plat_box.Text)) { throw new Ex("Veuillez selectionner un plat !!"); } else { nom_plat = plat_box.Text; }
+                if (quantite_num.Value == 0) { throw new Ex("Veuillez choisir une quantité !!"); } else { quantite = Convert.ToInt32(quantite_num.Value); }
+                if (id_table_box.SelectedIndex == -1 || string.IsNullOrWhiteSpace(id_table_box.SelectedItem.ToString())) { throw new Ex("Selectionnez une table !!"); } else { id_table = int.Parse(id_table_box.SelectedItem.ToString()); }
+
 
                 if (db.check_Existence("Commande", code_cmd_box.Text))
                 {
-                    MessageBox.Show("la Commande du code " + code_cmd_box.Text + " existe deja \n pour la modifier cliquer sur Modifier !");
+                    MessageBox.Show("La Commande du code " + code_cmd_box.Text + " existe deja \n pour la modifier cliquer sur Modifier !");
                 }
                 else
                 {
-                    db.Ajouter_Cmd(prix, nom_plat, id_table);
-                    MessageBox.Show("succes!!");
-
-
+                    db.cmd = new SqlCommand("SELECT * FROM Plat where nom_plat = '" + nom_plat + "'", db.conn);
+                    SqlDataAdapter da = new SqlDataAdapter(db.cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt.Rows.Count == 1)
+                    {
+                        prix = dt.Rows[0].Field<float>("prix");
+                        db.Ajouter_Cmd(nom_plat, quantite, prix, id_table);
+                        MessageBox.Show("Commande bien ajoutée !!", "Succès");
+                        db.Afficher_Cmd(Commande_grid);
+                    }
                     ClearTextBoxes();
-                    db.Afficher_Cmd(Commande_grid);
-                    db.Afficher_Plat(plat_grid);
-
+                    db.Fill_Table(filtre_combobox);
+                    db.Fill_Table(facture_box);
                 }
-                
+
             }
             catch (Exception ex)
-
             {
 
             }
@@ -90,29 +99,31 @@ namespace RestoENSA
             try
             {
                 int cmd_Code = 0;
-                string nom_plat = nom_plat_box.Text;
+                string nom_plat = "";
+                int quantite = 0;
                 float prix = 0;
                 int id_table = 0;
 
-                if (string.IsNullOrWhiteSpace(code_cmd_box.Text)) { throw new Ex("vous devez selectionner la commande \n que vous voulez modifier !!"); } else { cmd_Code = int.Parse(code_cmd_box.Text); }
-                if (string.IsNullOrWhiteSpace(prix_plat_box.Text)) { throw new Ex("vous devez selectionner un plat !!"); } else { prix = float.Parse(prix_plat_box.Text); }
-                if (id_table_box.SelectedIndex == -1|| string.IsNullOrWhiteSpace(id_table_box.SelectedItem.ToString()) ) { throw new Ex("vous devez remplir le champ table !!"); } else { id_table = int.Parse(id_table_box.SelectedItem.ToString()); }
+                if (string.IsNullOrWhiteSpace(code_cmd_box.Text)) { throw new Ex("Veuillez selectionner la commande \n que vous voulez modifier !!"); } else { cmd_Code = int.Parse(code_cmd_box.Text); }
+                if (string.IsNullOrWhiteSpace(plat_box.Text)) { throw new Ex("Veuillez selectionner un plat !!"); } else { nom_plat = plat_box.Text; }
+                if (quantite_num.Value == 0) { throw new Ex("Veuillez choisir une quantité !!"); } else { quantite = Convert.ToInt32(quantite_num.Value); }
+                if (id_table_box.SelectedIndex == -1|| string.IsNullOrWhiteSpace(id_table_box.SelectedItem.ToString()) ) { throw new Ex("Selectionnez une table !!"); } else { id_table = int.Parse(id_table_box.SelectedItem.ToString()); }
 
-
-                
-                db.Modifier_Cmd(cmd_Code, nom_plat,prix, id_table);
-                MessageBox.Show("succes!!");
-
+                db.cmd = new SqlCommand("SELECT * FROM Plat where nom_plat = '" + nom_plat + "'", db.conn);
+                SqlDataAdapter da = new SqlDataAdapter(db.cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count == 1)
+                {
+                    prix = dt.Rows[0].Field<float>("prix");
+                    db.Modifier_Cmd(cmd_Code, nom_plat, quantite, prix, id_table);
+                    MessageBox.Show("Commande bien modifiée !!", "Succès");
+                    db.Afficher_Cmd(Commande_grid);
+                }
 
                 ClearTextBoxes();
-                db.Afficher_Cmd(Commande_grid);
-                db.Afficher_Plat(plat_grid);
-
-
-                
             }
             catch (Exception ex)
-
             {
 
             }
@@ -121,13 +132,13 @@ namespace RestoENSA
         private void categorie_box_SelectedIndexChanged(object sender, EventArgs e)
         {
             string nom_categorie = categorie_box.SelectedItem.ToString();
-            if (string.IsNullOrWhiteSpace(nom_categorie))
+            db.cmd = new SqlCommand("SELECT * FROM Categorie where nom_categorie = '" + nom_categorie + "'", db.conn);
+            SqlDataAdapter da = new SqlDataAdapter(db.cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count == 1)
             {
-                db.Afficher_Plat(plat_grid);
-            }
-            else
-            {
-                db.Afficher_Plat_ParFiltre(plat_grid, nom_categorie);
+                db.Fill_Plat_ParCategorie(plat_box, dt.Rows[0].Field<int>("id_categorie"));
             }
         }
 
@@ -147,37 +158,13 @@ namespace RestoENSA
 
         private void Commande_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                id_table_box.SelectedItem = "";
-                DataGridViewRow row = this.Commande_grid.Rows[e.RowIndex];
-                code_cmd_box.Text = row.Cells["id_commande"].Value.ToString();
-                nom_plat_box.Text = row.Cells["nom_plat"].Value.ToString();
-                prix_plat_box.Text = row.Cells["facture"].Value.ToString();
-                int codeTable = int.Parse(row.Cells["id_table"].Value.ToString());
-                id_table_box.SelectedItem = codeTable.ToString();
-
-            }
-        }
-
-        private void plat_grid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.plat_grid.Rows[e.RowIndex];
-                string dispoVerify = row.Cells["Disponibilité"].Value.ToString();
-                try
-                {
-                    if (dispoVerify == "non disponible") { ClearTextBoxes(); throw new Ex("Ce plat est non disponible pour le moment !"); }
-                    nom_plat_box.Text = row.Cells["nom_plat"].Value.ToString();
-                    prix_plat_box.Text = row.Cells["prix"].Value.ToString();
-
-                }
-                catch (Exception ex)
-                {
-
-                }
-            }
+            db.Fill_Plat(plat_box);
+            Commande_grid.CurrentRow.Selected = true;
+            code_cmd_box.Text = Commande_grid.Rows[e.RowIndex].Cells["id_commande"].FormattedValue.ToString();
+            categorie_box.SelectedItem = "";
+            quantite_num.Value = Convert.ToInt32(Commande_grid.Rows[e.RowIndex].Cells["quantite"].FormattedValue.ToString());
+            plat_box.SelectedItem = Commande_grid.Rows[e.RowIndex].Cells["nom_plat"].FormattedValue.ToString();
+            id_table_box.SelectedItem = Commande_grid.Rows[e.RowIndex].Cells["id_table"].FormattedValue.ToString();
         }
 
 
@@ -191,28 +178,91 @@ namespace RestoENSA
             string code = code_cmd_box.Text;
             if (string.IsNullOrWhiteSpace(code))
             {
-                MessageBox.Show("Vous devez selectionner une commande d'abord!");
+                MessageBox.Show("Selectionnez une commande d'abord!","Erreur");
             }
             else
             {
+                string message = "Voulez vous vraiment supprimer cette Commande?";
+                db.cmd = new SqlCommand("SELECT * FROM Commande where id_commande = '" + code + "'", db.conn);
+                SqlDataAdapter da = new SqlDataAdapter(db.cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0 && dt.Rows[0].Field<string>("facture").Equals("Non facturé"))
+                {
+                    message = "Cette commande n'est pas facturé! Supprimer quand meme ?";
+                }
 
-                if (MessageBox.Show("Voulez vous vraiment supprimer cette Commande ?", "Supprimer Commande", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-
+                if (MessageBox.Show(message, "Supprimer commande", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int id = int.Parse(code);
                     db.Supprimer_Cmd(id);
                     db.Afficher_Cmd(Commande_grid);
+                    MessageBox.Show("Commande bien supprimée !!","Succès");
                     ClearTextBoxes();
-
                 }
-
                 else
                 {
-                    MessageBox.Show("Commande non Supprimée !", "Spprimer Commande", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Commande non Supprimée !", "Annulation");
                 }
             }
         }
 
-        
+        private void facture_box_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id_table = facture_box.SelectedItem.ToString();
+            double total = 0;
+            db.cmd = new SqlCommand("SELECT * FROM Commande where id_table = '" + id_table + "' and facture = 'Non facturé'", db.conn);
+            SqlDataAdapter da = new SqlDataAdapter(db.cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                    total += row.Field<double>("prix");
+                }
+            }
+            total_txt.Text = total.ToString();
+        }
+
+        private void generer_facture_tile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                total_txt.Text = "";
+                if (facture_box.SelectedIndex == -1 || string.IsNullOrWhiteSpace(facture_box.SelectedItem.ToString()))
+                {
+                    throw new Ex("Veuillez selectionner une table !!");
+                }
+
+                if (MessageBox.Show("Voulez-vous générer la facture pour cette table?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int id_table = Convert.ToInt32(facture_box.SelectedItem);
+                    db.cmd = new SqlCommand("SELECT * FROM Commande where id_table = '" + id_table + "' and facture = 'Non facturé'", db.conn);
+                    SqlDataAdapter da = new SqlDataAdapter(db.cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        new Report(id_table).Show();
+                        db.cmd = new SqlCommand("Update Commande set facture = 'Facturé' where id_table = '" + id_table + "'", db.conn);
+                        db.cmd.ExecuteNonQuery();
+                        db.Afficher_Cmd(Commande_grid);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucune commande non facturée trouvée !!", "Information");
+                    }
+                }
+            }catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void Commande_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,9 +32,13 @@ namespace RestoENSA
             this.RefToAuthentication.Show();
         }
 
+        private void réserver_btn_Click(object sender, EventArgs e)
+        {
+            new Reservation().Show();
+        }
+
         private void Ajouter_Cmd(object sender, EventArgs e)
         {
-
             Commande cmd = new Commande();
             cmd.ShowDialog();
         }

@@ -15,14 +15,36 @@ namespace RestoENSA
 {
     public partial class GestionHoraires : MetroForm
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\FATIMA\Desktop\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
+        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
         DBConnect db;
         public GestionHoraires()
         {
             InitializeComponent();
             db = new DBConnect();
+            disp_data();
             chefComboBox();
             serveurComboBox();
+        }
+
+
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is MetroFramework.Controls.MetroTextBox || control is MetroFramework.Controls.MetroComboBox)
+                    {
+                        control.ResetText();
+                    }
+
+                    else
+                        func(control.Controls);
+
+            };
+
+            func(Controls);
         }
 
         private void retour_btn_Click(object sender, EventArgs e)
@@ -80,25 +102,7 @@ namespace RestoENSA
             ClearTextBoxes();
         }
 
-        private void ClearTextBoxes()
-        {
-            Action<Control.ControlCollection> func = null;
-
-            func = (controls) =>
-            {
-                foreach (Control control in controls)
-                    if (control is MetroFramework.Controls.MetroTextBox || control is MetroFramework.Controls.MetroComboBox)
-                    {
-                        control.ResetText();
-                    }
-
-                    else
-                        func(control.Controls);
-
-            };
-
-            func(Controls);
-        }
+        
 
         private void modif_btn_Click(object sender, EventArgs e)
         {
@@ -135,7 +139,6 @@ namespace RestoENSA
             fin_time.Text = Horaire_grid.Rows[e.RowIndex].Cells["fin_semaine"].FormattedValue.ToString();
             shift1_comboBox.Text = Horaire_grid.Rows[e.RowIndex].Cells["horaire_shift1"].FormattedValue.ToString();
             shift2_comboBox.Text = Horaire_grid.Rows[e.RowIndex].Cells["horaire_shift2"].FormattedValue.ToString();
-
         }
 
         private void supprimer_btn_Click(object sender, EventArgs e)
@@ -143,7 +146,6 @@ namespace RestoENSA
             if (debut_time.Text == "" || fin_time.Text == "" || shift1_comboBox.Text == "" || shift2_comboBox.Text == "")
             {
                 MessageBox.Show("veuillez selectionner une calendrier !!!!!");
-
             }
             else
             {
