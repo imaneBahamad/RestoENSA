@@ -42,5 +42,10 @@ namespace RestoENSA
             Commande cmd = new Commande();
             cmd.ShowDialog();
         }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            new Calendrier().Show();
+        }
     }
 }

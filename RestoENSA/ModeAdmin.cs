@@ -67,5 +67,10 @@ namespace RestoENSA
             this.Close();
             new GestionHoraires().Show();
         }
+
+        private void afficher_cal_btn_Click(object sender, EventArgs e)
+        {
+            new Calendrier().Show();
+        }
     }
 }
