@@ -275,6 +275,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GestionChefs";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Gestion des chefs";
             this.Load += new System.EventHandler(this.GestionChefs_Load);

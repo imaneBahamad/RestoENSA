@@ -14,19 +14,13 @@ namespace RestoENSA
 {
     public partial class Calendrier : MetroForm
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
+        public string connectionString = DBConnect.connectionString;
         string mode;
         public Calendrier(string mode)
         {
             InitializeComponent();
             this.mode = mode;
         }
-
-        //private void retour_btn_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //    new ModeAdmin("Bienvenue " + Authentification.user_info[1] + " !").Show();
-        //}
 
         public void disp_data(string cmd)
         {

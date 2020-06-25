@@ -243,8 +243,10 @@
             this.Controls.Add(this.logout_btn);
             this.Controls.Add(this.gestion_serveurs_btn);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimizeBox = false;
             this.Name = "ModeAdmin";
             this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "Mode administrateur";
             this.Load += new System.EventHandler(this.ModeAdmin_Load);

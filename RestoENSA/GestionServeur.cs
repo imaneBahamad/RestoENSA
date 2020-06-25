@@ -14,7 +14,7 @@ namespace RestoENSA
 {
     public partial class GestionServeur : MetroForm
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
+        public string connectionString = DBConnect.connectionString;
         CryptographyProcessor cp = new CryptographyProcessor();
 
         public GestionServeur()
@@ -94,6 +94,8 @@ namespace RestoENSA
             {
                 MessageBox.Show("Veuillez selectionner un serveur !!","Erreur");
             }
+            else if (nom_txt.Text == "" || login_txt.Text == "" || mdp_txt.Text == "" || confirmer_mdb_txt.Text == "")
+                MessageBox.Show("Veuillez remplire tout le(s) champ(s) !!", "Erreur");
             else
             {
                 using (SqlConnection connexion = new SqlConnection(connectionString))

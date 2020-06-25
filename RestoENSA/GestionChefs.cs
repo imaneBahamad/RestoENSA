@@ -14,8 +14,8 @@ namespace RestoENSA
 {
     public partial class GestionChefs : MetroForm
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
-        
+        public string connectionString = DBConnect.connectionString;
+
         public GestionChefs()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace RestoENSA
         private void Ajouter_btn_Click(object sender, EventArgs e)
         {
             if (nom_txt.Text == "")
-                MessageBox.Show("Veuillez remplire le champ vide !!","Erreur");
+                MessageBox.Show("Veuillez remplir le champ vide !!","Erreur");
             else
             {
                 using (SqlConnection connexion = new SqlConnection(connectionString))
@@ -46,10 +46,11 @@ namespace RestoENSA
 
         private void modif_btn_Click(object sender, EventArgs e)
         {
-            if (nom_txt.Text == "")
+            if (id_txt.Text == "")
             {
                 MessageBox.Show("Veuillez selectionner un chef !!","Erreur");
-            }
+            }else if(nom_txt.Text == "")
+                MessageBox.Show("Veuillez remplir le champ vide !!", "Erreur");
             else
             {
                 using (SqlConnection connexion = new SqlConnection(connectionString))

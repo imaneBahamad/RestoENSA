@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionHoraires));
             this.debut_sem_label = new MetroFramework.Controls.MetroLabel();
             this.fin_sem_label = new MetroFramework.Controls.MetroLabel();
@@ -41,7 +41,6 @@
             this.shift1_comboBox = new MetroFramework.Controls.MetroComboBox();
             this.shift2_comboBox = new MetroFramework.Controls.MetroComboBox();
             this.Horaire_grid = new MetroFramework.Controls.MetroGrid();
-            this.numero_txt = new MetroFramework.Controls.MetroTextBox();
             this.nomChef_label = new MetroFramework.Controls.MetroLabel();
             this.nomServeur_label = new MetroFramework.Controls.MetroLabel();
             this.chef_comboBox = new MetroFramework.Controls.MetroComboBox();
@@ -57,7 +56,9 @@
             this.vider_btn = new MetroFramework.Controls.MetroButton();
             this.Ajouter_btn = new MetroFramework.Controls.MetroButton();
             this.retour_btn = new System.Windows.Forms.Button();
+            this.numero_txt = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.Horaire_grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numero_txt)).BeginInit();
             this.SuspendLayout();
             // 
             // debut_sem_label
@@ -110,7 +111,7 @@
             this.debut_time.Name = "debut_time";
             this.debut_time.Size = new System.Drawing.Size(196, 30);
             this.debut_time.TabIndex = 1;
-            this.debut_time.Value = new System.DateTime(2020, 6, 13, 0, 0, 0, 0);
+            this.debut_time.Value = new System.DateTime(2020, 6, 25, 20, 8, 49, 0);
             // 
             // fin_time
             // 
@@ -122,12 +123,14 @@
             this.fin_time.Name = "fin_time";
             this.fin_time.Size = new System.Drawing.Size(196, 30);
             this.fin_time.TabIndex = 2;
+            this.fin_time.Value = new System.DateTime(2020, 6, 25, 20, 9, 7, 0);
             // 
             // shift1_comboBox
             // 
             this.shift1_comboBox.FormattingEnabled = true;
             this.shift1_comboBox.ItemHeight = 24;
             this.shift1_comboBox.Items.AddRange(new object[] {
+            "",
             "08:00:00",
             "08:30:00",
             "09:00:00",
@@ -175,9 +178,7 @@
             "06:00:00",
             "06:30:00",
             "07:00:00",
-            "07:30:00",
-            "",
-            ""});
+            "07:30:00"});
             this.shift1_comboBox.Location = new System.Drawing.Point(223, 304);
             this.shift1_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.shift1_comboBox.Name = "shift1_comboBox";
@@ -190,6 +191,7 @@
             this.shift2_comboBox.FormattingEnabled = true;
             this.shift2_comboBox.ItemHeight = 24;
             this.shift2_comboBox.Items.AddRange(new object[] {
+            "",
             "08:00:00",
             "08:30:00",
             "09:00:00",
@@ -253,23 +255,23 @@
             this.Horaire_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Horaire_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Horaire_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Horaire_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Horaire_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.Horaire_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Horaire_grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Horaire_grid.DefaultCellStyle = dataGridViewCellStyle14;
             this.Horaire_grid.EnableHeadersVisualStyles = false;
             this.Horaire_grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Horaire_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -277,14 +279,14 @@
             this.Horaire_grid.Margin = new System.Windows.Forms.Padding(4);
             this.Horaire_grid.Name = "Horaire_grid";
             this.Horaire_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Horaire_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Horaire_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.Horaire_grid.RowHeadersWidth = 51;
             this.Horaire_grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Horaire_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -292,38 +294,6 @@
             this.Horaire_grid.Style = MetroFramework.MetroColorStyle.Orange;
             this.Horaire_grid.TabIndex = 9;
             this.Horaire_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Horaire_grid_CellClick);
-            // 
-            // numero_txt
-            // 
-            // 
-            // 
-            // 
-            this.numero_txt.CustomButton.Image = null;
-            this.numero_txt.CustomButton.Location = new System.Drawing.Point(171, 2);
-            this.numero_txt.CustomButton.Margin = new System.Windows.Forms.Padding(4);
-            this.numero_txt.CustomButton.Name = "";
-            this.numero_txt.CustomButton.Size = new System.Drawing.Size(23, 23);
-            this.numero_txt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.numero_txt.CustomButton.TabIndex = 1;
-            this.numero_txt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.numero_txt.CustomButton.UseSelectable = true;
-            this.numero_txt.CustomButton.Visible = false;
-            this.numero_txt.Lines = new string[0];
-            this.numero_txt.Location = new System.Drawing.Point(222, 155);
-            this.numero_txt.Margin = new System.Windows.Forms.Padding(4);
-            this.numero_txt.MaxLength = 32767;
-            this.numero_txt.Name = "numero_txt";
-            this.numero_txt.PasswordChar = '\0';
-            this.numero_txt.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.numero_txt.SelectedText = "";
-            this.numero_txt.SelectionLength = 0;
-            this.numero_txt.SelectionStart = 0;
-            this.numero_txt.ShortcutsEnabled = true;
-            this.numero_txt.Size = new System.Drawing.Size(197, 28);
-            this.numero_txt.TabIndex = 0;
-            this.numero_txt.UseSelectable = true;
-            this.numero_txt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.numero_txt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // nomChef_label
             // 
@@ -373,7 +343,7 @@
             // 
             // show_chef_btn
             // 
-            this.show_chef_btn.BackColor = System.Drawing.Color.DarkOrange;
+            this.show_chef_btn.BackColor = System.Drawing.Color.LimeGreen;
             this.show_chef_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.show_chef_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.show_chef_btn.Location = new System.Drawing.Point(835, 359);
@@ -389,7 +359,7 @@
             // 
             // show_serveur_btn
             // 
-            this.show_serveur_btn.BackColor = System.Drawing.Color.LimeGreen;
+            this.show_serveur_btn.BackColor = System.Drawing.Color.DarkOrange;
             this.show_serveur_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.show_serveur_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.show_serveur_btn.Location = new System.Drawing.Point(1055, 359);
@@ -440,7 +410,7 @@
             // numero_label
             // 
             this.numero_label.AutoSize = true;
-            this.numero_label.Location = new System.Drawing.Point(51, 155);
+            this.numero_label.Location = new System.Drawing.Point(51, 164);
             this.numero_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.numero_label.Name = "numero_label";
             this.numero_label.Size = new System.Drawing.Size(117, 20);
@@ -570,12 +540,20 @@
             this.retour_btn.UseVisualStyleBackColor = false;
             this.retour_btn.Click += new System.EventHandler(this.retour_btn_Click);
             // 
+            // numero_txt
+            // 
+            this.numero_txt.Location = new System.Drawing.Point(222, 164);
+            this.numero_txt.Name = "numero_txt";
+            this.numero_txt.Size = new System.Drawing.Size(197, 22);
+            this.numero_txt.TabIndex = 43;
+            // 
             // GestionHoraires
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1292, 575);
             this.ControlBox = false;
+            this.Controls.Add(this.numero_txt);
             this.Controls.Add(this.retour_btn);
             this.Controls.Add(this.supprimer_btn);
             this.Controls.Add(this.modif_btn);
@@ -591,7 +569,6 @@
             this.Controls.Add(this.chef_comboBox);
             this.Controls.Add(this.nomServeur_label);
             this.Controls.Add(this.nomChef_label);
-            this.Controls.Add(this.numero_txt);
             this.Controls.Add(this.Horaire_grid);
             this.Controls.Add(this.shift2_comboBox);
             this.Controls.Add(this.shift1_comboBox);
@@ -604,9 +581,11 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GestionHoraires";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "Gestion des shifts et horaires";
             ((System.ComponentModel.ISupportInitialize)(this.Horaire_grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numero_txt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,7 +601,6 @@
         private MetroFramework.Controls.MetroComboBox shift1_comboBox;
         private MetroFramework.Controls.MetroComboBox shift2_comboBox;
         private MetroFramework.Controls.MetroGrid Horaire_grid;
-        private MetroFramework.Controls.MetroTextBox numero_txt;
         private MetroFramework.Controls.MetroLabel nomChef_label;
         private MetroFramework.Controls.MetroLabel nomServeur_label;
         private MetroFramework.Controls.MetroComboBox chef_comboBox;
@@ -638,5 +616,6 @@
         private MetroFramework.Controls.MetroButton vider_btn;
         private MetroFramework.Controls.MetroButton Ajouter_btn;
         private System.Windows.Forms.Button retour_btn;
+        private System.Windows.Forms.NumericUpDown numero_txt;
     }
 }

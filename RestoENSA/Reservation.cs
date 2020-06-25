@@ -14,7 +14,7 @@ namespace RestoENSA
 {
     public partial class Reservation : MetroForm
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
+        public string connectionString = DBConnect.connectionString;
         DBConnect db;
 
         public Reservation()
@@ -26,11 +26,6 @@ namespace RestoENSA
                 db.conn.Open();
             }
             db.Fill_Table_3(reservation_box);
-        }
-
-        private void Reservation_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void ClearTextBoxes()

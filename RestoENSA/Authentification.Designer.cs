@@ -38,10 +38,10 @@
             this.login_btn = new MetroFramework.Controls.MetroButton();
             this.logoBox = new System.Windows.Forms.PictureBox();
             this.credits = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.credits.SuspendLayout();
             this.SuspendLayout();
@@ -209,34 +209,19 @@
             this.credits.VerticalScrollbarHighlightOnWheel = false;
             this.credits.VerticalScrollbarSize = 10;
             // 
-            // metroLabel1
+            // metroLabel4
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.metroLabel1.Location = new System.Drawing.Point(31, 21);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(96, 20);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "Elaboré par :";
-            this.metroLabel1.UseCustomBackColor = true;
-            this.metroLabel1.UseCustomForeColor = true;
-            this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click);
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.metroLabel2.Location = new System.Drawing.Point(72, 52);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(136, 20);
-            this.metroLabel2.TabIndex = 3;
-            this.metroLabel2.Text = "BAHAMAD Imane";
-            this.metroLabel2.UseCustomBackColor = true;
-            this.metroLabel2.UseCustomForeColor = true;
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroLabel4.Location = new System.Drawing.Point(72, 109);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(105, 20);
+            this.metroLabel4.TabIndex = 5;
+            this.metroLabel4.Text = "SGHIR Sohaib";
+            this.metroLabel4.UseCustomBackColor = true;
+            this.metroLabel4.UseCustomForeColor = true;
             // 
             // metroLabel3
             // 
@@ -252,19 +237,34 @@
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
             // 
-            // metroLabel4
+            // metroLabel2
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.metroLabel4.Location = new System.Drawing.Point(72, 109);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(105, 20);
-            this.metroLabel4.TabIndex = 5;
-            this.metroLabel4.Text = "SGHIR Sohaib";
-            this.metroLabel4.UseCustomBackColor = true;
-            this.metroLabel4.UseCustomForeColor = true;
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroLabel2.Location = new System.Drawing.Point(72, 52);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(136, 20);
+            this.metroLabel2.TabIndex = 3;
+            this.metroLabel2.Text = "BAHAMAD Imane";
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseCustomForeColor = true;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroLabel1.Location = new System.Drawing.Point(31, 21);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(96, 20);
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "Elaboré par :";
+            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1.UseCustomForeColor = true;
+            this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // Authentification
             // 
@@ -285,7 +285,9 @@
             this.Controls.Add(this.utilisateur_txt);
             this.Controls.Add(this.qui_lbl);
             this.Controls.Add(this.qui_combo);
+            this.MaximizeBox = false;
             this.Name = "Authentification";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.White;
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.Load += new System.EventHandler(this.Authentification_Load);

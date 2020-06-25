@@ -411,6 +411,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GestionServeur";
             this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "Gestion des serveurs";
             this.Load += new System.EventHandler(this.GestionServeur_Load);

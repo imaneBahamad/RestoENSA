@@ -111,9 +111,9 @@
             this.Controls.Add(this.reserver_btn);
             this.Controls.Add(this.id_lbl);
             this.Name = "Reservation";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "Réservation";
-            this.Load += new System.EventHandler(this.Reservation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

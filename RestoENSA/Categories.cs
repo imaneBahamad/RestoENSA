@@ -14,7 +14,6 @@ namespace RestoENSA
     {
         DBConnect db;
 
-
         public Categories()
         {
             InitializeComponent();

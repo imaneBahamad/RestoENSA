@@ -11,6 +11,7 @@ namespace RestoENSA
 {
     class DBConnect
     {
+        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
         public SqlConnection conn;
         public SqlCommand cmd;
         public SqlDataAdapter adapt;
@@ -18,7 +19,7 @@ namespace RestoENSA
 
         public DBConnect()
         {
-            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True");
+            conn = new SqlConnection(connectionString);
 
             if(conn.State != ConnectionState.Open )
             {

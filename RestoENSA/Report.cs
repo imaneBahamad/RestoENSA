@@ -14,7 +14,7 @@ namespace RestoENSA
 {
     public partial class Report : MetroForm
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Workspaces\DotNet\RestoENSA\RestoENSA\RestoENSA.mdf;Integrated Security=True";
+        public string connectionString = DBConnect.connectionString;
         private int id_table;
         public Report(int id_table)
         {
