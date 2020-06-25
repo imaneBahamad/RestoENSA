@@ -50,6 +50,7 @@
             this.ClientSize = new System.Drawing.Size(965, 515);
             this.Controls.Add(this.factureViewer);
             this.Name = "Report";
+            this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "Facture";
             this.Load += new System.EventHandler(this.Report_Load);
             this.ResumeLayout(false);

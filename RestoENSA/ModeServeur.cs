@@ -34,13 +34,46 @@ namespace RestoENSA
 
         private void réserver_btn_Click(object sender, EventArgs e)
         {
-            new Reservation().Show();
+            Reservation reservation = new Reservation();
+            reservation.RefToModeServeur = this;
+            this.Hide();
+            reservation.Show();
         }
 
         private void Ajouter_Cmd(object sender, EventArgs e)
         {
-            Commande cmd = new Commande();
-            cmd.ShowDialog();
+            Commande commande = new Commande();
+            commande.RefToModeServeur = this;
+            this.Hide();
+            commande.Show();
+        }
+
+        private void calendrier_btn_Click(object sender, EventArgs e)
+        {
+            Calendrier calendrier = new Calendrier("Serveur");
+            calendrier.RefToModeServeur = this;
+            this.Hide();
+            calendrier.Show();
+        }
+
+        private void commande_btn_MouseEnter(object sender, EventArgs e)
+        {
+            commande_btn.BackColor = SystemColors.InactiveCaption;
+        }
+
+        private void commande_btn_MouseLeave(object sender, EventArgs e)
+        {
+            commande_btn.BackColor = Color.LimeGreen;
+        }
+
+        private void réservation_btn_MouseEnter(object sender, EventArgs e)
+        {
+            réservation_btn.BackColor = SystemColors.InactiveCaption;
+        }
+
+        private void réservation_btn_MouseLeave(object sender, EventArgs e)
+        {
+            réservation_btn.BackColor = Color.DarkOrange;
         }
     }
 }

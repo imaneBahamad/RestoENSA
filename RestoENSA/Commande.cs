@@ -142,7 +142,7 @@ namespace RestoENSA
             }
         }
 
-        private void filtre_cmd_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void filtre_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string id_table = filtre_combobox.SelectedItem.ToString();
             if (string.IsNullOrWhiteSpace(id_table))
@@ -263,6 +263,14 @@ namespace RestoENSA
         private void Commande_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public Form RefToModeServeur { get; set; }
+
+        private void retour_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.RefToModeServeur.Show();
         }
     }
 }

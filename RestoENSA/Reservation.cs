@@ -127,5 +127,13 @@ namespace RestoENSA
                 }
             }
         }
+
+        public Form RefToModeServeur { get; set; }
+
+        private void retour_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.RefToModeServeur.Show();
+        }
     }
 }

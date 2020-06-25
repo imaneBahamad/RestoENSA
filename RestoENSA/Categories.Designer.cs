@@ -31,56 +31,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.PanelInfo = new MetroFramework.Controls.MetroPanel();
-            this.button4 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Categories));
             this.categorie_nom_box = new MetroFramework.Controls.MetroTextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.Categorie_grid = new MetroFramework.Controls.MetroGrid();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.categorie_code_box = new MetroFramework.Controls.MetroTextBox();
-            this.PanelInfo.SuspendLayout();
+            this.retour_btn = new System.Windows.Forms.Button();
+            this.supprimer_btn = new MetroFramework.Controls.MetroButton();
+            this.modif_btn = new MetroFramework.Controls.MetroButton();
+            this.vider_btn = new MetroFramework.Controls.MetroButton();
+            this.Ajouter_btn = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.Categorie_grid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PanelInfo
-            // 
-            this.PanelInfo.BackColor = System.Drawing.Color.Transparent;
-            this.PanelInfo.Controls.Add(this.button4);
-            this.PanelInfo.Controls.Add(this.categorie_nom_box);
-            this.PanelInfo.Controls.Add(this.button3);
-            this.PanelInfo.Controls.Add(this.metroLabel1);
-            this.PanelInfo.Controls.Add(this.Categorie_grid);
-            this.PanelInfo.Controls.Add(this.button2);
-            this.PanelInfo.Controls.Add(this.button1);
-            this.PanelInfo.Controls.Add(this.categorie_code_box);
-            this.PanelInfo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PanelInfo.HorizontalScrollbarBarColor = true;
-            this.PanelInfo.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelInfo.HorizontalScrollbarSize = 12;
-            this.PanelInfo.Location = new System.Drawing.Point(31, 74);
-            this.PanelInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.PanelInfo.Name = "PanelInfo";
-            this.PanelInfo.Size = new System.Drawing.Size(1235, 386);
-            this.PanelInfo.TabIndex = 43;
-            this.PanelInfo.UseCustomBackColor = true;
-            this.PanelInfo.UseCustomForeColor = true;
-            this.PanelInfo.UseStyleColors = true;
-            this.PanelInfo.VerticalScrollbarBarColor = true;
-            this.PanelInfo.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelInfo.VerticalScrollbarSize = 17;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(139, 283);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 28);
-            this.button4.TabIndex = 81;
-            this.button4.Text = "Vider les Champs";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // categorie_nom_box
             // 
@@ -88,18 +50,18 @@
             // 
             // 
             this.categorie_nom_box.CustomButton.Image = null;
-            this.categorie_nom_box.CustomButton.Location = new System.Drawing.Point(327, 2);
-            this.categorie_nom_box.CustomButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.categorie_nom_box.CustomButton.Location = new System.Drawing.Point(245, 2);
+            this.categorie_nom_box.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.categorie_nom_box.CustomButton.Name = "";
-            this.categorie_nom_box.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.categorie_nom_box.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.categorie_nom_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.categorie_nom_box.CustomButton.TabIndex = 1;
             this.categorie_nom_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.categorie_nom_box.CustomButton.UseSelectable = true;
             this.categorie_nom_box.CustomButton.Visible = false;
             this.categorie_nom_box.Lines = new string[0];
-            this.categorie_nom_box.Location = new System.Drawing.Point(190, 142);
-            this.categorie_nom_box.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.categorie_nom_box.Location = new System.Drawing.Point(211, 200);
+            this.categorie_nom_box.Margin = new System.Windows.Forms.Padding(5);
             this.categorie_nom_box.MaxLength = 32767;
             this.categorie_nom_box.Name = "categorie_nom_box";
             this.categorie_nom_box.PasswordChar = '\0';
@@ -109,34 +71,23 @@
             this.categorie_nom_box.SelectionStart = 0;
             this.categorie_nom_box.ShortcutsEnabled = true;
             this.categorie_nom_box.Size = new System.Drawing.Size(271, 28);
-            this.categorie_nom_box.TabIndex = 40;
+            this.categorie_nom_box.TabIndex = 0;
             this.categorie_nom_box.UseSelectable = true;
             this.categorie_nom_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.categorie_nom_box.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(190, 246);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 28);
-            this.button3.TabIndex = 39;
-            this.button3.Text = "Modifier";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.modifier_categorie_button);
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroLabel1.Location = new System.Drawing.Point(19, 142);
+            this.metroLabel1.Location = new System.Drawing.Point(32, 200);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(115, 20);
-            this.metroLabel1.TabIndex = 37;
-            this.metroLabel1.Text = "Nom Categorie";
+            this.metroLabel1.Size = new System.Drawing.Size(109, 20);
+            this.metroLabel1.TabIndex = 86;
+            this.metroLabel1.Text = "Nom catégorie";
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
             // 
@@ -145,15 +96,15 @@
             this.Categorie_grid.AllowUserToOrderColumns = true;
             this.Categorie_grid.AllowUserToResizeRows = false;
             this.Categorie_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Categorie_grid.BackgroundColor = System.Drawing.Color.White;
+            this.Categorie_grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Categorie_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Categorie_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Categorie_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Categorie_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -162,54 +113,33 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Categorie_grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.Categorie_grid.EnableHeadersVisualStyles = false;
             this.Categorie_grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Categorie_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Categorie_grid.Location = new System.Drawing.Point(497, 17);
-            this.Categorie_grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Categorie_grid.Location = new System.Drawing.Point(518, 78);
+            this.Categorie_grid.Margin = new System.Windows.Forms.Padding(4);
             this.Categorie_grid.Name = "Categorie_grid";
             this.Categorie_grid.ReadOnly = true;
             this.Categorie_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Categorie_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Categorie_grid.RowHeadersWidth = 51;
             this.Categorie_grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Categorie_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Categorie_grid.Size = new System.Drawing.Size(714, 340);
-            this.Categorie_grid.TabIndex = 36;
+            this.Categorie_grid.Size = new System.Drawing.Size(714, 332);
+            this.Categorie_grid.Style = MetroFramework.MetroColorStyle.Orange;
+            this.Categorie_grid.TabIndex = 5;
             this.Categorie_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Categorie_grid_CellClick);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(300, 246);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "Supprimer";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.supprimer_categorie_button);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(80, 246);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Ajouter";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ajouter_categorie_button);
             // 
             // categorie_code_box
             // 
@@ -219,7 +149,7 @@
             // 
             this.categorie_code_box.CustomButton.Image = null;
             this.categorie_code_box.CustomButton.Location = new System.Drawing.Point(245, 2);
-            this.categorie_code_box.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.categorie_code_box.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.categorie_code_box.CustomButton.Name = "";
             this.categorie_code_box.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.categorie_code_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -229,8 +159,8 @@
             this.categorie_code_box.CustomButton.Visible = false;
             this.categorie_code_box.Enabled = false;
             this.categorie_code_box.Lines = new string[0];
-            this.categorie_code_box.Location = new System.Drawing.Point(190, 54);
-            this.categorie_code_box.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.categorie_code_box.Location = new System.Drawing.Point(211, 112);
+            this.categorie_code_box.Margin = new System.Windows.Forms.Padding(5);
             this.categorie_code_box.MaxLength = 32767;
             this.categorie_code_box.Name = "categorie_code_box";
             this.categorie_code_box.PasswordChar = '\0';
@@ -240,41 +170,138 @@
             this.categorie_code_box.SelectionStart = 0;
             this.categorie_code_box.ShortcutsEnabled = true;
             this.categorie_code_box.Size = new System.Drawing.Size(271, 28);
-            this.categorie_code_box.TabIndex = 15;
+            this.categorie_code_box.TabIndex = 82;
             this.categorie_code_box.UseCustomBackColor = true;
             this.categorie_code_box.UseSelectable = true;
             this.categorie_code_box.Visible = false;
             this.categorie_code_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.categorie_code_box.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // retour_btn
+            // 
+            this.retour_btn.BackColor = System.Drawing.Color.Transparent;
+            this.retour_btn.FlatAppearance.BorderSize = 0;
+            this.retour_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retour_btn.Image = ((System.Drawing.Image)(resources.GetObject("retour_btn.Image")));
+            this.retour_btn.Location = new System.Drawing.Point(21, 75);
+            this.retour_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.retour_btn.Name = "retour_btn";
+            this.retour_btn.Size = new System.Drawing.Size(59, 54);
+            this.retour_btn.TabIndex = 6;
+            this.retour_btn.UseVisualStyleBackColor = false;
+            this.retour_btn.Click += new System.EventHandler(this.retour_btn_Click);
+            // 
+            // supprimer_btn
+            // 
+            this.supprimer_btn.BackColor = System.Drawing.Color.Transparent;
+            this.supprimer_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("supprimer_btn.BackgroundImage")));
+            this.supprimer_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.supprimer_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.supprimer_btn.ForeColor = System.Drawing.Color.Red;
+            this.supprimer_btn.Highlight = true;
+            this.supprimer_btn.Location = new System.Drawing.Point(274, 288);
+            this.supprimer_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.supprimer_btn.Name = "supprimer_btn";
+            this.supprimer_btn.Size = new System.Drawing.Size(50, 59);
+            this.supprimer_btn.Style = MetroFramework.MetroColorStyle.White;
+            this.supprimer_btn.TabIndex = 3;
+            this.supprimer_btn.UseCustomBackColor = true;
+            this.supprimer_btn.UseCustomForeColor = true;
+            this.supprimer_btn.UseSelectable = true;
+            this.supprimer_btn.Click += new System.EventHandler(this.supprimer_btn_Click);
+            // 
+            // modif_btn
+            // 
+            this.modif_btn.BackColor = System.Drawing.Color.Transparent;
+            this.modif_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("modif_btn.BackgroundImage")));
+            this.modif_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.modif_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.modif_btn.ForeColor = System.Drawing.Color.LimeGreen;
+            this.modif_btn.Highlight = true;
+            this.modif_btn.Location = new System.Drawing.Point(195, 284);
+            this.modif_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.modif_btn.Name = "modif_btn";
+            this.modif_btn.Size = new System.Drawing.Size(61, 63);
+            this.modif_btn.Style = MetroFramework.MetroColorStyle.White;
+            this.modif_btn.TabIndex = 2;
+            this.modif_btn.UseCustomBackColor = true;
+            this.modif_btn.UseCustomForeColor = true;
+            this.modif_btn.UseSelectable = true;
+            this.modif_btn.Click += new System.EventHandler(this.modif_btn_Click);
+            // 
+            // vider_btn
+            // 
+            this.vider_btn.BackColor = System.Drawing.Color.Transparent;
+            this.vider_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("vider_btn.BackgroundImage")));
+            this.vider_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.vider_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.vider_btn.ForeColor = System.Drawing.Color.Turquoise;
+            this.vider_btn.Highlight = true;
+            this.vider_btn.Location = new System.Drawing.Point(339, 284);
+            this.vider_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.vider_btn.Name = "vider_btn";
+            this.vider_btn.Size = new System.Drawing.Size(51, 63);
+            this.vider_btn.Style = MetroFramework.MetroColorStyle.White;
+            this.vider_btn.TabIndex = 4;
+            this.vider_btn.UseCustomBackColor = true;
+            this.vider_btn.UseCustomForeColor = true;
+            this.vider_btn.UseSelectable = true;
+            this.vider_btn.Click += new System.EventHandler(this.vider_btn_Click);
+            // 
+            // Ajouter_btn
+            // 
+            this.Ajouter_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Ajouter_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Ajouter_btn.BackgroundImage")));
+            this.Ajouter_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Ajouter_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.Ajouter_btn.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Ajouter_btn.Highlight = true;
+            this.Ajouter_btn.Location = new System.Drawing.Point(120, 284);
+            this.Ajouter_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Ajouter_btn.Name = "Ajouter_btn";
+            this.Ajouter_btn.Size = new System.Drawing.Size(60, 63);
+            this.Ajouter_btn.Style = MetroFramework.MetroColorStyle.White;
+            this.Ajouter_btn.TabIndex = 1;
+            this.Ajouter_btn.UseCustomBackColor = true;
+            this.Ajouter_btn.UseCustomForeColor = true;
+            this.Ajouter_btn.UseSelectable = true;
+            this.Ajouter_btn.Click += new System.EventHandler(this.Ajouter_btn_Click);
+            // 
             // Categories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1273, 491);
-            this.Controls.Add(this.PanelInfo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClientSize = new System.Drawing.Size(1273, 439);
+            this.ControlBox = false;
+            this.Controls.Add(this.supprimer_btn);
+            this.Controls.Add(this.modif_btn);
+            this.Controls.Add(this.vider_btn);
+            this.Controls.Add(this.Ajouter_btn);
+            this.Controls.Add(this.retour_btn);
+            this.Controls.Add(this.categorie_nom_box);
+            this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.Categorie_grid);
+            this.Controls.Add(this.categorie_code_box);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Categories";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
-            this.Text = "Categorie";
-            this.Load += new System.EventHandler(this.Categories_Load);
-            this.PanelInfo.ResumeLayout(false);
-            this.PanelInfo.PerformLayout();
+            this.Style = MetroFramework.MetroColorStyle.Orange;
+            this.Text = "Gestion des catégories des plats";
             ((System.ComponentModel.ISupportInitialize)(this.Categorie_grid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroPanel PanelInfo;
-        private MetroFramework.Controls.MetroTextBox categorie_code_box;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private MetroFramework.Controls.MetroGrid Categorie_grid;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private System.Windows.Forms.Button button3;
         private MetroFramework.Controls.MetroTextBox categorie_nom_box;
-        private System.Windows.Forms.Button button4;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroGrid Categorie_grid;
+        private MetroFramework.Controls.MetroTextBox categorie_code_box;
+        private System.Windows.Forms.Button retour_btn;
+        private MetroFramework.Controls.MetroButton supprimer_btn;
+        private MetroFramework.Controls.MetroButton modif_btn;
+        private MetroFramework.Controls.MetroButton vider_btn;
+        private MetroFramework.Controls.MetroButton Ajouter_btn;
     }
 }

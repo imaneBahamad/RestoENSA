@@ -26,8 +26,10 @@ namespace RestoENSA
 
         private void gestion_serveurs_btn_Click(object sender, EventArgs e)
         {
+            GestionServeur gestionServeur = new GestionServeur();
+            gestionServeur.RefToModeAdmin = this;
             this.Hide();
-            new GestionServeur().Show();
+            gestionServeur.Show();
         }
 
         public Form RefToAuthentication { get; set; }
@@ -40,32 +42,110 @@ namespace RestoENSA
 
         private void gestion_plat_click(object sender, EventArgs e)
         {
-            Plats p = new Plats();
-            p.ShowDialog();
+            Plats plats = new Plats();
+            plats.RefToModeAdmin = this;
+            this.Hide();
+            plats.Show();
         }
 
         private void gestion_categorie_click(object sender, EventArgs e)
         {
-            Categories cat = new Categories();
-            cat.ShowDialog();
+            Categories categories = new Categories();
+            categories.RefToModeAdmin = this;
+            this.Hide();
+            categories.Show();
         }
 
         private void gestion_table_click(object sender, EventArgs e)
         {
-            Tables t = new Tables();
-            t.ShowDialog();
+            Tables tables = new Tables();
+            tables.RefToModeAdmin = this;
+            this.Hide();
+            tables.Show();
         }
 
         private void Gestion_chefs_btn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            new GestionChefs().Show();
+            GestionChefs gestionChefs = new GestionChefs();
+            gestionChefs.RefToModeAdmin = this;
+            this.Hide();
+            gestionChefs.Show();
         }
 
         private void Gestion_horaire_btn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            new GestionHoraires().Show();
+            GestionHoraires gestionCategories = new GestionHoraires();
+            gestionCategories.RefToModeAdmin = this;
+            this.Hide();
+            gestionCategories.Show();
+        }
+
+        private void afficher_cal_btn_Click(object sender, EventArgs e)
+        {
+            Calendrier calendrier = new Calendrier("Admin");
+            calendrier.RefToModeAdmin = this;
+            this.Hide();
+            calendrier.Show();
+        }
+
+        private void gestion_serveurs_btn_MouseEnter(object sender, EventArgs e)
+        {
+            gestion_serveurs_btn.BackColor = SystemColors.InactiveCaption;
+        }
+
+        private void gestion_serveurs_btn_MouseLeave(object sender, EventArgs e)
+        {
+            gestion_serveurs_btn.BackColor = Color.DarkOrange;
+        }
+
+        private void Gestion_chefs_btn_MouseEnter(object sender, EventArgs e)
+        {
+            Gestion_chefs_btn.BackColor = SystemColors.InactiveCaption;
+        }
+
+        private void Gestion_chefs_btn_MouseLeave(object sender, EventArgs e)
+        {
+            Gestion_chefs_btn.BackColor = Color.LimeGreen;
+        }
+
+        private void gestion_plats_btn_MouseEnter(object sender, EventArgs e)
+        {
+            gestion_plats_btn.BackColor = SystemColors.InactiveCaption;
+        }
+
+        private void gestion_plats_btn_MouseLeave(object sender, EventArgs e)
+        {
+            gestion_plats_btn.BackColor = Color.LimeGreen;
+        }
+
+        private void gestion_tables_btn_MouseEnter(object sender, EventArgs e)
+        {
+            gestion_tables_btn.BackColor = SystemColors.InactiveCaption;
+        }
+
+        private void gestion_tables_btn_MouseLeave(object sender, EventArgs e)
+        {
+            gestion_tables_btn.BackColor = Color.LimeGreen;
+        }
+
+        private void gestion_catégories_btn_MouseEnter(object sender, EventArgs e)
+        {
+            gestion_catégories_btn.BackColor = SystemColors.InactiveCaption;
+        }
+
+        private void gestion_catégories_btn_MouseLeave(object sender, EventArgs e)
+        {
+            gestion_catégories_btn.BackColor = Color.DarkOrange;
+        }
+
+        private void Gestion_horaire_btn_MouseEnter(object sender, EventArgs e)
+        {
+            Gestion_horaire_btn.BackColor = SystemColors.InactiveCaption;
+        }
+
+        private void Gestion_horaire_btn_MouseLeave(object sender, EventArgs e)
+        {
+            Gestion_horaire_btn.BackColor = Color.DarkOrange;
         }
     }
 }

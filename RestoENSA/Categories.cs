@@ -42,14 +42,13 @@ namespace RestoENSA
             func(Controls);
         }
 
-        private void ajouter_categorie_button(object sender, EventArgs e)
+        private void Ajouter_btn_Click(object sender, EventArgs e)
         {
-            
             try
             {
-                
+
                 string nom = "";
-                
+
                 if (string.IsNullOrWhiteSpace(categorie_nom_box.Text)) { throw new Ex("vous devez remplir le champ nom!!"); } else { nom = categorie_nom_box.Text; }
 
                 if (db.check_Existence("Categorie", categorie_code_box.Text))
@@ -68,11 +67,10 @@ namespace RestoENSA
             {
 
             }
-
         }
 
 
-        private void modifier_categorie_button(object sender, EventArgs e)
+        private void modif_btn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -82,23 +80,19 @@ namespace RestoENSA
                 if (string.IsNullOrWhiteSpace(categorie_code_box.Text)) { throw new Ex("vous devez selectionner la commande \n que vous voulez modifier !!"); } else { id = int.Parse(categorie_code_box.Text); }
                 if (string.IsNullOrWhiteSpace(categorie_nom_box.Text)) { throw new Ex("vous devez remplir le champ nom!!"); } else { nom = categorie_nom_box.Text; }
 
-               
+
                 db.Modifier_Categorie(id, nom);
                 MessageBox.Show("Succes!");
                 ClearTextBoxes();
                 db.Afficher_Categorie(Categorie_grid);
-
-                
-
             }
             catch (Exception ex)
             {
 
             }
-
         }
 
-        private void supprimer_categorie_button(object sender, EventArgs e)
+        private void supprimer_btn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -128,16 +122,13 @@ namespace RestoENSA
                         MessageBox.Show("Categorie non Supprimée !", "Spprimer Categorie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-
-
             }
             catch (Exception ex)
             {
 
             }
-
-
         }
+
 
         private void Categorie_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -152,17 +143,18 @@ namespace RestoENSA
             }
         }
 
-        //vider les champs button
-
-        private void button4_Click(object sender, EventArgs e)
+        private void vider_btn_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
+
         }
 
+        public Form RefToModeAdmin { get; set; }
 
-        private void Categories_Load(object sender, EventArgs e)
+        private void retour_btn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            this.RefToModeAdmin.Show();
         }
     }
 }

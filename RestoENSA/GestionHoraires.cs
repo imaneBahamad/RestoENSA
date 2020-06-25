@@ -47,17 +47,11 @@ namespace RestoENSA
             func(Controls);
         }
 
-        private void retour_btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            new ModeAdmin("Bienvenue " + Authentification.user_info[1] + " !").Show();
-        }
-
-        private void metroButton1_Click(object sender, EventArgs e)
+        private void Ajouter_btn_Click(object sender, EventArgs e)
         {
             if (debut_time.Text == "" || fin_time.Text == "" || shift1_comboBox.Text == "" || shift2_comboBox.Text == "")
             {
-                MessageBox.Show("veuillez remplire le(s) champ(s) vide !!!!!");
+                MessageBox.Show("Veuillez remplire le(s) champ(s) vide !!","Erreur");
 
             }
             else
@@ -65,12 +59,12 @@ namespace RestoENSA
                 using (SqlConnection connexion = new SqlConnection(connectionString))
                 {
                     connexion.Open();
-                    SqlCommand command = new SqlCommand("Insert into Calendrier (horaire_shift1,horaire_shift2,debut_semaine,fin_semaine)  values (@shift1,@shift2,@debut,@fin)", connexion);
+                    SqlCommand command = new SqlCommand("Insert into Calendrier (numero_semaine,horaire_shift1,horaire_shift2,debut_semaine,fin_semaine)  values (@numero,@shift1,@shift2,@debut,@fin)", connexion);
+                    command.Parameters.AddWithValue("@numero", numero_txt.Text);
                     command.Parameters.AddWithValue("@shift1", shift1_comboBox.Text);
                     command.Parameters.AddWithValue("@shift2", shift2_comboBox.Text);
                     command.Parameters.AddWithValue("@debut", SqlDbType.Date).Value = debut_time.Value;
                     command.Parameters.AddWithValue("@fin", SqlDbType.Date).Value = fin_time.Value;
-                    command.Parameters.AddWithValue("@num", numero_txt.Text);
 
 
                     command.ExecuteNonQuery();
@@ -88,7 +82,7 @@ namespace RestoENSA
             using (SqlConnection connexion = new SqlConnection(connectionString))
             {
                 connexion.Open();
-                SqlCommand command = new SqlCommand("select numero_semaine,debut_semaine,fin_semaine,horaire_shift1,horaire_shift2,nom_serveur,nom_chef from Calendrier", connexion);
+                SqlCommand command = new SqlCommand("select * from Calendrier", connexion);
                 command.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(command);
@@ -108,23 +102,23 @@ namespace RestoENSA
         {
             if (debut_time.Text == "" || fin_time.Text == "" || shift1_comboBox.Text == "" || shift2_comboBox.Text == "")
             {
-                MessageBox.Show("veuillez selectionner une calendrier !!!!!");
-
+                MessageBox.Show("Veuillez selectionner un calendrier !!","Erreur");
             }
             else
             {
                 using (SqlConnection connexion = new SqlConnection(connectionString))
                 {
                     connexion.Open();
-                    SqlCommand command = new SqlCommand("UPDATE Calendrier SET horaire_shift1=@shift1, horaire_shift2=@shift2, debut_semaine=@debut, fin_semaine=@fin WHERE numero_semaine=@num", connexion);
+                    SqlCommand command = new SqlCommand("UPDATE Calendrier SET numero_semaine=@numero, horaire_shift1=@shift1, horaire_shift2=@shift2, debut_semaine=@debut, fin_semaine=@fin WHERE id_calendrier=@id", connexion);
+                    command.Parameters.AddWithValue("@numero", numero_txt.Text);
                     command.Parameters.AddWithValue("@shift1", shift1_comboBox.Text);
                     command.Parameters.AddWithValue("@shift2", shift2_comboBox.Text);
                     command.Parameters.AddWithValue("@debut", SqlDbType.Date).Value = debut_time.Value;
                     command.Parameters.AddWithValue("@fin", SqlDbType.Date).Value = fin_time.Value;
-                    command.Parameters.AddWithValue("@num", numero_txt.Text);
+                    command.Parameters.AddWithValue("@id", numero_txt.Text);
 
                     command.ExecuteNonQuery();
-                    MessageBox.Show("Succés de la MODIFICATION !!!!!");
+                    MessageBox.Show("Calendrier modifié avec succès !!", "Succès");
                     disp_data();
                 }
                 ClearTextBoxes();
@@ -134,6 +128,7 @@ namespace RestoENSA
         private void Horaire_grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Horaire_grid.CurrentRow.Selected = true;
+            id_calendrier_txt.Text = Horaire_grid.Rows[e.RowIndex].Cells["id_calendrier"].FormattedValue.ToString();
             numero_txt.Text = Horaire_grid.Rows[e.RowIndex].Cells["numero_semaine"].FormattedValue.ToString();
             debut_time.Text = Horaire_grid.Rows[e.RowIndex].Cells["debut_semaine"].FormattedValue.ToString();
             fin_time.Text = Horaire_grid.Rows[e.RowIndex].Cells["fin_semaine"].FormattedValue.ToString();
@@ -145,43 +140,55 @@ namespace RestoENSA
         {
             if (debut_time.Text == "" || fin_time.Text == "" || shift1_comboBox.Text == "" || shift2_comboBox.Text == "")
             {
-                MessageBox.Show("veuillez selectionner une calendrier !!!!!");
+                MessageBox.Show("Veuillez selectionner un calendrier !!", "Erreur");
             }
             else
             {
-                using (SqlConnection connexion = new SqlConnection(connectionString))
+                if (MessageBox.Show("Etes-vous sur de vouloir supprimer ce calendrier ?", "Supprimer calendrier", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    connexion.Open();
-                    SqlCommand command = new SqlCommand("DELETE FROM Calendrier WHERE numero_semaine=@num", connexion);
-                    command.Parameters.AddWithValue("@num", numero_txt.Text);
+                    using (SqlConnection connexion = new SqlConnection(connectionString))
+                    {
+                        connexion.Open();
+                        SqlCommand command = new SqlCommand("DELETE FROM Calendrier WHERE id_calendrier=@id", connexion);
+                        SqlCommand command2 = new SqlCommand("Update Chef SET id_calendrier=null WHERE id_calendrier=@id", connexion);
+                        SqlCommand command3 = new SqlCommand("Update Serveur SET id_calendrier=null WHERE id_calendrier=@id", connexion);
 
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Succés de la SUPPRESSION !!!!!");
-                    disp_data();
+                        command.Parameters.AddWithValue("@id", numero_txt.Text);
+                        command2.Parameters.AddWithValue("@id", numero_txt.Text);
+                        command3.Parameters.AddWithValue("@id", numero_txt.Text);
+
+
+                        command.ExecuteNonQuery();
+                        command2.ExecuteNonQuery();
+                        command3.ExecuteNonQuery();
+
+                        MessageBox.Show("Calendrier supprimé avec succès !!", "Succès");
+                        disp_data();
+                    }
                 }
                 ClearTextBoxes();
             }
         }
 
         private void show_chef_btn_Click(object sender, EventArgs e)
-        {
-            disp_data();
+        {           
             nomChef_label.Show();
             chef_comboBox.Show();
             affecter_chef_btn.Show();
+            nomServeur_label.Hide();
+            serveur_comboBox.Hide();
+            affecter_serveur_btn.Hide();
+
         }
 
         private void show_serveur_btn_Click(object sender, EventArgs e)
         {
-            disp_data();
             nomServeur_label.Show();
             serveur_comboBox.Show();
             affecter_serveur_btn.Show();
-        }
-
-        private void chef_comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            nomChef_label.Hide();
+            chef_comboBox.Hide();
+            affecter_chef_btn.Hide();
         }
 
         void chefComboBox()
@@ -223,9 +230,9 @@ namespace RestoENSA
                 using (SqlConnection connexion = new SqlConnection(connectionString))
                 {
                     connexion.Open();
-                    SqlCommand command = new SqlCommand("UPDATE Calendrier SET nom_chef=@chef WHERE numero_semaine=@num", connexion);
-                    command.Parameters.AddWithValue("@chef", chef_comboBox.Text);
-                    command.Parameters.AddWithValue("@num", numero_txt.Text);
+                    SqlCommand command = new SqlCommand("UPDATE Chef SET id_calendrier=@id WHERE id_chef=(SELECT id_chef FROM Chef WHERE nom_chef=@nom)", connexion);
+                    command.Parameters.AddWithValue("@id", id_calendrier_txt.Text);
+                    command.Parameters.AddWithValue("@nom", chef_comboBox.Text);
 
 
                     command.ExecuteNonQuery();
@@ -246,9 +253,9 @@ namespace RestoENSA
                 using (SqlConnection connexion = new SqlConnection(connectionString))
                 {
                     connexion.Open();
-                    SqlCommand command = new SqlCommand("UPDATE Calendrier SET nom_serveur=@serveur WHERE numero_semaine=@num", connexion);
-                    command.Parameters.AddWithValue("@serveur", serveur_comboBox.Text);
-                    command.Parameters.AddWithValue("@num", numero_txt.Text);
+                    SqlCommand command = new SqlCommand("UPDATE Serveur SET id_calendrier=@id WHERE id_serveur=(SELECT id_serveur FROM Serveur WHERE nom_serveur=@nom)", connexion);
+                    command.Parameters.AddWithValue("@id", id_calendrier_txt.Text);
+                    command.Parameters.AddWithValue("@nom", serveur_comboBox.Text);
 
 
                     command.ExecuteNonQuery();
@@ -258,6 +265,15 @@ namespace RestoENSA
                 }
             }
         }
+
+        public Form RefToModeAdmin { get; set; }
+
+        private void retour_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.RefToModeAdmin.Show();
+        }
+
     }
 
 }

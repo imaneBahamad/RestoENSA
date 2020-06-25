@@ -47,7 +47,7 @@ namespace RestoENSA
             func(Controls);
         }
 
-        private void ajouter_plat_button(object sender, EventArgs e)
+        private void Ajouter_btn_Click(object sender, EventArgs e)
         {
             bool verify2;
             try
@@ -91,7 +91,7 @@ namespace RestoENSA
 
         }
 
-        private void modifier_plat_button(object sender, EventArgs e)
+        private void modif_btn_Click(object sender, EventArgs e)
         {
             bool verify2;
             try
@@ -131,7 +131,7 @@ namespace RestoENSA
             }
         }//fin fct
 
-        private void supprimer_button(object sender, EventArgs e)
+        private void supprimer_btn_Click(object sender, EventArgs e)
         {
             string code = code_plat_box.Text;
             try
@@ -161,11 +161,6 @@ namespace RestoENSA
                 ClearTextBoxes();
                 MessageBox.Show("succes!!");
             }
-        }
-
-        private void Quitter_button(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void filtre_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,12 +196,18 @@ namespace RestoENSA
 
         // vider les champs button
 
-        private void button4_Click(object sender, EventArgs e)
+        private void vider_btn_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
 
         }
 
+        public Form RefToModeAdmin { get; set; }
 
+        private void retour_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.RefToModeAdmin.Show();
+        }
     }
 }

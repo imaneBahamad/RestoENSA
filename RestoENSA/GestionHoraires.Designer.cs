@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionHoraires));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.retour_btn = new System.Windows.Forms.Button();
-            this.ajout_btn = new MetroFramework.Controls.MetroButton();
-            this.modif_btn = new MetroFramework.Controls.MetroButton();
-            this.supprimer_btn = new MetroFramework.Controls.MetroButton();
-            this.vider_btn = new MetroFramework.Controls.MetroButton();
             this.debut_sem_label = new MetroFramework.Controls.MetroLabel();
             this.fin_sem_label = new MetroFramework.Controls.MetroLabel();
             this.shift1_label = new MetroFramework.Controls.MetroLabel();
@@ -55,71 +50,20 @@
             this.show_serveur_btn = new MetroFramework.Controls.MetroButton();
             this.affecter_chef_btn = new MetroFramework.Controls.MetroButton();
             this.affecter_serveur_btn = new MetroFramework.Controls.MetroButton();
+            this.numero_label = new MetroFramework.Controls.MetroLabel();
+            this.id_calendrier_txt = new MetroFramework.Controls.MetroTextBox();
+            this.supprimer_btn = new MetroFramework.Controls.MetroButton();
+            this.modif_btn = new MetroFramework.Controls.MetroButton();
+            this.vider_btn = new MetroFramework.Controls.MetroButton();
+            this.Ajouter_btn = new MetroFramework.Controls.MetroButton();
+            this.retour_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Horaire_grid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // retour_btn
-            // 
-            this.retour_btn.BackColor = System.Drawing.Color.Transparent;
-            this.retour_btn.FlatAppearance.BorderSize = 0;
-            this.retour_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retour_btn.Image = ((System.Drawing.Image)(resources.GetObject("retour_btn.Image")));
-            this.retour_btn.Location = new System.Drawing.Point(26, 63);
-            this.retour_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.retour_btn.Name = "retour_btn";
-            this.retour_btn.Size = new System.Drawing.Size(59, 54);
-            this.retour_btn.TabIndex = 18;
-            this.retour_btn.UseVisualStyleBackColor = false;
-            this.retour_btn.Click += new System.EventHandler(this.retour_btn_Click);
-            // 
-            // ajout_btn
-            // 
-            this.ajout_btn.Location = new System.Drawing.Point(81, 400);
-            this.ajout_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ajout_btn.Name = "ajout_btn";
-            this.ajout_btn.Size = new System.Drawing.Size(100, 28);
-            this.ajout_btn.TabIndex = 19;
-            this.ajout_btn.Text = "Ajouter";
-            this.ajout_btn.UseSelectable = true;
-            this.ajout_btn.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // modif_btn
-            // 
-            this.modif_btn.Location = new System.Drawing.Point(189, 400);
-            this.modif_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.modif_btn.Name = "modif_btn";
-            this.modif_btn.Size = new System.Drawing.Size(100, 28);
-            this.modif_btn.TabIndex = 20;
-            this.modif_btn.Text = "Modifier";
-            this.modif_btn.UseSelectable = true;
-            this.modif_btn.Click += new System.EventHandler(this.modif_btn_Click);
-            // 
-            // supprimer_btn
-            // 
-            this.supprimer_btn.Location = new System.Drawing.Point(297, 400);
-            this.supprimer_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.supprimer_btn.Name = "supprimer_btn";
-            this.supprimer_btn.Size = new System.Drawing.Size(100, 28);
-            this.supprimer_btn.TabIndex = 21;
-            this.supprimer_btn.Text = "Supprimer";
-            this.supprimer_btn.UseSelectable = true;
-            this.supprimer_btn.Click += new System.EventHandler(this.supprimer_btn_Click);
-            // 
-            // vider_btn
-            // 
-            this.vider_btn.Location = new System.Drawing.Point(162, 435);
-            this.vider_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.vider_btn.Name = "vider_btn";
-            this.vider_btn.Size = new System.Drawing.Size(157, 28);
-            this.vider_btn.TabIndex = 22;
-            this.vider_btn.Text = "Vider les champs";
-            this.vider_btn.UseSelectable = true;
-            this.vider_btn.Click += new System.EventHandler(this.vider_btn_Click);
             // 
             // debut_sem_label
             // 
             this.debut_sem_label.AutoSize = true;
-            this.debut_sem_label.Location = new System.Drawing.Point(68, 189);
+            this.debut_sem_label.Location = new System.Drawing.Point(51, 206);
             this.debut_sem_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.debut_sem_label.Name = "debut_sem_label";
             this.debut_sem_label.Size = new System.Drawing.Size(123, 20);
@@ -129,7 +73,7 @@
             // fin_sem_label
             // 
             this.fin_sem_label.AutoSize = true;
-            this.fin_sem_label.Location = new System.Drawing.Point(68, 239);
+            this.fin_sem_label.Location = new System.Drawing.Point(51, 255);
             this.fin_sem_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fin_sem_label.Name = "fin_sem_label";
             this.fin_sem_label.Size = new System.Drawing.Size(103, 20);
@@ -139,7 +83,7 @@
             // shift1_label
             // 
             this.shift1_label.AutoSize = true;
-            this.shift1_label.Location = new System.Drawing.Point(68, 288);
+            this.shift1_label.Location = new System.Drawing.Point(51, 304);
             this.shift1_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.shift1_label.Name = "shift1_label";
             this.shift1_label.Size = new System.Drawing.Size(90, 20);
@@ -149,7 +93,7 @@
             // shift2_label
             // 
             this.shift2_label.AutoSize = true;
-            this.shift2_label.Location = new System.Drawing.Point(68, 336);
+            this.shift2_label.Location = new System.Drawing.Point(51, 352);
             this.shift2_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.shift2_label.Name = "shift2_label";
             this.shift2_label.Size = new System.Drawing.Size(92, 20);
@@ -160,24 +104,24 @@
             // 
             this.debut_time.CustomFormat = "dd-MM-yyyy";
             this.debut_time.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.debut_time.Location = new System.Drawing.Point(259, 189);
-            this.debut_time.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.debut_time.Location = new System.Drawing.Point(222, 206);
+            this.debut_time.Margin = new System.Windows.Forms.Padding(4);
             this.debut_time.MinimumSize = new System.Drawing.Size(0, 30);
             this.debut_time.Name = "debut_time";
-            this.debut_time.Size = new System.Drawing.Size(159, 30);
-            this.debut_time.TabIndex = 27;
+            this.debut_time.Size = new System.Drawing.Size(196, 30);
+            this.debut_time.TabIndex = 1;
             this.debut_time.Value = new System.DateTime(2020, 6, 13, 0, 0, 0, 0);
             // 
             // fin_time
             // 
             this.fin_time.CustomFormat = "dd-MM-yyyy";
             this.fin_time.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fin_time.Location = new System.Drawing.Point(259, 239);
-            this.fin_time.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fin_time.Location = new System.Drawing.Point(222, 255);
+            this.fin_time.Margin = new System.Windows.Forms.Padding(4);
             this.fin_time.MinimumSize = new System.Drawing.Size(0, 30);
             this.fin_time.Name = "fin_time";
-            this.fin_time.Size = new System.Drawing.Size(159, 30);
-            this.fin_time.TabIndex = 28;
+            this.fin_time.Size = new System.Drawing.Size(196, 30);
+            this.fin_time.TabIndex = 2;
             // 
             // shift1_comboBox
             // 
@@ -234,11 +178,11 @@
             "07:30:00",
             "",
             ""});
-            this.shift1_comboBox.Location = new System.Drawing.Point(260, 288);
-            this.shift1_comboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shift1_comboBox.Location = new System.Drawing.Point(223, 304);
+            this.shift1_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.shift1_comboBox.Name = "shift1_comboBox";
-            this.shift1_comboBox.Size = new System.Drawing.Size(159, 30);
-            this.shift1_comboBox.TabIndex = 29;
+            this.shift1_comboBox.Size = new System.Drawing.Size(196, 30);
+            this.shift1_comboBox.TabIndex = 3;
             this.shift1_comboBox.UseSelectable = true;
             // 
             // shift2_comboBox
@@ -294,57 +238,59 @@
             "06:30:00",
             "07:00:00",
             "07:30:00"});
-            this.shift2_comboBox.Location = new System.Drawing.Point(260, 336);
-            this.shift2_comboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shift2_comboBox.Location = new System.Drawing.Point(223, 352);
+            this.shift2_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.shift2_comboBox.Name = "shift2_comboBox";
-            this.shift2_comboBox.Size = new System.Drawing.Size(159, 30);
-            this.shift2_comboBox.TabIndex = 30;
+            this.shift2_comboBox.Size = new System.Drawing.Size(196, 30);
+            this.shift2_comboBox.TabIndex = 4;
             this.shift2_comboBox.UseSelectable = true;
             // 
             // Horaire_grid
             // 
             this.Horaire_grid.AllowUserToResizeRows = false;
+            this.Horaire_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Horaire_grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Horaire_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Horaire_grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Horaire_grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Horaire_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Horaire_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Horaire_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Horaire_grid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Horaire_grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.Horaire_grid.EnableHeadersVisualStyles = false;
             this.Horaire_grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Horaire_grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Horaire_grid.Location = new System.Drawing.Point(457, 119);
-            this.Horaire_grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Horaire_grid.Location = new System.Drawing.Point(464, 61);
+            this.Horaire_grid.Margin = new System.Windows.Forms.Padding(4);
             this.Horaire_grid.Name = "Horaire_grid";
             this.Horaire_grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Horaire_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(133)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Horaire_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Horaire_grid.RowHeadersWidth = 51;
             this.Horaire_grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Horaire_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Horaire_grid.Size = new System.Drawing.Size(588, 206);
-            this.Horaire_grid.TabIndex = 31;
+            this.Horaire_grid.Size = new System.Drawing.Size(781, 273);
+            this.Horaire_grid.Style = MetroFramework.MetroColorStyle.Orange;
+            this.Horaire_grid.TabIndex = 9;
             this.Horaire_grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Horaire_grid_CellClick);
             // 
             // numero_txt
@@ -353,8 +299,8 @@
             // 
             // 
             this.numero_txt.CustomButton.Image = null;
-            this.numero_txt.CustomButton.Location = new System.Drawing.Point(134, 2);
-            this.numero_txt.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numero_txt.CustomButton.Location = new System.Drawing.Point(171, 2);
+            this.numero_txt.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.numero_txt.CustomButton.Name = "";
             this.numero_txt.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.numero_txt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -363,8 +309,8 @@
             this.numero_txt.CustomButton.UseSelectable = true;
             this.numero_txt.CustomButton.Visible = false;
             this.numero_txt.Lines = new string[0];
-            this.numero_txt.Location = new System.Drawing.Point(259, 119);
-            this.numero_txt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numero_txt.Location = new System.Drawing.Point(222, 155);
+            this.numero_txt.Margin = new System.Windows.Forms.Padding(4);
             this.numero_txt.MaxLength = 32767;
             this.numero_txt.Name = "numero_txt";
             this.numero_txt.PasswordChar = '\0';
@@ -373,115 +319,270 @@
             this.numero_txt.SelectionLength = 0;
             this.numero_txt.SelectionStart = 0;
             this.numero_txt.ShortcutsEnabled = true;
-            this.numero_txt.Size = new System.Drawing.Size(160, 28);
-            this.numero_txt.TabIndex = 32;
+            this.numero_txt.Size = new System.Drawing.Size(197, 28);
+            this.numero_txt.TabIndex = 0;
             this.numero_txt.UseSelectable = true;
-            this.numero_txt.Visible = false;
             this.numero_txt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.numero_txt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // nomChef_label
             // 
             this.nomChef_label.AutoSize = true;
-            this.nomChef_label.Location = new System.Drawing.Point(625, 417);
+            this.nomChef_label.Location = new System.Drawing.Point(835, 420);
             this.nomChef_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomChef_label.Name = "nomChef_label";
-            this.nomChef_label.Size = new System.Drawing.Size(73, 20);
+            this.nomChef_label.Size = new System.Drawing.Size(71, 20);
             this.nomChef_label.TabIndex = 33;
-            this.nomChef_label.Text = "Nom Chef";
+            this.nomChef_label.Text = "Nom chef";
             this.nomChef_label.Visible = false;
             // 
             // nomServeur_label
             // 
             this.nomServeur_label.AutoSize = true;
-            this.nomServeur_label.Location = new System.Drawing.Point(859, 417);
+            this.nomServeur_label.Location = new System.Drawing.Point(1055, 420);
             this.nomServeur_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomServeur_label.Name = "nomServeur_label";
-            this.nomServeur_label.Size = new System.Drawing.Size(93, 20);
+            this.nomServeur_label.Size = new System.Drawing.Size(92, 20);
             this.nomServeur_label.TabIndex = 34;
-            this.nomServeur_label.Text = "Nom Serveur";
+            this.nomServeur_label.Text = "Nom serveur";
             this.nomServeur_label.Visible = false;
             // 
             // chef_comboBox
             // 
             this.chef_comboBox.FormattingEnabled = true;
             this.chef_comboBox.ItemHeight = 24;
-            this.chef_comboBox.Location = new System.Drawing.Point(625, 453);
-            this.chef_comboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chef_comboBox.Location = new System.Drawing.Point(835, 456);
+            this.chef_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.chef_comboBox.Name = "chef_comboBox";
-            this.chef_comboBox.Size = new System.Drawing.Size(172, 30);
+            this.chef_comboBox.Size = new System.Drawing.Size(194, 30);
             this.chef_comboBox.TabIndex = 35;
             this.chef_comboBox.UseSelectable = true;
             this.chef_comboBox.Visible = false;
-            this.chef_comboBox.SelectedIndexChanged += new System.EventHandler(this.chef_comboBox_SelectedIndexChanged);
             // 
             // serveur_comboBox
             // 
             this.serveur_comboBox.FormattingEnabled = true;
             this.serveur_comboBox.ItemHeight = 24;
-            this.serveur_comboBox.Location = new System.Drawing.Point(859, 453);
-            this.serveur_comboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.serveur_comboBox.Location = new System.Drawing.Point(1055, 456);
+            this.serveur_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.serveur_comboBox.Name = "serveur_comboBox";
-            this.serveur_comboBox.Size = new System.Drawing.Size(176, 30);
+            this.serveur_comboBox.Size = new System.Drawing.Size(190, 30);
             this.serveur_comboBox.TabIndex = 36;
             this.serveur_comboBox.UseSelectable = true;
             this.serveur_comboBox.Visible = false;
             // 
             // show_chef_btn
             // 
-            this.show_chef_btn.Location = new System.Drawing.Point(625, 356);
-            this.show_chef_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.show_chef_btn.BackColor = System.Drawing.Color.DarkOrange;
+            this.show_chef_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.show_chef_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.show_chef_btn.Location = new System.Drawing.Point(835, 359);
+            this.show_chef_btn.Margin = new System.Windows.Forms.Padding(4);
             this.show_chef_btn.Name = "show_chef_btn";
-            this.show_chef_btn.Size = new System.Drawing.Size(160, 47);
-            this.show_chef_btn.TabIndex = 37;
-            this.show_chef_btn.Text = "Affecter à Chef";
+            this.show_chef_btn.Size = new System.Drawing.Size(194, 47);
+            this.show_chef_btn.TabIndex = 10;
+            this.show_chef_btn.Text = "Affectation chef";
+            this.show_chef_btn.UseCustomBackColor = true;
+            this.show_chef_btn.UseCustomForeColor = true;
             this.show_chef_btn.UseSelectable = true;
             this.show_chef_btn.Click += new System.EventHandler(this.show_chef_btn_Click);
             // 
             // show_serveur_btn
             // 
-            this.show_serveur_btn.Location = new System.Drawing.Point(859, 356);
-            this.show_serveur_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.show_serveur_btn.BackColor = System.Drawing.Color.LimeGreen;
+            this.show_serveur_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.show_serveur_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.show_serveur_btn.Location = new System.Drawing.Point(1055, 359);
+            this.show_serveur_btn.Margin = new System.Windows.Forms.Padding(4);
             this.show_serveur_btn.Name = "show_serveur_btn";
-            this.show_serveur_btn.Size = new System.Drawing.Size(147, 47);
-            this.show_serveur_btn.TabIndex = 38;
-            this.show_serveur_btn.Text = "Affecter à Serveur";
+            this.show_serveur_btn.Size = new System.Drawing.Size(190, 47);
+            this.show_serveur_btn.TabIndex = 11;
+            this.show_serveur_btn.Text = "Affectation serveur";
+            this.show_serveur_btn.UseCustomBackColor = true;
+            this.show_serveur_btn.UseCustomForeColor = true;
             this.show_serveur_btn.UseSelectable = true;
             this.show_serveur_btn.Click += new System.EventHandler(this.show_serveur_btn_Click);
             // 
             // affecter_chef_btn
             // 
-            this.affecter_chef_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.affecter_chef_btn.Location = new System.Drawing.Point(697, 497);
-            this.affecter_chef_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.affecter_chef_btn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.affecter_chef_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.affecter_chef_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.affecter_chef_btn.Location = new System.Drawing.Point(929, 500);
+            this.affecter_chef_btn.Margin = new System.Windows.Forms.Padding(4);
             this.affecter_chef_btn.Name = "affecter_chef_btn";
-            this.affecter_chef_btn.Size = new System.Drawing.Size(100, 28);
+            this.affecter_chef_btn.Size = new System.Drawing.Size(100, 40);
             this.affecter_chef_btn.TabIndex = 39;
             this.affecter_chef_btn.Text = "Affecter";
             this.affecter_chef_btn.UseCustomBackColor = true;
+            this.affecter_chef_btn.UseCustomForeColor = true;
             this.affecter_chef_btn.UseSelectable = true;
             this.affecter_chef_btn.Visible = false;
             this.affecter_chef_btn.Click += new System.EventHandler(this.affecter_chef_btn_Click);
             // 
             // affecter_serveur_btn
             // 
-            this.affecter_serveur_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.affecter_serveur_btn.Location = new System.Drawing.Point(936, 497);
-            this.affecter_serveur_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.affecter_serveur_btn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.affecter_serveur_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.affecter_serveur_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.affecter_serveur_btn.Location = new System.Drawing.Point(1145, 500);
+            this.affecter_serveur_btn.Margin = new System.Windows.Forms.Padding(4);
             this.affecter_serveur_btn.Name = "affecter_serveur_btn";
-            this.affecter_serveur_btn.Size = new System.Drawing.Size(100, 28);
+            this.affecter_serveur_btn.Size = new System.Drawing.Size(100, 40);
             this.affecter_serveur_btn.TabIndex = 40;
             this.affecter_serveur_btn.Text = "Affecter";
             this.affecter_serveur_btn.UseCustomBackColor = true;
+            this.affecter_serveur_btn.UseCustomForeColor = true;
             this.affecter_serveur_btn.UseSelectable = true;
             this.affecter_serveur_btn.Visible = false;
             this.affecter_serveur_btn.Click += new System.EventHandler(this.affecter_serveur_btn_Click);
+            // 
+            // numero_label
+            // 
+            this.numero_label.AutoSize = true;
+            this.numero_label.Location = new System.Drawing.Point(51, 155);
+            this.numero_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.numero_label.Name = "numero_label";
+            this.numero_label.Size = new System.Drawing.Size(117, 20);
+            this.numero_label.TabIndex = 41;
+            this.numero_label.Text = "Numero semaine";
+            // 
+            // id_calendrier_txt
+            // 
+            // 
+            // 
+            // 
+            this.id_calendrier_txt.CustomButton.Image = null;
+            this.id_calendrier_txt.CustomButton.Location = new System.Drawing.Point(170, 2);
+            this.id_calendrier_txt.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.id_calendrier_txt.CustomButton.Name = "";
+            this.id_calendrier_txt.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.id_calendrier_txt.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.id_calendrier_txt.CustomButton.TabIndex = 1;
+            this.id_calendrier_txt.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.id_calendrier_txt.CustomButton.UseSelectable = true;
+            this.id_calendrier_txt.CustomButton.Visible = false;
+            this.id_calendrier_txt.Lines = new string[0];
+            this.id_calendrier_txt.Location = new System.Drawing.Point(223, 89);
+            this.id_calendrier_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.id_calendrier_txt.MaxLength = 32767;
+            this.id_calendrier_txt.Name = "id_calendrier_txt";
+            this.id_calendrier_txt.PasswordChar = '\0';
+            this.id_calendrier_txt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.id_calendrier_txt.SelectedText = "";
+            this.id_calendrier_txt.SelectionLength = 0;
+            this.id_calendrier_txt.SelectionStart = 0;
+            this.id_calendrier_txt.ShortcutsEnabled = true;
+            this.id_calendrier_txt.Size = new System.Drawing.Size(196, 28);
+            this.id_calendrier_txt.TabIndex = 42;
+            this.id_calendrier_txt.UseSelectable = true;
+            this.id_calendrier_txt.Visible = false;
+            this.id_calendrier_txt.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.id_calendrier_txt.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // supprimer_btn
+            // 
+            this.supprimer_btn.BackColor = System.Drawing.Color.Transparent;
+            this.supprimer_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("supprimer_btn.BackgroundImage")));
+            this.supprimer_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.supprimer_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.supprimer_btn.ForeColor = System.Drawing.Color.Red;
+            this.supprimer_btn.Highlight = true;
+            this.supprimer_btn.Location = new System.Drawing.Point(246, 432);
+            this.supprimer_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.supprimer_btn.Name = "supprimer_btn";
+            this.supprimer_btn.Size = new System.Drawing.Size(50, 59);
+            this.supprimer_btn.Style = MetroFramework.MetroColorStyle.White;
+            this.supprimer_btn.TabIndex = 7;
+            this.supprimer_btn.UseCustomBackColor = true;
+            this.supprimer_btn.UseCustomForeColor = true;
+            this.supprimer_btn.UseSelectable = true;
+            this.supprimer_btn.Click += new System.EventHandler(this.supprimer_btn_Click);
+            // 
+            // modif_btn
+            // 
+            this.modif_btn.BackColor = System.Drawing.Color.Transparent;
+            this.modif_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("modif_btn.BackgroundImage")));
+            this.modif_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.modif_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.modif_btn.ForeColor = System.Drawing.Color.LimeGreen;
+            this.modif_btn.Highlight = true;
+            this.modif_btn.Location = new System.Drawing.Point(167, 428);
+            this.modif_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.modif_btn.Name = "modif_btn";
+            this.modif_btn.Size = new System.Drawing.Size(61, 63);
+            this.modif_btn.Style = MetroFramework.MetroColorStyle.White;
+            this.modif_btn.TabIndex = 6;
+            this.modif_btn.UseCustomBackColor = true;
+            this.modif_btn.UseCustomForeColor = true;
+            this.modif_btn.UseSelectable = true;
+            this.modif_btn.Click += new System.EventHandler(this.modif_btn_Click);
+            // 
+            // vider_btn
+            // 
+            this.vider_btn.BackColor = System.Drawing.Color.Transparent;
+            this.vider_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("vider_btn.BackgroundImage")));
+            this.vider_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.vider_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.vider_btn.ForeColor = System.Drawing.Color.Turquoise;
+            this.vider_btn.Highlight = true;
+            this.vider_btn.Location = new System.Drawing.Point(311, 428);
+            this.vider_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.vider_btn.Name = "vider_btn";
+            this.vider_btn.Size = new System.Drawing.Size(51, 63);
+            this.vider_btn.Style = MetroFramework.MetroColorStyle.White;
+            this.vider_btn.TabIndex = 8;
+            this.vider_btn.UseCustomBackColor = true;
+            this.vider_btn.UseCustomForeColor = true;
+            this.vider_btn.UseSelectable = true;
+            this.vider_btn.Click += new System.EventHandler(this.vider_btn_Click);
+            // 
+            // Ajouter_btn
+            // 
+            this.Ajouter_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Ajouter_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Ajouter_btn.BackgroundImage")));
+            this.Ajouter_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Ajouter_btn.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.Ajouter_btn.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Ajouter_btn.Highlight = true;
+            this.Ajouter_btn.Location = new System.Drawing.Point(92, 428);
+            this.Ajouter_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Ajouter_btn.Name = "Ajouter_btn";
+            this.Ajouter_btn.Size = new System.Drawing.Size(60, 63);
+            this.Ajouter_btn.Style = MetroFramework.MetroColorStyle.White;
+            this.Ajouter_btn.TabIndex = 5;
+            this.Ajouter_btn.UseCustomBackColor = true;
+            this.Ajouter_btn.UseCustomForeColor = true;
+            this.Ajouter_btn.UseSelectable = true;
+            this.Ajouter_btn.Click += new System.EventHandler(this.Ajouter_btn_Click);
+            // 
+            // retour_btn
+            // 
+            this.retour_btn.BackColor = System.Drawing.Color.Transparent;
+            this.retour_btn.FlatAppearance.BorderSize = 0;
+            this.retour_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retour_btn.Image = ((System.Drawing.Image)(resources.GetObject("retour_btn.Image")));
+            this.retour_btn.Location = new System.Drawing.Point(30, 76);
+            this.retour_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.retour_btn.Name = "retour_btn";
+            this.retour_btn.Size = new System.Drawing.Size(59, 54);
+            this.retour_btn.TabIndex = 12;
+            this.retour_btn.UseVisualStyleBackColor = false;
+            this.retour_btn.Click += new System.EventHandler(this.retour_btn_Click);
             // 
             // GestionHoraires
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1292, 575);
+            this.ControlBox = false;
+            this.Controls.Add(this.retour_btn);
+            this.Controls.Add(this.supprimer_btn);
+            this.Controls.Add(this.modif_btn);
+            this.Controls.Add(this.vider_btn);
+            this.Controls.Add(this.Ajouter_btn);
+            this.Controls.Add(this.id_calendrier_txt);
+            this.Controls.Add(this.numero_label);
             this.Controls.Add(this.affecter_serveur_btn);
             this.Controls.Add(this.affecter_chef_btn);
             this.Controls.Add(this.show_serveur_btn);
@@ -500,15 +601,11 @@
             this.Controls.Add(this.shift1_label);
             this.Controls.Add(this.fin_sem_label);
             this.Controls.Add(this.debut_sem_label);
-            this.Controls.Add(this.vider_btn);
-            this.Controls.Add(this.supprimer_btn);
-            this.Controls.Add(this.modif_btn);
-            this.Controls.Add(this.ajout_btn);
-            this.Controls.Add(this.retour_btn);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GestionHoraires";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
-            this.Text = "GestionHoraires";
+            this.Style = MetroFramework.MetroColorStyle.Orange;
+            this.Text = "Gestion des shifts et horaires";
             ((System.ComponentModel.ISupportInitialize)(this.Horaire_grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -516,12 +613,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button retour_btn;
-        private MetroFramework.Controls.MetroButton ajout_btn;
-        private MetroFramework.Controls.MetroButton modif_btn;
-        private MetroFramework.Controls.MetroButton supprimer_btn;
-        private MetroFramework.Controls.MetroButton vider_btn;
         private MetroFramework.Controls.MetroLabel debut_sem_label;
         private MetroFramework.Controls.MetroLabel fin_sem_label;
         private MetroFramework.Controls.MetroLabel shift1_label;
@@ -540,5 +631,12 @@
         private MetroFramework.Controls.MetroButton show_serveur_btn;
         private MetroFramework.Controls.MetroButton affecter_chef_btn;
         private MetroFramework.Controls.MetroButton affecter_serveur_btn;
+        private MetroFramework.Controls.MetroLabel numero_label;
+        private MetroFramework.Controls.MetroTextBox id_calendrier_txt;
+        private MetroFramework.Controls.MetroButton supprimer_btn;
+        private MetroFramework.Controls.MetroButton modif_btn;
+        private MetroFramework.Controls.MetroButton vider_btn;
+        private MetroFramework.Controls.MetroButton Ajouter_btn;
+        private System.Windows.Forms.Button retour_btn;
     }
 }

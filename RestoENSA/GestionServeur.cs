@@ -30,7 +30,7 @@ namespace RestoENSA
         private void valider_btn_Click(object sender, EventArgs e)
         {
             if (nom_txt.Text == "" || login_txt.Text == "" || mdp_txt.Text == "" || confirmer_mdb_txt.Text == "")
-                MessageBox.Show("Veuillez remplire tout le(s) champ(s) !!!");
+                MessageBox.Show("Veuillez remplire tout le(s) champ(s) !!","Erreur");
           
             else
             {
@@ -65,10 +65,13 @@ namespace RestoENSA
             confirmer_mdb_txt.Text = "";
         }
 
+        public Form RefToModeAdmin { get; set; }
+
+
         private void retour_btn_Click(object sender, EventArgs e)
         {
             this.Close();
-            new ModeAdmin("Bienvenue " + Authentification.user_info[1] + " !").Show();
+            this.RefToModeAdmin.Show();
         }
 
         public void disp_data()
@@ -89,7 +92,7 @@ namespace RestoENSA
         {
             if (id_txt.Text == "")
             {
-                MessageBox.Show("Veuillez selectionner un serveur !!!!!","Erreur");
+                MessageBox.Show("Veuillez selectionner un serveur !!","Erreur");
             }
             else
             {
@@ -112,7 +115,7 @@ namespace RestoENSA
                         command.Parameters.AddWithValue("@id", Convert.ToInt32(id_txt.Text));
                         command.ExecuteNonQuery();
 
-                        MessageBox.Show("Succés de la MODIFICATION !!!!!");
+                        MessageBox.Show("Serveur modifié avec succès!", "Succès");
                         disp_data();
                     }
                     else
@@ -128,18 +131,20 @@ namespace RestoENSA
         {
             if (id_txt.Text == "")
             {
-                MessageBox.Show("veuillez selectionner un serveur !!!!!");
+                MessageBox.Show("Veuillez selectionner un serveur !!", "Erreur");
             }
             else
             {
-                using (SqlConnection connexion = new SqlConnection(connectionString))
+                if (MessageBox.Show("Etes-vous sur de vouloir supprimer ce serveur ?", "Supprimer serveur", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    connexion.Open();
-                    SqlCommand command = new SqlCommand("DELETE FROM Serveur WHERE id_serveur = '" + id_txt.Text + "'", connexion);
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Succés de la SUPPRESSION !!!!!");
-                    disp_data();
-
+                    using (SqlConnection connexion = new SqlConnection(connectionString))
+                    {
+                        connexion.Open();
+                        SqlCommand command = new SqlCommand("DELETE FROM Serveur WHERE id_serveur = '" + id_txt.Text + "'", connexion);
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Serveur supprimé avec succès!","Succès");
+                        disp_data();
+                    }
                 }
                 vider_btn_Click(sender, e);
             }
@@ -154,6 +159,5 @@ namespace RestoENSA
             nom_txt.Text = serveur_grid.Rows[e.RowIndex].Cells["nom_serveur"].FormattedValue.ToString();
             login_txt.Text = serveur_grid.Rows[e.RowIndex].Cells["login"].FormattedValue.ToString();
         }
-
     }
 }

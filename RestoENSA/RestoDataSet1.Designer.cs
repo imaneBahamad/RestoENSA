@@ -26,8 +26,6 @@ namespace RestoENSA {
         
         private AdminDataTable tableAdmin;
         
-        private CalendrierDataTable tableCalendrier;
-        
         private CategorieDataTable tableCategorie;
         
         private ChefDataTable tableChef;
@@ -40,6 +38,8 @@ namespace RestoENSA {
         
         private PlatDataTable tablePlat;
         
+        private CalendrierDataTable tableCalendrier;
+        
         private global::System.Data.DataRelation relationCategorie_Plat;
         
         private global::System.Data.DataRelation relationTablee_Commande;
@@ -47,6 +47,10 @@ namespace RestoENSA {
         private global::System.Data.DataRelation relationPlat_Commande;
         
         private global::System.Data.DataRelation relationServeur_Tablee;
+        
+        private global::System.Data.DataRelation relationCalendrier_Chef;
+        
+        private global::System.Data.DataRelation relationCalendrier_Serveur;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -79,9 +83,6 @@ namespace RestoENSA {
                 if ((ds.Tables["Admin"] != null)) {
                     base.Tables.Add(new AdminDataTable(ds.Tables["Admin"]));
                 }
-                if ((ds.Tables["Calendrier"] != null)) {
-                    base.Tables.Add(new CalendrierDataTable(ds.Tables["Calendrier"]));
-                }
                 if ((ds.Tables["Categorie"] != null)) {
                     base.Tables.Add(new CategorieDataTable(ds.Tables["Categorie"]));
                 }
@@ -99,6 +100,9 @@ namespace RestoENSA {
                 }
                 if ((ds.Tables["Plat"] != null)) {
                     base.Tables.Add(new PlatDataTable(ds.Tables["Plat"]));
+                }
+                if ((ds.Tables["Calendrier"] != null)) {
+                    base.Tables.Add(new CalendrierDataTable(ds.Tables["Calendrier"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -125,16 +129,6 @@ namespace RestoENSA {
         public AdminDataTable Admin {
             get {
                 return this.tableAdmin;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CalendrierDataTable Calendrier {
-            get {
-                return this.tableCalendrier;
             }
         }
         
@@ -195,6 +189,16 @@ namespace RestoENSA {
         public PlatDataTable Plat {
             get {
                 return this.tablePlat;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public CalendrierDataTable Calendrier {
+            get {
+                return this.tableCalendrier;
             }
         }
         
@@ -268,9 +272,6 @@ namespace RestoENSA {
                 if ((ds.Tables["Admin"] != null)) {
                     base.Tables.Add(new AdminDataTable(ds.Tables["Admin"]));
                 }
-                if ((ds.Tables["Calendrier"] != null)) {
-                    base.Tables.Add(new CalendrierDataTable(ds.Tables["Calendrier"]));
-                }
                 if ((ds.Tables["Categorie"] != null)) {
                     base.Tables.Add(new CategorieDataTable(ds.Tables["Categorie"]));
                 }
@@ -288,6 +289,9 @@ namespace RestoENSA {
                 }
                 if ((ds.Tables["Plat"] != null)) {
                     base.Tables.Add(new PlatDataTable(ds.Tables["Plat"]));
+                }
+                if ((ds.Tables["Calendrier"] != null)) {
+                    base.Tables.Add(new CalendrierDataTable(ds.Tables["Calendrier"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -328,12 +332,6 @@ namespace RestoENSA {
                     this.tableAdmin.InitVars();
                 }
             }
-            this.tableCalendrier = ((CalendrierDataTable)(base.Tables["Calendrier"]));
-            if ((initTable == true)) {
-                if ((this.tableCalendrier != null)) {
-                    this.tableCalendrier.InitVars();
-                }
-            }
             this.tableCategorie = ((CategorieDataTable)(base.Tables["Categorie"]));
             if ((initTable == true)) {
                 if ((this.tableCategorie != null)) {
@@ -370,10 +368,18 @@ namespace RestoENSA {
                     this.tablePlat.InitVars();
                 }
             }
+            this.tableCalendrier = ((CalendrierDataTable)(base.Tables["Calendrier"]));
+            if ((initTable == true)) {
+                if ((this.tableCalendrier != null)) {
+                    this.tableCalendrier.InitVars();
+                }
+            }
             this.relationCategorie_Plat = this.Relations["Categorie_Plat"];
             this.relationTablee_Commande = this.Relations["Tablee_Commande"];
             this.relationPlat_Commande = this.Relations["Plat_Commande"];
             this.relationServeur_Tablee = this.Relations["Serveur_Tablee"];
+            this.relationCalendrier_Chef = this.Relations["Calendrier_Chef"];
+            this.relationCalendrier_Serveur = this.Relations["Calendrier_Serveur"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -386,8 +392,6 @@ namespace RestoENSA {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableAdmin = new AdminDataTable();
             base.Tables.Add(this.tableAdmin);
-            this.tableCalendrier = new CalendrierDataTable();
-            base.Tables.Add(this.tableCalendrier);
             this.tableCategorie = new CategorieDataTable();
             base.Tables.Add(this.tableCategorie);
             this.tableChef = new ChefDataTable();
@@ -400,6 +404,8 @@ namespace RestoENSA {
             base.Tables.Add(this.tableTablee);
             this.tablePlat = new PlatDataTable();
             base.Tables.Add(this.tablePlat);
+            this.tableCalendrier = new CalendrierDataTable();
+            base.Tables.Add(this.tableCalendrier);
             this.relationCategorie_Plat = new global::System.Data.DataRelation("Categorie_Plat", new global::System.Data.DataColumn[] {
                         this.tableCategorie.id_categorieColumn}, new global::System.Data.DataColumn[] {
                         this.tablePlat.id_categorieColumn}, false);
@@ -416,17 +422,19 @@ namespace RestoENSA {
                         this.tableServeur.nom_serveurColumn}, new global::System.Data.DataColumn[] {
                         this.tableTablee.nom_serveurColumn}, false);
             this.Relations.Add(this.relationServeur_Tablee);
+            this.relationCalendrier_Chef = new global::System.Data.DataRelation("Calendrier_Chef", new global::System.Data.DataColumn[] {
+                        this.tableCalendrier.id_calendrierColumn}, new global::System.Data.DataColumn[] {
+                        this.tableChef.id_calendrierColumn}, false);
+            this.Relations.Add(this.relationCalendrier_Chef);
+            this.relationCalendrier_Serveur = new global::System.Data.DataRelation("Calendrier_Serveur", new global::System.Data.DataColumn[] {
+                        this.tableCalendrier.id_calendrierColumn}, new global::System.Data.DataColumn[] {
+                        this.tableServeur.id_calendrierColumn}, false);
+            this.Relations.Add(this.relationCalendrier_Serveur);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeAdmin() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeCalendrier() {
             return false;
         }
         
@@ -463,6 +471,12 @@ namespace RestoENSA {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializePlat() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeCalendrier() {
             return false;
         }
         
@@ -525,9 +539,6 @@ namespace RestoENSA {
         public delegate void AdminRowChangeEventHandler(object sender, AdminRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void CalendrierRowChangeEventHandler(object sender, CalendrierRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void CategorieRowChangeEventHandler(object sender, CategorieRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -544,6 +555,9 @@ namespace RestoENSA {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void PlatRowChangeEventHandler(object sender, PlatRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void CalendrierRowChangeEventHandler(object sender, CalendrierRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -827,324 +841,6 @@ namespace RestoENSA {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "AdminDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CalendrierDataTable : global::System.Data.TypedTableBase<CalendrierRow> {
-            
-            private global::System.Data.DataColumn columnnumero_semaine;
-            
-            private global::System.Data.DataColumn columnhoraire_shift1;
-            
-            private global::System.Data.DataColumn columnhoraire_shift2;
-            
-            private global::System.Data.DataColumn columndebut_semaine;
-            
-            private global::System.Data.DataColumn columnfin_semaine;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CalendrierDataTable() {
-                this.TableName = "Calendrier";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal CalendrierDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected CalendrierDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn numero_semaineColumn {
-                get {
-                    return this.columnnumero_semaine;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn horaire_shift1Column {
-                get {
-                    return this.columnhoraire_shift1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn horaire_shift2Column {
-                get {
-                    return this.columnhoraire_shift2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn debut_semaineColumn {
-                get {
-                    return this.columndebut_semaine;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fin_semaineColumn {
-                get {
-                    return this.columnfin_semaine;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CalendrierRow this[int index] {
-                get {
-                    return ((CalendrierRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CalendrierRowChangeEventHandler CalendrierRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CalendrierRowChangeEventHandler CalendrierRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CalendrierRowChangeEventHandler CalendrierRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CalendrierRowChangeEventHandler CalendrierRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddCalendrierRow(CalendrierRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CalendrierRow AddCalendrierRow(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine) {
-                CalendrierRow rowCalendrierRow = ((CalendrierRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        numero_semaine,
-                        horaire_shift1,
-                        horaire_shift2,
-                        debut_semaine,
-                        fin_semaine};
-                rowCalendrierRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCalendrierRow);
-                return rowCalendrierRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CalendrierRow FindBynumero_semaine(int numero_semaine) {
-                return ((CalendrierRow)(this.Rows.Find(new object[] {
-                            numero_semaine})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                CalendrierDataTable cln = ((CalendrierDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new CalendrierDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnnumero_semaine = base.Columns["numero_semaine"];
-                this.columnhoraire_shift1 = base.Columns["horaire_shift1"];
-                this.columnhoraire_shift2 = base.Columns["horaire_shift2"];
-                this.columndebut_semaine = base.Columns["debut_semaine"];
-                this.columnfin_semaine = base.Columns["fin_semaine"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnnumero_semaine = new global::System.Data.DataColumn("numero_semaine", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnumero_semaine);
-                this.columnhoraire_shift1 = new global::System.Data.DataColumn("horaire_shift1", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhoraire_shift1);
-                this.columnhoraire_shift2 = new global::System.Data.DataColumn("horaire_shift2", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhoraire_shift2);
-                this.columndebut_semaine = new global::System.Data.DataColumn("debut_semaine", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndebut_semaine);
-                this.columnfin_semaine = new global::System.Data.DataColumn("fin_semaine", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfin_semaine);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnnumero_semaine}, true));
-                this.columnnumero_semaine.AllowDBNull = false;
-                this.columnnumero_semaine.Unique = true;
-                this.columnhoraire_shift1.AllowDBNull = false;
-                this.columnhoraire_shift2.AllowDBNull = false;
-                this.columndebut_semaine.AllowDBNull = false;
-                this.columnfin_semaine.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CalendrierRow NewCalendrierRow() {
-                return ((CalendrierRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CalendrierRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(CalendrierRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.CalendrierRowChanged != null)) {
-                    this.CalendrierRowChanged(this, new CalendrierRowChangeEvent(((CalendrierRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.CalendrierRowChanging != null)) {
-                    this.CalendrierRowChanging(this, new CalendrierRowChangeEvent(((CalendrierRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.CalendrierRowDeleted != null)) {
-                    this.CalendrierRowDeleted(this, new CalendrierRowChangeEvent(((CalendrierRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.CalendrierRowDeleting != null)) {
-                    this.CalendrierRowDeleting(this, new CalendrierRowChangeEvent(((CalendrierRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveCalendrierRow(CalendrierRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                RestoDataSet ds = new RestoDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CalendrierDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1486,6 +1182,8 @@ namespace RestoENSA {
             
             private global::System.Data.DataColumn columnnom_chef;
             
+            private global::System.Data.DataColumn columnid_calendrier;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ChefDataTable() {
@@ -1537,6 +1235,14 @@ namespace RestoENSA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn id_calendrierColumn {
+                get {
+                    return this.columnid_calendrier;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1572,11 +1278,15 @@ namespace RestoENSA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ChefRow AddChefRow(int id_chef, string nom_chef) {
+            public ChefRow AddChefRow(int id_chef, string nom_chef, CalendrierRow parentCalendrierRowByCalendrier_Chef) {
                 ChefRow rowChefRow = ((ChefRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_chef,
-                        nom_chef};
+                        nom_chef,
+                        null};
+                if ((parentCalendrierRowByCalendrier_Chef != null)) {
+                    columnValuesArray[2] = parentCalendrierRowByCalendrier_Chef[0];
+                }
                 rowChefRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowChefRow);
                 return rowChefRow;
@@ -1608,6 +1318,7 @@ namespace RestoENSA {
             internal void InitVars() {
                 this.columnid_chef = base.Columns["id_chef"];
                 this.columnnom_chef = base.Columns["nom_chef"];
+                this.columnid_calendrier = base.Columns["id_calendrier"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1617,6 +1328,8 @@ namespace RestoENSA {
                 base.Columns.Add(this.columnid_chef);
                 this.columnnom_chef = new global::System.Data.DataColumn("nom_chef", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnom_chef);
+                this.columnid_calendrier = new global::System.Data.DataColumn("id_calendrier", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_calendrier);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_chef}, true));
                 this.columnid_chef.AllowDBNull = false;
@@ -2107,6 +1820,8 @@ namespace RestoENSA {
             
             private global::System.Data.DataColumn columnsalt;
             
+            private global::System.Data.DataColumn columnid_calendrier;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ServeurDataTable() {
@@ -2182,6 +1897,14 @@ namespace RestoENSA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn id_calendrierColumn {
+                get {
+                    return this.columnid_calendrier;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2217,14 +1940,18 @@ namespace RestoENSA {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ServeurRow AddServeurRow(int id_serveur, string nom_serveur, string login, string mdp, string salt) {
+            public ServeurRow AddServeurRow(int id_serveur, string nom_serveur, string login, string mdp, string salt, CalendrierRow parentCalendrierRowByCalendrier_Serveur) {
                 ServeurRow rowServeurRow = ((ServeurRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_serveur,
                         nom_serveur,
                         login,
                         mdp,
-                        salt};
+                        salt,
+                        null};
+                if ((parentCalendrierRowByCalendrier_Serveur != null)) {
+                    columnValuesArray[5] = parentCalendrierRowByCalendrier_Serveur[0];
+                }
                 rowServeurRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowServeurRow);
                 return rowServeurRow;
@@ -2259,6 +1986,7 @@ namespace RestoENSA {
                 this.columnlogin = base.Columns["login"];
                 this.columnmdp = base.Columns["mdp"];
                 this.columnsalt = base.Columns["salt"];
+                this.columnid_calendrier = base.Columns["id_calendrier"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2274,6 +2002,8 @@ namespace RestoENSA {
                 base.Columns.Add(this.columnmdp);
                 this.columnsalt = new global::System.Data.DataColumn("salt", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsalt);
+                this.columnid_calendrier = new global::System.Data.DataColumn("id_calendrier", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_calendrier);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_serveur}, true));
                 this.columnid_serveur.AllowDBNull = false;
@@ -3026,6 +2756,343 @@ namespace RestoENSA {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class CalendrierDataTable : global::System.Data.TypedTableBase<CalendrierRow> {
+            
+            private global::System.Data.DataColumn columnid_calendrier;
+            
+            private global::System.Data.DataColumn columnhoraire_shift1;
+            
+            private global::System.Data.DataColumn columnhoraire_shift2;
+            
+            private global::System.Data.DataColumn columndebut_semaine;
+            
+            private global::System.Data.DataColumn columnfin_semaine;
+            
+            private global::System.Data.DataColumn columnnumero_semaine;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierDataTable() {
+                this.TableName = "Calendrier";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal CalendrierDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected CalendrierDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn id_calendrierColumn {
+                get {
+                    return this.columnid_calendrier;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn horaire_shift1Column {
+                get {
+                    return this.columnhoraire_shift1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn horaire_shift2Column {
+                get {
+                    return this.columnhoraire_shift2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn debut_semaineColumn {
+                get {
+                    return this.columndebut_semaine;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn fin_semaineColumn {
+                get {
+                    return this.columnfin_semaine;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn numero_semaineColumn {
+                get {
+                    return this.columnnumero_semaine;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierRow this[int index] {
+                get {
+                    return ((CalendrierRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event CalendrierRowChangeEventHandler CalendrierRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event CalendrierRowChangeEventHandler CalendrierRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event CalendrierRowChangeEventHandler CalendrierRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event CalendrierRowChangeEventHandler CalendrierRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddCalendrierRow(CalendrierRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierRow AddCalendrierRow(System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine, int numero_semaine) {
+                CalendrierRow rowCalendrierRow = ((CalendrierRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        horaire_shift1,
+                        horaire_shift2,
+                        debut_semaine,
+                        fin_semaine,
+                        numero_semaine};
+                rowCalendrierRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCalendrierRow);
+                return rowCalendrierRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierRow FindByid_calendrier(int id_calendrier) {
+                return ((CalendrierRow)(this.Rows.Find(new object[] {
+                            id_calendrier})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                CalendrierDataTable cln = ((CalendrierDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new CalendrierDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnid_calendrier = base.Columns["id_calendrier"];
+                this.columnhoraire_shift1 = base.Columns["horaire_shift1"];
+                this.columnhoraire_shift2 = base.Columns["horaire_shift2"];
+                this.columndebut_semaine = base.Columns["debut_semaine"];
+                this.columnfin_semaine = base.Columns["fin_semaine"];
+                this.columnnumero_semaine = base.Columns["numero_semaine"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnid_calendrier = new global::System.Data.DataColumn("id_calendrier", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_calendrier);
+                this.columnhoraire_shift1 = new global::System.Data.DataColumn("horaire_shift1", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhoraire_shift1);
+                this.columnhoraire_shift2 = new global::System.Data.DataColumn("horaire_shift2", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhoraire_shift2);
+                this.columndebut_semaine = new global::System.Data.DataColumn("debut_semaine", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndebut_semaine);
+                this.columnfin_semaine = new global::System.Data.DataColumn("fin_semaine", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfin_semaine);
+                this.columnnumero_semaine = new global::System.Data.DataColumn("numero_semaine", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumero_semaine);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid_calendrier}, true));
+                this.columnid_calendrier.AutoIncrement = true;
+                this.columnid_calendrier.AutoIncrementSeed = -1;
+                this.columnid_calendrier.AutoIncrementStep = -1;
+                this.columnid_calendrier.AllowDBNull = false;
+                this.columnid_calendrier.ReadOnly = true;
+                this.columnid_calendrier.Unique = true;
+                this.columnhoraire_shift1.AllowDBNull = false;
+                this.columnhoraire_shift2.AllowDBNull = false;
+                this.columndebut_semaine.AllowDBNull = false;
+                this.columnfin_semaine.AllowDBNull = false;
+                this.columnnumero_semaine.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierRow NewCalendrierRow() {
+                return ((CalendrierRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new CalendrierRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(CalendrierRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CalendrierRowChanged != null)) {
+                    this.CalendrierRowChanged(this, new CalendrierRowChangeEvent(((CalendrierRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CalendrierRowChanging != null)) {
+                    this.CalendrierRowChanging(this, new CalendrierRowChangeEvent(((CalendrierRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CalendrierRowDeleted != null)) {
+                    this.CalendrierRowDeleted(this, new CalendrierRowChangeEvent(((CalendrierRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CalendrierRowDeleting != null)) {
+                    this.CalendrierRowDeleting(this, new CalendrierRowChangeEvent(((CalendrierRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveCalendrierRow(CalendrierRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                RestoDataSet ds = new RestoDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "CalendrierDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class AdminRow : global::System.Data.DataRow {
@@ -3091,76 +3158,6 @@ namespace RestoENSA {
                 }
                 set {
                     this[this.tableAdmin.saltColumn] = value;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class CalendrierRow : global::System.Data.DataRow {
-            
-            private CalendrierDataTable tableCalendrier;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal CalendrierRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCalendrier = ((CalendrierDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int numero_semaine {
-                get {
-                    return ((int)(this[this.tableCalendrier.numero_semaineColumn]));
-                }
-                set {
-                    this[this.tableCalendrier.numero_semaineColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan horaire_shift1 {
-                get {
-                    return ((global::System.TimeSpan)(this[this.tableCalendrier.horaire_shift1Column]));
-                }
-                set {
-                    this[this.tableCalendrier.horaire_shift1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan horaire_shift2 {
-                get {
-                    return ((global::System.TimeSpan)(this[this.tableCalendrier.horaire_shift2Column]));
-                }
-                set {
-                    this[this.tableCalendrier.horaire_shift2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime debut_semaine {
-                get {
-                    return ((global::System.DateTime)(this[this.tableCalendrier.debut_semaineColumn]));
-                }
-                set {
-                    this[this.tableCalendrier.debut_semaineColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime fin_semaine {
-                get {
-                    return ((global::System.DateTime)(this[this.tableCalendrier.fin_semaineColumn]));
-                }
-                set {
-                    this[this.tableCalendrier.fin_semaineColumn] = value;
                 }
             }
         }
@@ -3258,6 +3255,45 @@ namespace RestoENSA {
                 set {
                     this[this.tableChef.nom_chefColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int id_calendrier {
+                get {
+                    try {
+                        return ((int)(this[this.tableChef.id_calendrierColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'id_calendrier\' dans la table \'Chef\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChef.id_calendrierColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierRow CalendrierRow {
+                get {
+                    return ((CalendrierRow)(this.GetParentRow(this.Table.ParentRelations["Calendrier_Chef"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Calendrier_Chef"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isid_calendrierNull() {
+                return this.IsNull(this.tableChef.id_calendrierColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setid_calendrierNull() {
+                this[this.tableChef.id_calendrierColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3431,6 +3467,45 @@ namespace RestoENSA {
                 set {
                     this[this.tableServeur.saltColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int id_calendrier {
+                get {
+                    try {
+                        return ((int)(this[this.tableServeur.id_calendrierColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'id_calendrier\' dans la table \'Serveur\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableServeur.id_calendrierColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierRow CalendrierRow {
+                get {
+                    return ((CalendrierRow)(this.GetParentRow(this.Table.ParentRelations["Calendrier_Serveur"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Calendrier_Serveur"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isid_calendrierNull() {
+                return this.IsNull(this.tableServeur.id_calendrierColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setid_calendrierNull() {
+                this[this.tableServeur.id_calendrierColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3625,6 +3700,109 @@ namespace RestoENSA {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class CalendrierRow : global::System.Data.DataRow {
+            
+            private CalendrierDataTable tableCalendrier;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal CalendrierRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCalendrier = ((CalendrierDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int id_calendrier {
+                get {
+                    return ((int)(this[this.tableCalendrier.id_calendrierColumn]));
+                }
+                set {
+                    this[this.tableCalendrier.id_calendrierColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.TimeSpan horaire_shift1 {
+                get {
+                    return ((global::System.TimeSpan)(this[this.tableCalendrier.horaire_shift1Column]));
+                }
+                set {
+                    this[this.tableCalendrier.horaire_shift1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.TimeSpan horaire_shift2 {
+                get {
+                    return ((global::System.TimeSpan)(this[this.tableCalendrier.horaire_shift2Column]));
+                }
+                set {
+                    this[this.tableCalendrier.horaire_shift2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime debut_semaine {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCalendrier.debut_semaineColumn]));
+                }
+                set {
+                    this[this.tableCalendrier.debut_semaineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime fin_semaine {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCalendrier.fin_semaineColumn]));
+                }
+                set {
+                    this[this.tableCalendrier.fin_semaineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int numero_semaine {
+                get {
+                    return ((int)(this[this.tableCalendrier.numero_semaineColumn]));
+                }
+                set {
+                    this[this.tableCalendrier.numero_semaineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ChefRow[] GetChefRows() {
+                if ((this.Table.ChildRelations["Calendrier_Chef"] == null)) {
+                    return new ChefRow[0];
+                }
+                else {
+                    return ((ChefRow[])(base.GetChildRows(this.Table.ChildRelations["Calendrier_Chef"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ServeurRow[] GetServeurRows() {
+                if ((this.Table.ChildRelations["Calendrier_Serveur"] == null)) {
+                    return new ServeurRow[0];
+                }
+                else {
+                    return ((ServeurRow[])(base.GetChildRows(this.Table.ChildRelations["Calendrier_Serveur"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3644,40 +3822,6 @@ namespace RestoENSA {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AdminRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class CalendrierRowChangeEvent : global::System.EventArgs {
-            
-            private CalendrierRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CalendrierRowChangeEvent(CalendrierRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CalendrierRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3882,6 +4026,40 @@ namespace RestoENSA {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PlatRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class CalendrierRowChangeEvent : global::System.EventArgs {
+            
+            private CalendrierRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierRowChangeEvent(CalendrierRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CalendrierRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4303,332 +4481,6 @@ SELECT id_admin, nom_admin, login, mdp, salt FROM Admin WHERE (id_admin = @id_ad
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string nom_admin, string login, string mdp, string salt, int Original_id_admin, string Original_nom_admin, string Original_login, string Original_mdp, string Original_salt) {
             return this.Update(nom_admin, login, mdp, salt, Original_id_admin, Original_nom_admin, Original_login, Original_mdp, Original_salt, Original_id_admin);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class CalendrierTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public CalendrierTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Calendrier";
-            tableMapping.ColumnMappings.Add("numero_semaine", "numero_semaine");
-            tableMapping.ColumnMappings.Add("horaire_shift1", "horaire_shift1");
-            tableMapping.ColumnMappings.Add("horaire_shift2", "horaire_shift2");
-            tableMapping.ColumnMappings.Add("debut_semaine", "debut_semaine");
-            tableMapping.ColumnMappings.Add("fin_semaine", "fin_semaine");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Calendrier] WHERE (([numero_semaine] = @Original_numero_semaine) AND ([horaire_shift1] = @Original_horaire_shift1) AND ([horaire_shift2] = @Original_horaire_shift2) AND ([debut_semaine] = @Original_debut_semaine) AND ([fin_semaine] = @Original_fin_semaine))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Calendrier] ([numero_semaine], [horaire_shift1], [horaire_shift2], [debut_semaine], [fin_semaine]) VALUES (@numero_semaine, @horaire_shift1, @horaire_shift2, @debut_semaine, @fin_semaine);
-SELECT numero_semaine, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine FROM Calendrier WHERE (numero_semaine = @numero_semaine)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Calendrier] SET [numero_semaine] = @numero_semaine, [horaire_shift1] = @horaire_shift1, [horaire_shift2] = @horaire_shift2, [debut_semaine] = @debut_semaine, [fin_semaine] = @fin_semaine WHERE (([numero_semaine] = @Original_numero_semaine) AND ([horaire_shift1] = @Original_horaire_shift1) AND ([horaire_shift2] = @Original_horaire_shift2) AND ([debut_semaine] = @Original_debut_semaine) AND ([fin_semaine] = @Original_fin_semaine));
-SELECT numero_semaine, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine FROM Calendrier WHERE (numero_semaine = @numero_semaine)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::RestoENSA.Properties.Settings.Default.RestoENSAConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT numero_semaine, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine" +
-                " FROM Calendrier";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RestoDataSet.CalendrierDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RestoDataSet.CalendrierDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            RestoDataSet.CalendrierDataTable dataTable = new RestoDataSet.CalendrierDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(RestoDataSet.CalendrierDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(RestoDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Calendrier");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_numero_semaine));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.TimeSpan)(Original_horaire_shift1));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.TimeSpan)(Original_horaire_shift2));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_debut_semaine));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_fin_semaine));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(numero_semaine));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.TimeSpan)(horaire_shift1));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.TimeSpan)(horaire_shift2));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(debut_semaine));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(fin_semaine));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int numero_semaine, System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine, int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(numero_semaine));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.TimeSpan)(horaire_shift1));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.TimeSpan)(horaire_shift2));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(debut_semaine));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(fin_semaine));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_numero_semaine));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.TimeSpan)(Original_horaire_shift1));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.TimeSpan)(Original_horaire_shift2));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_debut_semaine));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_fin_semaine));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine, int Original_numero_semaine, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine) {
-            return this.Update(Original_numero_semaine, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine, Original_numero_semaine, Original_horaire_shift1, Original_horaire_shift2, Original_debut_semaine, Original_fin_semaine);
         }
     }
     
@@ -5090,31 +4942,38 @@ SELECT id_categorie, nom_categorie, desciption FROM Categorie WHERE (id_categori
             tableMapping.DataSetTable = "Chef";
             tableMapping.ColumnMappings.Add("id_chef", "id_chef");
             tableMapping.ColumnMappings.Add("nom_chef", "nom_chef");
+            tableMapping.ColumnMappings.Add("id_calendrier", "id_calendrier");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Chef] WHERE (([id_chef] = @Original_id_chef) AND ([nom_chef] =" +
-                " @Original_nom_chef))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Chef] WHERE (([id_chef] = @Original_id_chef) AND ([nom_chef] = @Orig" +
+                "inal_nom_chef) AND ((@IsNull_id_calendrier = 1 AND [id_calendrier] IS NULL) OR (" +
+                "[id_calendrier] = @Original_id_calendrier)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_chef", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_chef", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nom_chef", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom_chef", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Chef] ([id_chef], [nom_chef]) VALUES (@id_chef, @nom_chef);\r\nS" +
-                "ELECT id_chef, nom_chef FROM Chef WHERE (id_chef = @id_chef)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Chef] ([nom_chef], [id_calendrier]) VALUES (@nom_chef, @id_calendrie" +
+                "r);\r\nSELECT id_chef, nom_chef, id_calendrier FROM Chef WHERE (id_chef = SCOPE_ID" +
+                "ENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_chef", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_chef", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom_chef", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom_chef", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Chef] SET [id_chef] = @id_chef, [nom_chef] = @nom_chef WHERE (([id_" +
-                "chef] = @Original_id_chef) AND ([nom_chef] = @Original_nom_chef));\r\nSELECT id_ch" +
-                "ef, nom_chef FROM Chef WHERE (id_chef = @id_chef)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Chef] SET [nom_chef] = @nom_chef, [id_calendrier] = @id_calendrier WHERE (([id_chef] = @Original_id_chef) AND ([nom_chef] = @Original_nom_chef) AND ((@IsNull_id_calendrier = 1 AND [id_calendrier] IS NULL) OR ([id_calendrier] = @Original_id_calendrier)));
+SELECT id_chef, nom_chef, id_calendrier FROM Chef WHERE (id_chef = @id_chef)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_chef", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_chef", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom_chef", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom_chef", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_chef", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_chef", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nom_chef", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom_chef", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_chef", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_chef", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5130,7 +4989,7 @@ SELECT id_categorie, nom_categorie, desciption FROM Categorie WHERE (id_categori
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_chef, nom_chef FROM dbo.Chef";
+            this._commandCollection[0].CommandText = "SELECT id_chef, nom_chef, id_calendrier FROM Chef";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5191,13 +5050,21 @@ SELECT id_categorie, nom_categorie, desciption FROM Categorie WHERE (id_categori
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_chef, string Original_nom_chef) {
+        public virtual int Delete(int Original_id_chef, string Original_nom_chef, global::System.Nullable<int> Original_id_calendrier) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_chef));
             if ((Original_nom_chef == null)) {
                 throw new global::System.ArgumentNullException("Original_nom_chef");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_nom_chef));
+            }
+            if ((Original_id_calendrier.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_id_calendrier.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5219,13 +5086,18 @@ SELECT id_categorie, nom_categorie, desciption FROM Categorie WHERE (id_categori
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int id_chef, string nom_chef) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_chef));
+        public virtual int Insert(string nom_chef, global::System.Nullable<int> id_calendrier) {
             if ((nom_chef == null)) {
                 throw new global::System.ArgumentNullException("nom_chef");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(nom_chef));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(nom_chef));
+            }
+            if ((id_calendrier.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_calendrier.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5247,13 +5119,18 @@ SELECT id_categorie, nom_categorie, desciption FROM Categorie WHERE (id_categori
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int id_chef, string nom_chef, int Original_id_chef, string Original_nom_chef) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_chef));
+        public virtual int Update(string nom_chef, global::System.Nullable<int> id_calendrier, int Original_id_chef, string Original_nom_chef, global::System.Nullable<int> Original_id_calendrier, int id_chef) {
             if ((nom_chef == null)) {
                 throw new global::System.ArgumentNullException("nom_chef");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(nom_chef));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(nom_chef));
+            }
+            if ((id_calendrier.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_calendrier.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_id_chef));
             if ((Original_nom_chef == null)) {
@@ -5262,6 +5139,15 @@ SELECT id_categorie, nom_categorie, desciption FROM Categorie WHERE (id_categori
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_nom_chef));
             }
+            if ((Original_id_calendrier.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_calendrier.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(id_chef));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5282,8 +5168,8 @@ SELECT id_categorie, nom_categorie, desciption FROM Categorie WHERE (id_categori
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string nom_chef, int Original_id_chef, string Original_nom_chef) {
-            return this.Update(Original_id_chef, nom_chef, Original_id_chef, Original_nom_chef);
+        public virtual int Update(string nom_chef, global::System.Nullable<int> id_calendrier, int Original_id_chef, string Original_nom_chef, global::System.Nullable<int> Original_id_calendrier) {
+            return this.Update(nom_chef, id_calendrier, Original_id_chef, Original_nom_chef, Original_id_calendrier, Original_id_chef);
         }
     }
     
@@ -5793,42 +5679,48 @@ SELECT id_commande, facture, id_table, nom_plat, prix, quantite FROM Commande WH
             tableMapping.ColumnMappings.Add("login", "login");
             tableMapping.ColumnMappings.Add("mdp", "mdp");
             tableMapping.ColumnMappings.Add("salt", "salt");
+            tableMapping.ColumnMappings.Add("id_calendrier", "id_calendrier");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Serveur] WHERE (([id_serveur] = @Original_id_serveur) AND ([nom_serv" +
-                "eur] = @Original_nom_serveur) AND ([login] = @Original_login) AND ([mdp] = @Orig" +
-                "inal_mdp) AND ([salt] = @Original_salt))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Serveur] WHERE (([id_serveur] = @Original_id_serveur) AND ([nom_serveur] = @Original_nom_serveur) AND ([login] = @Original_login) AND ([mdp] = @Original_mdp) AND ([salt] = @Original_salt) AND ((@IsNull_id_calendrier = 1 AND [id_calendrier] IS NULL) OR ([id_calendrier] = @Original_id_calendrier)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_serveur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_serveur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nom_serveur", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom_serveur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_mdp", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mdp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_salt", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "salt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Serveur] ([nom_serveur], [login], [mdp], [salt]) VALUES (@nom_serveu" +
-                "r, @login, @mdp, @salt);\r\nSELECT id_serveur, nom_serveur, login, mdp, salt FROM " +
-                "Serveur WHERE (id_serveur = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Serveur] ([nom_serveur], [login], [mdp], [salt], [id_calendrier]) VA" +
+                "LUES (@nom_serveur, @login, @mdp, @salt, @id_calendrier);\r\nSELECT id_serveur, no" +
+                "m_serveur, login, mdp, salt, id_calendrier FROM Serveur WHERE (id_serveur = SCOP" +
+                "E_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom_serveur", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom_serveur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mdp", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mdp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salt", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "salt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Serveur] SET [nom_serveur] = @nom_serveur, [login] = @login, [mdp] = @mdp, [salt] = @salt WHERE (([id_serveur] = @Original_id_serveur) AND ([nom_serveur] = @Original_nom_serveur) AND ([login] = @Original_login) AND ([mdp] = @Original_mdp) AND ([salt] = @Original_salt));
-SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur = @id_serveur)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Serveur] SET [nom_serveur] = @nom_serveur, [login] = @login, [mdp] = @mdp, [salt] = @salt, [id_calendrier] = @id_calendrier WHERE (([id_serveur] = @Original_id_serveur) AND ([nom_serveur] = @Original_nom_serveur) AND ([login] = @Original_login) AND ([mdp] = @Original_mdp) AND ([salt] = @Original_salt) AND ((@IsNull_id_calendrier = 1 AND [id_calendrier] IS NULL) OR ([id_calendrier] = @Original_id_calendrier)));
+SELECT id_serveur, nom_serveur, login, mdp, salt, id_calendrier FROM Serveur WHERE (id_serveur = @id_serveur)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom_serveur", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom_serveur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mdp", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mdp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salt", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "salt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_serveur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_serveur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nom_serveur", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom_serveur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_mdp", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mdp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_salt", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "salt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_serveur", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_serveur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5845,7 +5737,7 @@ SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur";
+            this._commandCollection[0].CommandText = "SELECT id_serveur, nom_serveur, login, mdp, salt, id_calendrier FROM Serveur";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5906,7 +5798,7 @@ SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_serveur, string Original_nom_serveur, string Original_login, string Original_mdp, string Original_salt) {
+        public virtual int Delete(int Original_id_serveur, string Original_nom_serveur, string Original_login, string Original_mdp, string Original_salt, global::System.Nullable<int> Original_id_calendrier) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_serveur));
             if ((Original_nom_serveur == null)) {
                 throw new global::System.ArgumentNullException("Original_nom_serveur");
@@ -5932,6 +5824,14 @@ SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur 
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_salt));
             }
+            if ((Original_id_calendrier.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_id_calendrier.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5952,7 +5852,7 @@ SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string nom_serveur, string login, string mdp, string salt) {
+        public virtual int Insert(string nom_serveur, string login, string mdp, string salt, global::System.Nullable<int> id_calendrier) {
             if ((nom_serveur == null)) {
                 throw new global::System.ArgumentNullException("nom_serveur");
             }
@@ -5977,6 +5877,12 @@ SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur 
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(salt));
             }
+            if ((id_calendrier.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(id_calendrier.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5997,7 +5903,7 @@ SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string nom_serveur, string login, string mdp, string salt, int Original_id_serveur, string Original_nom_serveur, string Original_login, string Original_mdp, string Original_salt, int id_serveur) {
+        public virtual int Update(string nom_serveur, string login, string mdp, string salt, global::System.Nullable<int> id_calendrier, int Original_id_serveur, string Original_nom_serveur, string Original_login, string Original_mdp, string Original_salt, global::System.Nullable<int> Original_id_calendrier, int id_serveur) {
             if ((nom_serveur == null)) {
                 throw new global::System.ArgumentNullException("nom_serveur");
             }
@@ -6022,32 +5928,46 @@ SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur 
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(salt));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id_serveur));
+            if ((id_calendrier.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(id_calendrier.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_serveur));
             if ((Original_nom_serveur == null)) {
                 throw new global::System.ArgumentNullException("Original_nom_serveur");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_nom_serveur));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_nom_serveur));
             }
             if ((Original_login == null)) {
                 throw new global::System.ArgumentNullException("Original_login");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_login));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_login));
             }
             if ((Original_mdp == null)) {
                 throw new global::System.ArgumentNullException("Original_mdp");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_mdp));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_mdp));
             }
             if ((Original_salt == null)) {
                 throw new global::System.ArgumentNullException("Original_salt");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_salt));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_salt));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(id_serveur));
+            if ((Original_id_calendrier.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_id_calendrier.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(id_serveur));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6068,8 +5988,8 @@ SELECT id_serveur, nom_serveur, login, mdp, salt FROM Serveur WHERE (id_serveur 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string nom_serveur, string login, string mdp, string salt, int Original_id_serveur, string Original_nom_serveur, string Original_login, string Original_mdp, string Original_salt) {
-            return this.Update(nom_serveur, login, mdp, salt, Original_id_serveur, Original_nom_serveur, Original_login, Original_mdp, Original_salt, Original_id_serveur);
+        public virtual int Update(string nom_serveur, string login, string mdp, string salt, global::System.Nullable<int> id_calendrier, int Original_id_serveur, string Original_nom_serveur, string Original_login, string Original_mdp, string Original_salt, global::System.Nullable<int> Original_id_calendrier) {
+            return this.Update(nom_serveur, login, mdp, salt, id_calendrier, Original_id_serveur, Original_nom_serveur, Original_login, Original_mdp, Original_salt, Original_id_calendrier, Original_id_serveur);
         }
     }
     
@@ -6759,6 +6679,339 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class CalendrierTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public CalendrierTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Calendrier";
+            tableMapping.ColumnMappings.Add("id_calendrier", "id_calendrier");
+            tableMapping.ColumnMappings.Add("horaire_shift1", "horaire_shift1");
+            tableMapping.ColumnMappings.Add("horaire_shift2", "horaire_shift2");
+            tableMapping.ColumnMappings.Add("debut_semaine", "debut_semaine");
+            tableMapping.ColumnMappings.Add("fin_semaine", "fin_semaine");
+            tableMapping.ColumnMappings.Add("numero_semaine", "numero_semaine");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Calendrier] WHERE (([id_calendrier] = @Original_id_calendrier) AND ([horaire_shift1] = @Original_horaire_shift1) AND ([horaire_shift2] = @Original_horaire_shift2) AND ([debut_semaine] = @Original_debut_semaine) AND ([fin_semaine] = @Original_fin_semaine) AND ([numero_semaine] = @Original_numero_semaine))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Calendrier] ([horaire_shift1], [horaire_shift2], [debut_semaine], [fin_semaine], [numero_semaine]) VALUES (@horaire_shift1, @horaire_shift2, @debut_semaine, @fin_semaine, @numero_semaine);
+SELECT id_calendrier, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine, numero_semaine FROM Calendrier WHERE (id_calendrier = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Calendrier] SET [horaire_shift1] = @horaire_shift1, [horaire_shift2] = @horaire_shift2, [debut_semaine] = @debut_semaine, [fin_semaine] = @fin_semaine, [numero_semaine] = @numero_semaine WHERE (([id_calendrier] = @Original_id_calendrier) AND ([horaire_shift1] = @Original_horaire_shift1) AND ([horaire_shift2] = @Original_horaire_shift2) AND ([debut_semaine] = @Original_debut_semaine) AND ([fin_semaine] = @Original_fin_semaine) AND ([numero_semaine] = @Original_numero_semaine));
+SELECT id_calendrier, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine, numero_semaine FROM Calendrier WHERE (id_calendrier = @id_calendrier)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_calendrier", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift1", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_horaire_shift2", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "horaire_shift2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_debut_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "debut_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fin_semaine", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fin_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numero_semaine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numero_semaine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_calendrier", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_calendrier", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::RestoENSA.Properties.Settings.Default.RestoENSAConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT id_calendrier, horaire_shift1, horaire_shift2, debut_semaine, fin_semaine," +
+                " numero_semaine FROM dbo.Calendrier";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(RestoDataSet.CalendrierDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual RestoDataSet.CalendrierDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            RestoDataSet.CalendrierDataTable dataTable = new RestoDataSet.CalendrierDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(RestoDataSet.CalendrierDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(RestoDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Calendrier");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id_calendrier, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine, int Original_numero_semaine) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_calendrier));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.TimeSpan)(Original_horaire_shift1));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.TimeSpan)(Original_horaire_shift2));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_debut_semaine));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_fin_semaine));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_numero_semaine));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine, int numero_semaine) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((System.TimeSpan)(horaire_shift1));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.TimeSpan)(horaire_shift2));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(debut_semaine));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(fin_semaine));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(numero_semaine));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine, int numero_semaine, int Original_id_calendrier, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine, int Original_numero_semaine, int id_calendrier) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.TimeSpan)(horaire_shift1));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.TimeSpan)(horaire_shift2));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(debut_semaine));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(fin_semaine));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(numero_semaine));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_calendrier));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.TimeSpan)(Original_horaire_shift1));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.TimeSpan)(Original_horaire_shift2));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_debut_semaine));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_fin_semaine));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_numero_semaine));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(id_calendrier));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(System.TimeSpan horaire_shift1, System.TimeSpan horaire_shift2, System.DateTime debut_semaine, System.DateTime fin_semaine, int numero_semaine, int Original_id_calendrier, System.TimeSpan Original_horaire_shift1, System.TimeSpan Original_horaire_shift2, System.DateTime Original_debut_semaine, System.DateTime Original_fin_semaine, int Original_numero_semaine) {
+            return this.Update(horaire_shift1, horaire_shift2, debut_semaine, fin_semaine, numero_semaine, Original_id_calendrier, Original_horaire_shift1, Original_horaire_shift2, Original_debut_semaine, Original_fin_semaine, Original_numero_semaine, Original_id_calendrier);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6772,8 +7025,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
         
         private AdminTableAdapter _adminTableAdapter;
         
-        private CalendrierTableAdapter _calendrierTableAdapter;
-        
         private CategorieTableAdapter _categorieTableAdapter;
         
         private ChefTableAdapter _chefTableAdapter;
@@ -6785,6 +7036,8 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
         private TableeTableAdapter _tableeTableAdapter;
         
         private PlatTableAdapter _platTableAdapter;
+        
+        private CalendrierTableAdapter _calendrierTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -6812,20 +7065,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             }
             set {
                 this._adminTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public CalendrierTableAdapter CalendrierTableAdapter {
-            get {
-                return this._calendrierTableAdapter;
-            }
-            set {
-                this._calendrierTableAdapter = value;
             }
         }
         
@@ -6915,6 +7154,20 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public CalendrierTableAdapter CalendrierTableAdapter {
+            get {
+                return this._calendrierTableAdapter;
+            }
+            set {
+                this._calendrierTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -6935,10 +7188,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                 if (((this._adminTableAdapter != null) 
                             && (this._adminTableAdapter.Connection != null))) {
                     return this._adminTableAdapter.Connection;
-                }
-                if (((this._calendrierTableAdapter != null) 
-                            && (this._calendrierTableAdapter.Connection != null))) {
-                    return this._calendrierTableAdapter.Connection;
                 }
                 if (((this._categorieTableAdapter != null) 
                             && (this._categorieTableAdapter.Connection != null))) {
@@ -6964,6 +7213,10 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                             && (this._platTableAdapter.Connection != null))) {
                     return this._platTableAdapter.Connection;
                 }
+                if (((this._calendrierTableAdapter != null) 
+                            && (this._calendrierTableAdapter.Connection != null))) {
+                    return this._calendrierTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -6978,9 +7231,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             get {
                 int count = 0;
                 if ((this._adminTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._calendrierTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._categorieTableAdapter != null)) {
@@ -7001,6 +7251,9 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                 if ((this._platTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._calendrierTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -7012,6 +7265,15 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(RestoDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._calendrierTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Calendrier.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._calendrierTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._categorieTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Categorie.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -7057,15 +7319,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._calendrierTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Calendrier.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._calendrierTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._chefTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Chef.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -7094,6 +7347,14 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(RestoDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._calendrierTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Calendrier.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._calendrierTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._categorieTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Categorie.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -7131,14 +7392,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._adminTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._calendrierTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Calendrier.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._calendrierTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -7184,14 +7437,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._calendrierTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Calendrier.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._calendrierTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._adminTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Admin.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7229,6 +7474,14 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._categorieTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._calendrierTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Calendrier.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._calendrierTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -7276,11 +7529,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                 throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
                         "e chaîne de connexion.");
             }
-            if (((this._calendrierTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._calendrierTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
-                        "e chaîne de connexion.");
-            }
             if (((this._categorieTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._categorieTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
@@ -7308,6 +7556,11 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
             }
             if (((this._platTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._platTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
+            }
+            if (((this._calendrierTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._calendrierTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
                         "e chaîne de connexion.");
             }
@@ -7352,15 +7605,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                     if (this._adminTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._adminTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._adminTableAdapter.Adapter);
-                    }
-                }
-                if ((this._calendrierTableAdapter != null)) {
-                    revertConnections.Add(this._calendrierTableAdapter, this._calendrierTableAdapter.Connection);
-                    this._calendrierTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._calendrierTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._calendrierTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._calendrierTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._calendrierTableAdapter.Adapter);
                     }
                 }
                 if ((this._categorieTableAdapter != null)) {
@@ -7415,6 +7659,15 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                     if (this._platTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._platTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._platTableAdapter.Adapter);
+                    }
+                }
+                if ((this._calendrierTableAdapter != null)) {
+                    revertConnections.Add(this._calendrierTableAdapter, this._calendrierTableAdapter.Connection);
+                    this._calendrierTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._calendrierTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._calendrierTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._calendrierTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._calendrierTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -7479,10 +7732,6 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                     this._adminTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._adminTableAdapter]));
                     this._adminTableAdapter.Transaction = null;
                 }
-                if ((this._calendrierTableAdapter != null)) {
-                    this._calendrierTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._calendrierTableAdapter]));
-                    this._calendrierTableAdapter.Transaction = null;
-                }
                 if ((this._categorieTableAdapter != null)) {
                     this._categorieTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._categorieTableAdapter]));
                     this._categorieTableAdapter.Transaction = null;
@@ -7506,6 +7755,10 @@ SELECT id_plat, nom_plat, prix, disponible, id_categorie FROM Plat WHERE (id_pla
                 if ((this._platTableAdapter != null)) {
                     this._platTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._platTableAdapter]));
                     this._platTableAdapter.Transaction = null;
+                }
+                if ((this._calendrierTableAdapter != null)) {
+                    this._calendrierTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._calendrierTableAdapter]));
+                    this._calendrierTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

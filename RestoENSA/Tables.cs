@@ -20,7 +20,7 @@ namespace RestoENSA
             db.Afficher_Table(Table_grid);
         }
 
-        private void ajouter_table_button(object sender, EventArgs e)
+        private void Ajouter_btn_Click(object sender, EventArgs e)
         {
             bool verify1;
             try
@@ -47,7 +47,7 @@ namespace RestoENSA
 
         }
 
-        private void supprimer_table_button(object sender, EventArgs e)
+        private void supprimer_btn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -95,6 +95,19 @@ namespace RestoENSA
 
                 table_code_box.Text = row.Cells["id_table"].Value.ToString();
             }
+        }
+
+        private void Tables_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public Form RefToModeAdmin { get; set; }
+
+        private void retour_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.RefToModeAdmin.Show();
         }
     }
 }
